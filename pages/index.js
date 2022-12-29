@@ -8,6 +8,7 @@ import Box from '@mui/material/Box'
 import Fade from '@mui/material/Fade';
 
 import Bash from '../components/Splash/Bash'
+import NavBar from '../components/NavBar/NavBar'
 
 const Home = () => {
 	const [typeState, setTypeState] = useState(0)
@@ -45,6 +46,7 @@ const Home = () => {
 				<title>Resume</title>
 			</Head>
 			<Container sx={{ width: '100%' }}>
+				<NavBar />
 				<Grid item xs={12} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 					<Box sx={{ width: '50%', display: 'flex', flexDirection: 'column' }}>
 						<Bash 

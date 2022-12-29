@@ -1,13 +1,13 @@
 import { createTheme } from "@mui/material";
 
-// import globals from "./base/globals";
+import globals from "./base/globals";
 import typography from "./base/typography";
 import colors from "./base/colors";
 import borders from "./base/borders";
 import breakpoints from "./base/breakpoints";
 // import grid from "./components/grid";
 // import container from "./components/container";
-// import appbar from "./components/appbar";
+import appbar from "./components/appbar";
 // import alert from "./components/alert";
 // import listItemText from "./components/listitemtext";
 // import fab from "./components/fab";
@@ -17,14 +17,14 @@ import breakpoints from "./base/breakpoints";
 export default createTheme({
 	typography: { ...typography },
 	palette: { ...colors },
-	borders: { ...borders },
+	shape: { ...borders },
 	breakpoints: { ...breakpoints },
-	// components: {
-	// 	MuiCssBaseline: {
-	// 		styleOverrides: {
-	// 			...globals,
-	// 		},
-	// 	},
+	components: {
+		MuiCssBaseline: {
+			styleOverrides: {
+				...globals,
+			},
+		},
 	// 	MuiGrid: { ...grid },
 	// 	MuiContainer: { ...container },
 	// 	MuiAlert: { ...alert },
@@ -32,6 +32,6 @@ export default createTheme({
 	// 	MuiFab: { ...fab },
 	// 	MuiCard: { ...card },
 	// 	MuiDrawer: { ...drawer },
-	// 	MuiAppBar: { ...appbar },
-	// },
+		MuiAppBar: { ...appbar },
+	},
 });

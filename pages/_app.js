@@ -7,8 +7,8 @@ import ProviderContainer from '../components/Provider/ProviderContainer'
 export default function App({ Component, pageProps }) {
 	return (
 		<React.Fragment>
-			<CssBaseline />
 			<ProviderContainer>
+				<CssBaseline />
 				<Component {...pageProps} />
 			</ProviderContainer>
 		</React.Fragment>
