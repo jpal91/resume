@@ -1,10 +1,14 @@
 import { useRef, useEffect } from 'react'
 import Typed from 'react-typed'
 import Typography from "@mui/material/Typography";
+import useMediaQuery from '@mui/material/useMediaQuery'
+import { useTheme } from '@mui/material/styles'
 
 const Bash = (props) => {
     const { strings, setState, tState, output, order } = props
     const tRef = useRef()
+    const theme = useTheme()
+    const matches = useMediaQuery(theme.breakpoints.down('md'))
 
     useEffect(() => {
         console.log(tState)
@@ -18,7 +22,7 @@ const Bash = (props) => {
 
     return (
         <>
-        <Typography variant='h1' sx={{ display: tState < order ? 'none' : ''}}>
+        <Typography variant='h1' sx={{ display: tState < order ? 'none' : '', fontSize: matches ? '16px' : '32px', my: 1}}>
             <span style={{color: '#76ff03'}}>$ </span>
             <Typed 
                 typedRef={(typed) => tRef.current = typed}
@@ -33,7 +37,7 @@ const Bash = (props) => {
                 }}
             />
         </Typography>
-        <Typography variant='h1' sx={{ display: tState <= order ? 'none' : '', color: 'primary.lblue'}}>{output}</Typography>
+        <Typography variant='h1' sx={{ display: tState <= order ? 'none' : '', color: 'primary.lblue', fontSize: matches ? '16px' : '32px'}}>{output}</Typography>
         </>
     )
 }
