@@ -42,7 +42,7 @@ const Home = () => {
 			</Head>
 			<Container sx={{ width: '100%' }}>
 				<Grid item xs={12} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-					<Box sx={{ width: '50%', display: 'flex' }}>
+					<Box sx={{ width: '50%', display: 'flex', flexDirection: 'column' }}>
 						<Typography variant='h1'>
 							<span>$ </span>
 							<Typed 
