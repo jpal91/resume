@@ -1,5 +1,16 @@
-import '../styles/globals.css'
+import React from "react";
+
+import { CssBaseline } from "@mui/material";
+
+import ProviderContainer from '../components/Provider/ProviderContainer'
 
 export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+	return (
+		<React.Fragment>
+			<CssBaseline />
+			<ProviderContainer>
+				<Component {...pageProps} />
+			</ProviderContainer>
+		</React.Fragment>
+	);
 }
