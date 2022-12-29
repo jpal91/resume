@@ -12,7 +12,7 @@ const Home = () => {
 	const [fade, setFade] = useState(false)
 	let [tRef1, tRef2] = [useRef(), useRef()]
 	const cb = () => setFade(true)
-	let observer = new IntersectionObserver(cb, {root: document.querySelector('#test'), threshold: 0.5})
+	
 	
 	
 	useEffect(() => {
