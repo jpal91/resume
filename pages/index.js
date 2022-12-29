@@ -6,11 +6,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from '@mui/material/Box'
 import Fade from '@mui/material/Fade';
-import Card from '@mui/material/Card'
-import CardHeader from '@mui/material/CardHeader'
-import CardContent from '@mui/material/CardContent'
 
-import Bash from '../components/Splash/Bash'
 import NavBar from '../components/NavBar/NavBar'
 import Terminal from '../components/Splash/Terminal'
 

@@ -22,7 +22,7 @@ const Terminal = (props) => {
                 backgroundColor: 'primary.dgrey',
                 minHeight: { xs: '200px', xl: '260px' },
                 mt: 2,
-                borderRadius: '4px'
+                borderRadius: '8px'
             }}
         >
             <CardHeader sx={{ backgroundColor: 'primary.lgrey' }}></CardHeader>
