@@ -3,7 +3,7 @@ import colors from "./colors";
 const { primary } = colors;
 
 const baseProperties = {
-	fontWeightBold: 800,
+	fontWeightBold: 700,
 	fontWeightMedium: 600,
 	fontWeightRegular: 400,
 	fontWeightLight: 300,
@@ -14,13 +14,17 @@ const fontFam = {
 	regular: "'Roboto', san-serif;",
 	mono: "'Roboto mono', monospace;",
 	slab: "'Roboto Slab', serif;",
-};
+}
+
+const ubuntu = {
+	regular: "'Ubuntu Mono', monospace;"
+}
 
 const typography = {
 	h1: {
 		fontWeight: baseProperties.fontWeightBold,
-        fontFamily: fontFam.regular,
-        color: baseProperties.color,
+        fontFamily: ubuntu.regular,
+        color: primary.white,
         fontSize: "32px"
 	},
 };

@@ -19,7 +19,7 @@ const Bash = (props) => {
     return (
         <>
         <Typography variant='h1' sx={{ display: tState < order ? 'none' : ''}}>
-            <span>$ </span>
+            <span style={{color: '#76ff03'}}>$ </span>
             <Typed 
                 typedRef={(typed) => tRef.current = typed}
                 strings={strings}
@@ -33,7 +33,7 @@ const Bash = (props) => {
                 }}
             />
         </Typography>
-        <Typography variant='h1' sx={{ display: tState <= order ? 'none' : ''}}>{output}</Typography>
+        <Typography variant='h1' sx={{ display: tState <= order ? 'none' : '', color: 'primary.lblue'}}>{output}</Typography>
         </>
     )
 }

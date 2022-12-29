@@ -6,6 +6,9 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from '@mui/material/Box'
 import Fade from '@mui/material/Fade';
+import Card from '@mui/material/Card'
+import CardHeader from '@mui/material/CardHeader'
+import CardContent from '@mui/material/CardContent'
 
 import Bash from '../components/Splash/Bash'
 import NavBar from '../components/NavBar/NavBar'
@@ -48,7 +51,22 @@ const Home = () => {
 			<Container sx={{ width: '100%' }}>
 				<NavBar />
 				<Grid item xs={12} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-					<Box sx={{ width: '50%', display: 'flex', flexDirection: 'column' }}>
+					<Card 
+						raised={true}
+						sx={{ 
+							width: { xs: '100%', xl: '75%'}, 
+							display: 'flex', 
+							flexDirection: 'column',
+							backgroundColor: 'primary.dgrey',
+							minHeight: '225px',
+							mt: 2,
+							borderRadius: '4px'
+						}}
+						>
+						<CardHeader sx={{ backgroundColor: 'primary.lgrey' }}>
+							
+						</CardHeader>
+						<CardContent>
 						<Bash 
 							strings={[' cat names.txt | grep $MY_NAME | echo']}
 							setState={setTypeState}
@@ -100,7 +118,8 @@ const Home = () => {
 							/>
 						</Typography>
 						<Typography variant='h1' sx={{ display: typeState < 3 ? 'none' : ''}}>Welcome to my Resume</Typography> */}
-					</Box>
+						</CardContent>
+					</Card>
 					<Box sx={{ mt: 100 }}>
 						<Fade in={fade} timeout={ {enter: 1000} }><Typography id='test'>Test</Typography></Fade>
 					</Box>
