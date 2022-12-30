@@ -27,17 +27,11 @@ const Home = (props) => {
 						contType={'splash'}
 						contState={splash}
 						fWidth={true}
-					/>
-					<Terminal 
-						cmds={[['echo skills']]}
-						outputs={[['React\tNext.js\t Redux\n', 'Docker\tTerraform']]}
-						contType={'skills'}
-						contState={skills}
-						fWidth={false}
+						title={'~:bash'}
 					/>
 
 				</Grid>
-				<Grid container sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+				<Grid container sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', mb: 20}}>
 					<Skills />
 				</Grid>
 			</Container>

@@ -9,7 +9,7 @@ const splashSet = (state=0, action) => {
     }
 }
 
-const skillsSet = (state=0, action) => {
+const skillsSet = (state=-1, action) => {
 
     if (action.type == 'SET_SKILLS') {
         return action.payload

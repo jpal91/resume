@@ -30,15 +30,15 @@ const halfWidth = {
 	...base,
 	width: {
 		xs: "100%",
-		sm: "50%",
-		md: "50%",
-		lg: "50%",
-		xl: "50%",
+		sm: "80%",
+		md: "80%",
+		lg: "80%",
+		xl: "80%",
 	},
 };
 
 const Terminal = (props) => {
-    const { fWidth, contType, contState, cmds, outputs } = props
+    const { fWidth, contType, contState, cmds, outputs, title } = props
     const [len, setLen] = useState(200)
     const [settings, setSettings] = useState(fullWidth)
 
@@ -74,7 +74,7 @@ const Terminal = (props) => {
 					p: 0.5,
 					flexDirection: "row-reverse",
 				}}
-				title="~:bash"
+				title={title}
 				avatar={
 					<>
 						<CircleIcon

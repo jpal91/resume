@@ -36,8 +36,11 @@ const Bash = (props) => {
 					typedRef={(typed) => (tRef.current = typed)}
 					strings={strings}
 					typeSpeed={50}
+                    backSpeed={50}
+                    backDelay={20}
 					stopped
-					onStringTyped={() => {
+                    smartBackspace
+					onComplete={ () => {
 						setTimeout(() => {
                             controller(contType, contState + 1)
 							tRef.current.cursor.hidden = true;
@@ -54,7 +57,7 @@ const Bash = (props) => {
                     whiteSpace: 'pre'
 				}}
 			>
-				{output.map((e) => e)}
+				{output ? output.map((e) => e) : null}
 			</Typography>
 		</>
 	);
