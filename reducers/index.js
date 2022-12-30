@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 
-const splash = (state=0, action) => {
+const splashSet = (state=0, action) => {
+
     if (action.type == 'SET_SPLASH') {
         return action.payload
     } else {
@@ -8,6 +9,16 @@ const splash = (state=0, action) => {
     }
 }
 
+const skillsSet = (state=0, action) => {
+
+    if (action.type == 'SET_SKILLS') {
+        return action.payload
+    } else {
+        return state
+    }
+}
+
 export default combineReducers({
-    splash: splash
+    splash: splashSet,
+    skills: skillsSet
 })

@@ -1,31 +1,37 @@
 import { useRef, useEffect } from "react";
 import Typed from "react-typed";
+import { connect } from "react-redux";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
+import { controller } from '../../actions'
+
 const Bash = (props) => {
-	const { strings, setState, tState, output, order } = props;
+	const { strings, contType, contState, output, order, controller } = props;
 	const tRef = useRef();
 	const theme = useTheme();
 	const matches = useMediaQuery(theme.breakpoints.down("md"));
 
 	useEffect(() => {
-		console.log(tState);
-		if (order != tState) {
+		// console.log(tState);
+        // if (setState == 'skills') {
+        //     console.log(tState, order, output)
+        // }
+		if (order != contState) {
 			return;
 		}
-		console.log(tRef.current);
+		// console.log(tRef.current);
 		tRef.current.cursorBlinking = true;
 		setTimeout(() => tRef.current.start(), 1000);
-	}, [tState]);
+	}, [contState]);
 
 	return (
 		<>
 			<Typography
 				variant="h1"
 				sx={{
-					display: tState < order ? "none" : "",
+					display: contState < order ? "none" : "",
 					fontSize: matches ? "16px" : "32px",
 					my: 1,
 				}}
@@ -38,7 +44,8 @@ const Bash = (props) => {
 					stopped
 					onStringTyped={() => {
 						setTimeout(() => {
-							setState(tState + 1);
+							// secontState(contState + 1);
+                            controller(contType, contState + 1)
 							tRef.current.cursor.hidden = true;
 						}, 2000);
 					}}
@@ -47,7 +54,7 @@ const Bash = (props) => {
 			<Typography
 				variant="h1"
 				sx={{
-					display: tState <= order ? "none" : "",
+					display: contState <= order ? "none" : "",
 					color: "lightBlue.200",
 					fontSize: matches ? "16px" : "32px",
                     whiteSpace: 'pre'
@@ -59,4 +66,4 @@ const Bash = (props) => {
 	);
 };
 
-export default Bash;
+export default connect(null, { controller })(Bash);
