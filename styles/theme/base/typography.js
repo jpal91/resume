@@ -1,13 +1,13 @@
 import colors from "./colors";
 
-const { primary } = colors;
+const { black, white } = colors;
 
 const baseProperties = {
 	fontWeightBold: 700,
 	fontWeightMedium: 600,
 	fontWeightRegular: 400,
 	fontWeightLight: 300,
-	color: primary.text,
+	color: black.main,
 };
 
 const fontFam = {
@@ -24,7 +24,7 @@ const typography = {
 	h1: {
 		fontWeight: baseProperties.fontWeightBold,
         fontFamily: ubuntu.regular,
-        color: primary.white,
+        color: white.main,
         fontSize: "32px"
 	},
 };

@@ -13,12 +13,14 @@ import appbar from "./components/appbar";
 // import fab from "./components/fab";
 // import card from "./components/card";
 // import drawer from "./components/drawer";
+import boxShadows from "./base/boxShadows";
 
 export default createTheme({
 	typography: { ...typography },
 	palette: { ...colors },
 	borders: { ...borders },
 	breakpoints: { ...breakpoints },
+    boxShadows: { ...boxShadows },
 	components: {
 		MuiCssBaseline: {
 			styleOverrides: {

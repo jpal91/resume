@@ -6,6 +6,7 @@ specifiers:
   '@emotion/styled': ^11.10.5
   '@mui/material': ^5.11.2
   '@next/font': 13.1.1
+  chroma-js: ^2.4.2
   cypress: ^12.2.0
   eslint: 8.30.0
   eslint-config-next: 13.1.1
@@ -26,6 +27,7 @@ dependencies:
   '@emotion/styled': 11.10.5_yxf5y5ke3m4nev7p7don7kkk4i
   '@mui/material': 5.11.2_5rzy53przelm5jchjmb5vr6dxy
   '@next/font': 13.1.1
+  chroma-js: 2.4.2
   eslint: 8.30.0
   eslint-config-next: 13.1.1_lzzuuodtsqwxnvqeq4g4likcqa
   next: 13.1.1_7xlrwlvvs7cv2obrs6a5y6oxxq
@@ -1252,6 +1254,10 @@ packages:
     resolution: {integrity: sha512-Pj779qHxV2tuapviy1bSZNEL1maXr13bPYpsvSDB68HlYcYuhlDrmGd63i0JHMCLKzc7rUSNIrpdJlhVlNwrxA==}
     engines: {node: '>= 0.8.0'}
     dev: true
+
+  /chroma-js/2.4.2:
+    resolution: {integrity: sha512-U9eDw6+wt7V8z5NncY2jJfZa+hUH8XEj8FQHgFJTrUFnJfXYf4Ml4adI2vXZOjqRDpFWtYVWypDfZwnJ+HIR4A==}
+    dev: false
 
   /ci-info/3.7.0:
     resolution: {integrity: sha512-2CpRNYmImPx+RXKLq6jko/L07phmS9I02TyqkcNU20GCF/GgaWvc58hPtjxDX8lPpkdwc9sNh72V9k00S7ezog==}

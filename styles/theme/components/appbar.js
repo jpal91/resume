@@ -1,11 +1,11 @@
 import colors from "../base/colors";
 
-const { primary } = colors
+const { blue } = colors
 
 const appbar = {
     styleOverrides: {
 		root: {
-			backgroundColor: primary.main,
+			backgroundColor: blue[500],
 			position: "sticky",
 			maxWidth: "100%",
 			height: "72px",
