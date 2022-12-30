@@ -2,17 +2,53 @@ import { useState } from 'react'
 import { connect } from 'react-redux'
 import Image from 'next/image'
 import Grid from '@mui/material/Grid'
-import Card from '@mui/material/Card'
+import Box from '@mui/material/Box'
 import Fade from '@mui/material/Fade'
 import { InView } from 'react-intersection-observer'
 import CircleIcon from '@mui/icons-material/Circle'
+import { keyframes } from '@emotion/react'
 
 import Terminal from '../Splash/Terminal'
 import { controller } from '../../actions'
 
+const ripple = keyframes`
+    25% {
+        transform: scale(1.5);
+
+    }
+    75% {
+        transform: scale(0.75);
+
+    }
+    to {
+        opacity: 1;
+    }
+`
+
+const ripple2 = keyframes`
+    0% {
+        transform: scale(1)
+    }
+
+    50% {
+        transform: scale(1.2)
+    }
+
+    100% {
+        transform: scale(1)
+    }
+`
+
+const ripple3 = keyframes`
+    to {
+        transform: scale(1.2)
+    }
+`
+
 const Skills = (props) => {
     const [inView, setInView] = useState(false)
-    const { skills, controller, icons } = props
+    const { skills, controller, icons, skillsInfo } = props
+    const { outputs, cmds, contType, fWidth, title } = skillsInfo
     const testArr = [1, 1, 1]
 
     const startSeq = (e) => {
@@ -27,24 +63,27 @@ const Skills = (props) => {
                 { ({ ref }) => (
                 <>
                 <Fade in={inView} ref={ref} timeout={ {enter: 1000} } >
-                    <Grid item xs={6} sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRight: `${3 / 16}rem solid`, borderColor: 'lightBlue.200', height: '400px' }} >
-                        <Terminal 
-                            cmds={[['curl -s -o nice-things-to-have.txt', 'curl -s -o superpow', 'curl -s -o skills.txt https://myskills.com'], ['cat skills.txt']]}
-                            outputs={[[], ['git\tDocker\tbash\tAWS\tPostgreSQL\n', 'MySQL\tmongoDB\tLinux\tMaterial UI\n', 'GitHub\tUbuntu\tReact\tTerraform\n', 'Python\tNode.js\tNext.js\tJupyter Notebooks\n', 'JavaScript\n', 'And many more!']]}
-                            contType={'skills'}
+                    <Grid item xs={12} sm={6} sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRight: { sm: `${3 / 16}rem solid`}, borderColor: {sm: 'lightBlue.200'}, height: '400px' }} >
+                        <Terminal
+                            cmds={cmds}
+                            outputs={outputs}
+                            contType={contType}
                             contState={skills}
-                            fWidth={false}
-                            title={'resume/skills:bash'}
+                            fWdith={fWidth}
+                            title={title}
                         />
                     </Grid>
                 </Fade>
-                <Grid item xs={6} sx={{ width: '100%', display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', flexWrap: 'wrap', flexDirection: 'column-reverse', height: '400px'}} >
+                <Grid item xs={12} sm={6} sx={{ width: '100%', display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', flexWrap: 'wrap', flexDirection: 'column-reverse', height: '400px'}} >
                     {icons.map((e, i) => {
                         const name = e.replace('.svg', '')
                         return (
-                            <Fade key={name} in={inView && skills >= 1} timeout={ {enter: 1000 + (i * 500)} }>
-                                <Image src={`/svg-icons/${e}`} height="60" width="60" alt={name} />
+                            <Box key={name} sx={{ transition: 'transform 0.5s ease-in-out', '&:hover': { transform: 'scale(1.2)'}}}>
+                            <Fade  in={inView && skills >= 1} timeout={ {enter: 1000 + (i * 500)} }>
+                                    <Image src={`/svg-icons/${e}`} height="60" width="60" alt={name} />
+                                
                             </Fade>
+                            </Box>
                         )
                     })}
                 </Grid>
@@ -56,7 +95,8 @@ const Skills = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        skills: state.skills
+        skills: state.skills,
+        skillsInfo: state.skillsInfo
     }
 }
 

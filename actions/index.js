@@ -13,3 +13,7 @@ export const controller = (type, int) => {
             return { type: 'SET_SKILLS', payload: int }
     }
 }
+
+export const setSkillsInfo = (obj) => {
+    return { type: 'SET_SKILLS_INFO', payload: obj }
+}

@@ -14,7 +14,7 @@ const Bash = (props) => {
 	const matches = useMediaQuery(theme.breakpoints.down("md"));
 
 	useEffect(() => {
-		if (order != contState) {
+        if (order != contState) {
 			return;
 		}
 		tRef.current.cursorBlinking = true;
