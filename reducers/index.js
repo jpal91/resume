@@ -1,3 +1,13 @@
 import { combineReducers } from "redux";
 
-export default combineReducers({})
+const splash = (state=0, action) => {
+    if (action.type == 'SET_SPLASH') {
+        return action.payload
+    } else {
+        return state
+    }
+}
+
+export default combineReducers({
+    splash: splash
+})

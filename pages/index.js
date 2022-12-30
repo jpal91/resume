@@ -1,19 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Head from "next/head";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import Box from '@mui/material/Box'
-import Fade from '@mui/material/Fade';
-import { InView } from 'react-intersection-observer'
 
 import NavBar from '../components/NavBar/NavBar'
 import Terminal from '../components/Splash/Terminal'
 import Skills from '../components/Sections/Skills';
 
 const Home = () => {
-	const [inView, setInView] = useState(false)
-
 	
 	return (
 		<>
