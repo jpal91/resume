@@ -99,6 +99,7 @@ const Terminal = (props) => {
                             contState={contState}
                             output={outputs[i]}
                             order={i}
+                            fWidth={fWidth}
                         />
                     )
                 })}

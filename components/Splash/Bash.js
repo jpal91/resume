@@ -8,7 +8,7 @@ import { useTheme } from "@mui/material/styles";
 import { controller } from '../../actions'
 
 const Bash = (props) => {
-	const { strings, contType, contState, output, order, controller } = props;
+	const { strings, contType, contState, output, order, controller, fWidth } = props;
 	const tRef = useRef();
 	const theme = useTheme();
 	const matches = useMediaQuery(theme.breakpoints.down("md"));
@@ -27,7 +27,7 @@ const Bash = (props) => {
 				variant="h1"
 				sx={{
 					display: contState < order ? "none" : "",
-					fontSize: matches ? "16px" : "32px",
+					fontSize: matches || !fWidth ? "16px" : "32px",
 					my: 1,
 				}}
 			>
@@ -50,7 +50,7 @@ const Bash = (props) => {
 				sx={{
 					display: contState <= order ? "none" : "",
 					color: "lightBlue.200",
-					fontSize: matches ? "16px" : "32px",
+					fontSize: matches || !fWidth ? "16px" : "32px",
                     whiteSpace: 'pre'
 				}}
 			>

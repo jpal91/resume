@@ -33,7 +33,7 @@ const Home = (props) => {
 						outputs={[['React\tNext.js\t Redux\n', 'Docker\tTerraform']]}
 						contType={'skills'}
 						contState={skills}
-						fWidth={true}
+						fWidth={false}
 					/>
 
 				</Grid>
