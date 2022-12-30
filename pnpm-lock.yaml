@@ -7,6 +7,8 @@ specifiers:
   '@mui/icons-material': ^5.11.0
   '@mui/material': ^5.11.2
   '@next/font': 13.1.1
+  '@redux-devtools/core': ^3.13.1
+  '@redux-devtools/extension': ^3.2.3
   chroma-js: ^2.4.2
   cypress: ^12.2.0
   eslint: 8.30.0
@@ -18,7 +20,6 @@ specifiers:
   react-redux: ^8.0.5
   react-typed: ^1.2.0
   redux: ^4.2.0
-  redux-devtools: ^3.7.0
   redux-thunk: ^2.4.2
   typescript: ^4.9.4
 
@@ -43,8 +44,9 @@ dependencies:
   typescript: 4.9.4
 
 devDependencies:
+  '@redux-devtools/core': 3.13.1_mavs2rphp6tt25kjglq6uopfgy
+  '@redux-devtools/extension': 3.2.3_redux@4.2.0
   cypress: 12.2.0
-  redux-devtools: 3.7.0_mavs2rphp6tt25kjglq6uopfgy
 
 packages:
 
@@ -855,6 +857,43 @@ packages:
   /@popperjs/core/2.11.6:
     resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
     dev: false
+
+  /@redux-devtools/core/3.13.1_mavs2rphp6tt25kjglq6uopfgy:
+    resolution: {integrity: sha512-VZbma4b28D7dLn6rKTxx4r1KJrgiT2EQNF4vjkpTlXTu0cQcHkEcAO9ixMBj6rZGrT/jinCHq8gBy2bWgnDvcA==}
+    peerDependencies:
+      react: ^0.14.9 || ^15.3.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-redux: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
+      redux: ^3.5.2 || ^4.0.0
+    dependencies:
+      '@babel/runtime': 7.20.7
+      '@redux-devtools/instrument': 2.1.0_redux@4.2.0
+      '@types/prop-types': 15.7.5
+      lodash: 4.17.21
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-redux: 8.0.5_e42enmjmqb4imi3q3iaq2rrebm
+      redux: 4.2.0
+    dev: true
+
+  /@redux-devtools/extension/3.2.3_redux@4.2.0:
+    resolution: {integrity: sha512-y90IIqdQF6kIkP4KfBCfiFrnu9KMrEPUmcnb5A3v12tjfwRJUXecX8vCEbFqqJLjOomvVmis0Aal7QdFjk6CRQ==}
+    peerDependencies:
+      redux: ^3.1.0 || ^4.0.0
+    dependencies:
+      '@babel/runtime': 7.20.7
+      immutable: 4.2.1
+      redux: 4.2.0
+    dev: true
+
+  /@redux-devtools/instrument/2.1.0_redux@4.2.0:
+    resolution: {integrity: sha512-e8fo88kuq/zWqfNf6S/GNfaQMjF4WSPpucmYfRhzZyyXHC3PCLd/xgz7zooPErDh9QwUXK6sTVYvrkq7hPbsFA==}
+    peerDependencies:
+      redux: ^3.4.0 || ^4.0.0
+    dependencies:
+      '@babel/runtime': 7.20.7
+      lodash: 4.17.21
+      redux: 4.2.0
+    dev: true
 
   /@rushstack/eslint-patch/1.2.0:
     resolution: {integrity: sha512-sXo/qW2/pAcmT43VoRKOJbDOfV3cYpq3szSVfIThQXNt+E4DfKj361vaAt3c88U5tPUxzEswam7GW48PJqtKAg==}
@@ -2338,6 +2377,10 @@ packages:
     engines: {node: '>= 4'}
     dev: false
 
+  /immutable/4.2.1:
+    resolution: {integrity: sha512-7WYV7Q5BTs0nlQm7tl92rDYYoyELLKHoDMBKhrxEoiV4mrfVdRz8hzPiYOzH7yWjzoVEamxRuAqhxL2PLRwZYQ==}
+    dev: true
+
   /import-fresh/3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
@@ -3154,34 +3197,6 @@ packages:
     dependencies:
       loose-envify: 1.4.0
 
-  /redux-devtools-instrument/1.10.0_redux@4.2.0:
-    resolution: {integrity: sha512-X8JRBCzX2ADSMp+iiV7YQ8uoTNyEm0VPFPd4T854coz6lvRiBrFSqAr9YAS2n8Kzxx8CJQotR0QF9wsMM+3DvA==}
-    deprecated: Package moved to @redux-devtools/instrument.
-    peerDependencies:
-      redux: ^3.4.0 || ^4.0.0
-    dependencies:
-      lodash: 4.17.21
-      redux: 4.2.0
-      symbol-observable: 1.2.0
-    dev: true
-
-  /redux-devtools/3.7.0_mavs2rphp6tt25kjglq6uopfgy:
-    resolution: {integrity: sha512-Lnx3UX7mnJij2Xs+RicPK1GyKkbuodrCKtfYmJsN603wC0mc99W//xCAskGVNmRhIXg4e57m2k1CyX0kVzCsBg==}
-    deprecated: Package moved to @redux-devtools/core.
-    peerDependencies:
-      react: ^0.14.9 || ^15.3.0 || ^16.0.0
-      react-redux: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0
-      redux: ^3.5.2 || ^4.0.0
-    dependencies:
-      '@types/prop-types': 15.7.5
-      lodash: 4.17.21
-      prop-types: 15.8.1
-      react: 18.2.0
-      react-redux: 8.0.5_e42enmjmqb4imi3q3iaq2rrebm
-      redux: 4.2.0
-      redux-devtools-instrument: 1.10.0_redux@4.2.0
-    dev: true
-
   /redux-thunk/2.4.2_redux@4.2.0:
     resolution: {integrity: sha512-+P3TjtnP0k/FEjcBL5FZpoovtvrTNT/UXd4/sluaSyrURlSlhLSzEdfsTBW7WsKB6yPvgd7q/iZPICFjW4o57Q==}
     peerDependencies:
@@ -3490,11 +3505,6 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
     dev: false
-
-  /symbol-observable/1.2.0:
-    resolution: {integrity: sha512-e900nM8RRtGhlV36KGEU9k65K3mPb1WV70OdjfxlG2EAuM1noi/E/BaW/uMhL7bPEssK8QV57vN3esixjUvcXQ==}
-    engines: {node: '>=0.10.0'}
-    dev: true
 
   /synckit/0.8.4:
     resolution: {integrity: sha512-Dn2ZkzMdSX827QbowGbU/4yjWuvNaCoScLLoMo/yKbu+P4GBR6cRGKZH27k6a9bRzdqcyd1DE96pQtQ6uNkmyw==}
