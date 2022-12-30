@@ -9,6 +9,7 @@ import { InView } from 'react-intersection-observer'
 
 import NavBar from '../components/NavBar/NavBar'
 import Terminal from '../components/Splash/Terminal'
+import Skills from '../components/Sections/Skills';
 
 const Home = () => {
 	const [inView, setInView] = useState(false)
@@ -26,13 +27,22 @@ const Home = () => {
 
 				</Grid>
 				<Grid item xs={12} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+					
 					<InView onChange={setInView} triggerOnce={true}>
 						{ ({ ref, entry }) => {
 							console.log(inView)
 							return (
+							
+							
 							<Box ref={ref}>
-								<Fade in={inView} timeout={ {enter: 1000} } ><Typography id='test' >Test</Typography></Fade>
+								{/* <Fade in={inView} timeout={ {enter: 1000} } > */}
+									{/* <> */}
+									<Skills inView={inView}/>
+									{/* <Typography id='test' >Test</Typography> */}
+									{/* </> */}
+								{/* </Fade> */}
 							</Box>
+							
 							)
 						}}
 					</InView>
