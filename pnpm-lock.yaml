@@ -12,6 +12,7 @@ specifiers:
   next: 13.1.1
   react: 18.2.0
   react-dom: 18.2.0
+  react-intersection-observer: ^9.4.1
   react-redux: ^8.0.5
   react-typed: ^1.2.0
   redux: ^4.2.0
@@ -30,6 +31,7 @@ dependencies:
   next: 13.1.1_7xlrwlvvs7cv2obrs6a5y6oxxq
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-intersection-observer: 9.4.1_react@18.2.0
   react-redux: 8.0.5_e42enmjmqb4imi3q3iaq2rrebm
   react-typed: 1.2.0_biqbaboplfbrettd7655fr4n2y
   redux: 4.2.0
@@ -3050,6 +3052,14 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+
+  /react-intersection-observer/9.4.1_react@18.2.0:
+    resolution: {integrity: sha512-IXpIsPe6BleFOEHKzKh5UjwRUaz/JYS0lT/HPsupWEQou2hDqjhLMStc5zyE3eQVT4Fk3FufM8Fw33qW1uyeiw==}
+    peerDependencies:
+      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}

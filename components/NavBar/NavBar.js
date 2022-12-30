@@ -9,14 +9,14 @@ const hide = keyframes`
     }
 
     100% {
-        transform: translateY(-50%);
+        transform: translateY(-20%);
         opacity: 0;
     }
 `
 
 const show = keyframes`
     0% {
-        transform: translateY(-50%);
+        transform: translateY(-20%);
         opacity: 0;
     }
 

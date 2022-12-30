@@ -17,7 +17,7 @@ import appbar from "./components/appbar";
 export default createTheme({
 	typography: { ...typography },
 	palette: { ...colors },
-	shape: { ...borders },
+	borders: { ...borders },
 	breakpoints: { ...breakpoints },
 	components: {
 		MuiCssBaseline: {
