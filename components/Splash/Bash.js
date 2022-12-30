@@ -54,7 +54,7 @@ const Bash = (props) => {
 					display: contState <= order ? "none" : "",
 					color: "lightBlue.200",
 					fontSize: matches || !fWidth ? "16px" : "32px",
-                    whiteSpace: 'pre'
+                    whiteSpace: 'pre-wrap'
 				}}
 			>
 				{output ? output.map((e) => e) : null}

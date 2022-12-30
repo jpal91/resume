@@ -66,6 +66,14 @@ const Terminal = (props) => {
 					lg: `${len + 60}px`,
 					xl: `${len + 60}px`,
 				},
+                maxHeight: {
+					xs: `${len + 100}px`,
+					sm: `${len + 100}px`,
+					md: `${len + 200}px`,
+					lg: `${len + 100}px`,
+					xl: `${len + 100}px`,
+				},
+                height: '100%'
 			}}
 		>
 			<CardHeader
