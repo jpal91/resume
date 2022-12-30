@@ -4,7 +4,7 @@ export const setSplash = (int) => {
 }
 
 export const controller = (type, int) => {
-    console.log(type, int)
+
     switch (type) {
         case 'splash':  
             return { type: 'SET_SPLASH', payload: int }

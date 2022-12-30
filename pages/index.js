@@ -1,10 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { connect } from 'react-redux';
 import Head from "next/head";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { useTheme } from "@mui/material/styles";
 
 import NavBar from '../components/NavBar/NavBar'
 import Terminal from '../components/Splash/Terminal'
@@ -14,12 +12,6 @@ import { setSplash } from '../actions'
 
 const Home = (props) => {
 	const { splash, skills } = props
-	const theme = useTheme()
-	const matches = useMediaQuery(theme.breakpoints.up('sm'))
-
-	// useEffect(() => {
-	// 	console.log(skills)
-	// }, [])
 
 	return (
 		<>
@@ -34,13 +26,14 @@ const Home = (props) => {
 						cmds={[[" cat names.txt | grep $MY_NAME | echo"], ["echo $MY_GREETING"]]}
 						contType={'splash'}
 						contState={splash}
-						fWidth={matches}
+						fWidth={true}
 					/>
 					<Terminal 
 						cmds={[['echo skills']]}
 						outputs={[['React\tNext.js\t Redux\n', 'Docker\tTerraform']]}
 						contType={'skills'}
 						contState={skills}
+						fWidth={true}
 					/>
 
 				</Grid>

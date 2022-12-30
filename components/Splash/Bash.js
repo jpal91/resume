@@ -14,14 +14,9 @@ const Bash = (props) => {
 	const matches = useMediaQuery(theme.breakpoints.down("md"));
 
 	useEffect(() => {
-		// console.log(tState);
-        // if (setState == 'skills') {
-        //     console.log(tState, order, output)
-        // }
 		if (order != contState) {
 			return;
 		}
-		// console.log(tRef.current);
 		tRef.current.cursorBlinking = true;
 		setTimeout(() => tRef.current.start(), 1000);
 	}, [contState]);
@@ -44,7 +39,6 @@ const Bash = (props) => {
 					stopped
 					onStringTyped={() => {
 						setTimeout(() => {
-							// secontState(contState + 1);
                             controller(contType, contState + 1)
 							tRef.current.cursor.hidden = true;
 						}, 2000);
