@@ -26,26 +26,8 @@ const Home = () => {
 					<Terminal />
 
 				</Grid>
-				<Grid item xs={12} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-					
-					<InView onChange={setInView} triggerOnce={true}>
-						{ ({ ref, entry }) => {
-							console.log(inView)
-							return (
-							
-							
-							<Box ref={ref}>
-								{/* <Fade in={inView} timeout={ {enter: 1000} } > */}
-									{/* <> */}
-									<Skills inView={inView}/>
-									{/* <Typography id='test' >Test</Typography> */}
-									{/* </> */}
-								{/* </Fade> */}
-							</Box>
-							
-							)
-						}}
-					</InView>
+				<Grid container sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+					<Skills />
 				</Grid>
 			</Container>
 		</>

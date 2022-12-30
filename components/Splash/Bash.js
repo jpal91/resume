@@ -37,7 +37,7 @@ const Bash = (props) => {
                 }}
             />
         </Typography>
-        <Typography variant='h1' sx={{ display: tState <= order ? 'none' : '', color: 'primary.lblue', fontSize: matches ? '16px' : '32px'}}>{output}</Typography>
+        <Typography variant='h1' sx={{ display: tState <= order ? 'none' : '', color: 'lightBlue.200', fontSize: matches ? '16px' : '32px'}}>{output}</Typography>
         </>
     )
 }
