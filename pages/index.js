@@ -1,5 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
-import Typed from 'react-typed'
+import React, { useState } from 'react'
 import Head from "next/head";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";

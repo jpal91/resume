@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Card from '@mui/material/Card'
 import CardHeader from '@mui/material/CardHeader'
 import CardContent from '@mui/material/CardContent'
 
 import Bash from './Bash'
 
-const Terminal = (props) => {
+const Terminal = () => {
     const [typeState, setTypeState] = useState(0)
     
     useEffect(() => {
@@ -16,11 +16,11 @@ const Terminal = (props) => {
         <Card 
             raised={true}
             sx={{ 
-                width: { xs: '100%', xl: '75%'}, 
+                width: { xs: '100%', sm: "75%", md: '75%', lg: '75%', xl: '75%'}, 
                 display: 'flex', 
                 flexDirection: 'column',
                 backgroundColor: 'primary.dgrey',
-                minHeight: { xs: '200px', xl: '260px' },
+                minHeight: { xs: '200px', sm: '200px', md: '260px', lg: '260px', xl: '260px' },
                 mt: 2,
                 borderRadius: '8px'
             }}
