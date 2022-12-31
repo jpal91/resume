@@ -38,7 +38,7 @@ const halfWidth = {
 };
 
 const Terminal = (props) => {
-    const { fWidth, contType, contState, cmds, outputs, title, hidden } = props
+    const { fWidth, contType, contState, cmds, outputs, title, hidden, name } = props
     const [len, setLen] = useState(0)
     const [settings, setSettings] = useState(fullWidth)
 
@@ -59,23 +59,14 @@ const Terminal = (props) => {
 			raised={true}
 			sx={{
 				...settings,
-				minHeight: {
-					xs: `${len}px`,
-					sm: `${len}px`,
-					md: `${len + 60}px`,
-					lg: `${len + 60}px`,
-					xl: `${len + 60}px`,
+                height: {
+					xs: `260px`,
+					sm: `260px`,
+					md: `300px`,
+					lg: `300px`,
+					xl: `300px`,
 				},
-                maxHeight: {
-					xs: `${len + 100}px`,
-					sm: `${len + 100}px`,
-					md: `${len + 200}px`,
-					lg: `${len + 100}px`,
-					xl: `${len + 100}px`,
-				},
-                // height: '100%',
                 display: hidden && 'none',
-                transition: 'all 1s ease-in'
 			}}
 		>
 			<CardHeader
@@ -103,7 +94,7 @@ const Terminal = (props) => {
                 {cmds.map((el, i) => {
                     return (
                         <Bash 
-                            key={i}
+                            key={`${name}${i}`}
                             strings={el}
                             contType={contType}
                             contState={contState}
