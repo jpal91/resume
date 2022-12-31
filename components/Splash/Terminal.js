@@ -38,7 +38,18 @@ const halfWidth = {
 };
 
 const Terminal = (props) => {
+    
+    /**
+     * cmds Array[Array] - [["This is a command", "This is the same command retyped"], ["This is the next command"]]
+     * outputs Array[Array] - [["This is the output to the first command"], ["Second command", "New line"]]
+     * contType String - "skills" / "alt_skills"
+     * contState Int - Starts at 0 and controls what is rendered in order
+     * title String - Name to show on terminal - '~:bash' 'skills:bash'
+     * hidden Bool
+     * name String - Name of skill displayed if applicable - "git", "docker"
+     */
     const { fWidth, contType, contState, cmds, outputs, title, hidden, name } = props
+    
     const [len, setLen] = useState(0)
     const [settings, setSettings] = useState(fullWidth)
 

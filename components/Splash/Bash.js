@@ -8,8 +8,19 @@ import { useTheme } from "@mui/material/styles";
 import { controller } from '../../actions'
 
 const Bash = (props) => {
-	const { strings, contType, contState, output, order, controller, fWidth } = props;
-	const tRef = useRef();
+	
+    /**
+     * strings Array[String] - Comes from cmds in terminal - Commands to display
+     * contType String - "skills" / "alt_skills"
+     * contState Int - Starts at 0 and controls what is rendered in order
+     * output Array[String] - Comes from outputs - Outputs to display for the command
+     * order Int - Comes from cmds, given by map in Terminal - order in which to render
+     * controller Func - Redux action handler to control all display types for terminals
+     * fWidth Bool - Show terminal half screen (sections) or in splash mode (full)
+     */
+    const { strings, contType, contState, output, order, controller, fWidth } = props;
+	
+    const tRef = useRef();
 	const theme = useTheme();
 	const matches = useMediaQuery(theme.breakpoints.down("md"));
 

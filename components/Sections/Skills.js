@@ -9,13 +9,29 @@ import { InView } from 'react-intersection-observer'
 
 
 import Terminal from '../Splash/Terminal'
-import { controller, setSkillsInfo } from '../../actions'
+import { controller, setSkillsInfo, setSkillsDisplay } from '../../actions'
 
 const Skills = (props) => {
     const [inView, setInView] = useState(false)
-    const [display, setDisplay] = useState(0)
     const [curName, setName] = useState('main')
-    const { skills, controller, icons, skillsInfo, skillsObj, setSkillsInfo, altSkills } = props
+    
+    /**
+     * skills Int - Initial controller for skills terminal, controls what is being displayed and icons appearing (updated by controller)
+     * controller Func - Redux action handler to control all display types for terminals
+     * icons Array - List of file names for icons in public folder to display
+     * skillsInfo Obj - Comprises of the information in section below, used to render new info when icon is clicked
+     * setSkillsInfo Func - Redux action handler to update skillsInfo
+     * altSkills Int - Initial controller for alt_skills terminal - used when icon is clicked for specific skill to re-render terminal
+     * skillsDisplay Int - Controller to show whether to display initial skills term, alt_skills term, or alt_skills info display (updated by controller)
+     * setSkillsDisplay Func - Redux action handler to update skillsDisplay
+     * 
+     * cmds Array[Array] - [["This is a command", "This is the same command retyped"], ["This is the next command"]]
+     * outputs Array[Array] - [["This is the output to the first command"], ["Second command", "New line"]]
+     * contType String - "skills" / "alt_skills"
+     * title String - Name to show on terminal - '~:bash' 'skills:bash'
+     * fWidth Bool - Show terminal half screen (sections) or in splash mode (full)
+     */
+    const { skills, controller, icons, skillsInfo, skillsObj, setSkillsInfo, altSkills, skillsDisplay, setSkillsDisplay } = props
     const { outputs, cmds, contType, fWidth, title } = skillsInfo
 
     const startSeq = (e) => {
@@ -29,7 +45,7 @@ const Skills = (props) => {
         if (name == curName) return
 
         setName(name)
-        setDisplay(1)
+        setSkillsDisplay(1)
         controller('alt_skills', 0)
         setSkillsInfo(skillsObj[name])
 
@@ -46,7 +62,7 @@ const Skills = (props) => {
                             cmds={cmds}
                             outputs={outputs}
                             contType={contType}
-                            contState={display == 0 ? skills : altSkills}
+                            contState={skillsDisplay == 0 ? skills : altSkills}
                             fWdith={fWidth}
                             title={title}
                             hidden={false}
@@ -77,8 +93,9 @@ const mapStateToProps = (state) => {
     return {
         skills: state.skills,
         skillsInfo: state.skillsInfo,
-        altSkills: state.altSkills
+        altSkills: state.altSkills,
+        skillsDisplay: state.skillsDisplay
     }
 }
 
-export default connect(mapStateToProps, { controller, setSkillsInfo })(Skills)
+export default connect(mapStateToProps, { controller, setSkillsInfo, setSkillsDisplay })(Skills)
