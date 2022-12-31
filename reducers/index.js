@@ -52,10 +52,19 @@ const skillsDisplay = (state=0, action) => {
     }
 }
 
+const lockTransitions = (state=false, action) => {
+    if (action.type == 'LOCK_TRANSITIONS') {
+        return action.payload
+    } else {
+        return state
+    }
+}
+
 export default combineReducers({
     splash: splashSet,
     skills: skillsSet,
     skillsInfo: skillsInfo,
     altSkills: altSkills,
-    skillsDisplay: skillsDisplay
+    skillsDisplay: skillsDisplay,
+    lockTransitions: lockTransitions
 })

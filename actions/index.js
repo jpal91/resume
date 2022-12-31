@@ -22,3 +22,7 @@ export const setSkillsInfo = (obj) => {
 export const setSkillsDisplay = (int) => {
     return { type: 'SET_SKILLS_DISPLAY', payload: int }
 }
+
+export const setLockTransitions = (bool) => {
+    return { type: 'LOCK_TRANSITIONS', payload: bool}
+}

@@ -77,7 +77,7 @@
    "git": {
       "cmds": [
          [
-            "chmod +x ./git"
+            "chmod +x ./git_skills.sh"
          ],
          [
             "source ./git_skills"

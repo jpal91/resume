@@ -9,7 +9,7 @@ import { InView } from 'react-intersection-observer'
 
 
 import Terminal from '../Splash/Terminal'
-import { controller, setSkillsInfo, setSkillsDisplay } from '../../actions'
+import { controller, setSkillsInfo, setSkillsDisplay, setLockTransitions } from '../../actions'
 
 const Skills = (props) => {
     const [inView, setInView] = useState(false)
@@ -24,6 +24,8 @@ const Skills = (props) => {
      * altSkills Int - Initial controller for alt_skills terminal - used when icon is clicked for specific skill to re-render terminal
      * skillsDisplay Int - Controller to show whether to display initial skills term, alt_skills term, or alt_skills info display (updated by controller)
      * setSkillsDisplay Func - Redux action handler to update skillsDisplay
+     * lockTransitions Bool - Prevents user from clicking on icons while terminal is still rendering causing render issues
+     * setLockTransitions Func - Redux action handler to update lockTransitions preventing or allowing user to click new skill icon
      * 
      * cmds Array[Array] - [["This is a command", "This is the same command retyped"], ["This is the next command"]]
      * outputs Array[Array] - [["This is the output to the first command"], ["Second command", "New line"]]
@@ -31,7 +33,7 @@ const Skills = (props) => {
      * title String - Name to show on terminal - '~:bash' 'skills:bash'
      * fWidth Bool - Show terminal half screen (sections) or in splash mode (full)
      */
-    const { skills, controller, icons, skillsInfo, skillsObj, setSkillsInfo, altSkills, skillsDisplay, setSkillsDisplay } = props
+    const { skills, controller, icons, skillsInfo, skillsObj, setSkillsInfo, altSkills, skillsDisplay, setSkillsDisplay, lockTransitions, setLockTransitions } = props
     const { outputs, cmds, contType, fWidth, title } = skillsInfo
 
     const startSeq = (e) => {
@@ -42,8 +44,9 @@ const Skills = (props) => {
     }
 
     const updateSkills = (name) => {
-        if (name == curName) return
-
+        if (name == curName || lockTransitions) return
+        
+        setLockTransitions(true)
         setName(name)
         setSkillsDisplay(1)
         controller('alt_skills', 0)
@@ -94,8 +97,9 @@ const mapStateToProps = (state) => {
         skills: state.skills,
         skillsInfo: state.skillsInfo,
         altSkills: state.altSkills,
-        skillsDisplay: state.skillsDisplay
+        skillsDisplay: state.skillsDisplay,
+        lockTransitions: state.lockTransitions
     }
 }
 
-export default connect(mapStateToProps, { controller, setSkillsInfo, setSkillsDisplay })(Skills)
+export default connect(mapStateToProps, { controller, setSkillsInfo, setSkillsDisplay, setLockTransitions })(Skills)

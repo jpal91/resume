@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
-import { controller, setSkillsDisplay } from '../../actions'
+import { controller, setSkillsDisplay, setLockTransitions } from '../../actions'
 
 const Bash = (props) => {
 	
@@ -19,8 +19,9 @@ const Bash = (props) => {
      * controller Func - Redux action handler to control all display types for terminals
      * fWidth Bool - Show terminal half screen (sections) or in splash mode (full)
      * setSkillsDisplay Func - Redux action handler to update skillsDisplay
+     * setLockTransitions Func - Redux action handler to update lockTransitions preventing or allowing user to click new skill icon
      */
-    const { strings, contType, contState, output, numOutputs, order, controller, fWidth, setSkillsDisplay } = props;
+    const { strings, contType, contState, output, numOutputs, order, controller, fWidth, setSkillsDisplay, setLockTransitions } = props;
 	
     const tRef = useRef();
 	const theme = useTheme();
@@ -28,7 +29,9 @@ const Bash = (props) => {
 
 	useEffect(() => {
         if (contType == 'alt_skills' && contState >= numOutputs) {
+            
             setTimeout(() => {
+                setLockTransitions(false)
                 setSkillsDisplay(2)
             }, 2000)
         }
@@ -88,4 +91,4 @@ const Bash = (props) => {
 	);
 };
 
-export default connect(null, { controller, setSkillsDisplay })(Bash);
+export default connect(null, { controller, setSkillsDisplay, setLockTransitions })(Bash);
