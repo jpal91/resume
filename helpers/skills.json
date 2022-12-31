@@ -1,0 +1,272 @@
+{
+   "MySQL": {
+      "cmds": [
+         [
+            "This is a command"
+         ]
+      ],
+      "outputs": [
+         [
+            "This is an output"
+         ]
+      ],
+      "contType": "skills",
+      "fWidth": false,
+      "title": "resume/skills:bash"
+   },
+   "PostgreSQL": {
+      "cmds": [
+         [
+            "This is a command"
+         ]
+      ],
+      "outputs": [
+         [
+            "This is an output"
+         ]
+      ],
+      "contType": "skills",
+      "fWidth": false,
+      "title": "resume/skills:bash"
+   },
+   "aws": {
+      "cmds": [
+         [
+            "This is a command"
+         ]
+      ],
+      "outputs": [
+         [
+            "This is an output"
+         ]
+      ],
+      "contType": "skills",
+      "fWidth": false,
+      "title": "resume/skills:bash"
+   },
+   "bash": {
+      "cmds": [
+         [
+            "This is a command"
+         ]
+      ],
+      "outputs": [
+         [
+            "This is an output"
+         ]
+      ],
+      "contType": "skills",
+      "fWidth": false,
+      "title": "resume/skills:bash"
+   },
+   "docker": {
+      "cmds": [
+         [
+            "./docker"
+         ]
+      ],
+      "outputs": [
+         [
+            "This is an output"
+         ]
+      ],
+      "contType": "skills",
+      "fWidth": false,
+      "title": "resume/skills:bash"
+   },
+   "git": {
+      "cmds": [
+         [
+            "This is a command"
+         ]
+      ],
+      "outputs": [
+         [
+            "This is an output"
+         ]
+      ],
+      "contType": "skills",
+      "fWidth": false,
+      "title": "resume/skills:bash"
+   },
+   "github": {
+      "cmds": [
+         [
+            "This is a command"
+         ]
+      ],
+      "outputs": [
+         [
+            "This is an output"
+         ]
+      ],
+      "contType": "skills",
+      "fWidth": false,
+      "title": "resume/skills:bash"
+   },
+   "javascript": {
+      "cmds": [
+         [
+            "This is a command"
+         ]
+      ],
+      "outputs": [
+         [
+            "This is an output"
+         ]
+      ],
+      "contType": "skills",
+      "fWidth": false,
+      "title": "resume/skills:bash"
+   },
+   "jupyter-notebooks": {
+      "cmds": [
+         [
+            "This is a command"
+         ]
+      ],
+      "outputs": [
+         [
+            "This is an output"
+         ]
+      ],
+      "contType": "skills",
+      "fWidth": false,
+      "title": "resume/skills:bash"
+   },
+   "linux": {
+      "cmds": [
+         [
+            "This is a command"
+         ]
+      ],
+      "outputs": [
+         [
+            "This is an output"
+         ]
+      ],
+      "contType": "skills",
+      "fWidth": false,
+      "title": "resume/skills:bash"
+   },
+   "material-ui": {
+      "cmds": [
+         [
+            "This is a command"
+         ]
+      ],
+      "outputs": [
+         [
+            "This is an output"
+         ]
+      ],
+      "contType": "skills",
+      "fWidth": false,
+      "title": "resume/skills:bash"
+   },
+   "mongo-db": {
+      "cmds": [
+         [
+            "This is a command"
+         ]
+      ],
+      "outputs": [
+         [
+            "This is an output"
+         ]
+      ],
+      "contType": "skills",
+      "fWidth": false,
+      "title": "resume/skills:bash"
+   },
+   "next-js": {
+      "cmds": [
+         [
+            "This is a command"
+         ]
+      ],
+      "outputs": [
+         [
+            "This is an output"
+         ]
+      ],
+      "contType": "skills",
+      "fWidth": false,
+      "title": "resume/skills:bash"
+   },
+   "node-js": {
+      "cmds": [
+         [
+            "This is a command"
+         ]
+      ],
+      "outputs": [
+         [
+            "This is an output"
+         ]
+      ],
+      "contType": "skills",
+      "fWidth": false,
+      "title": "resume/skills:bash"
+   },
+   "python": {
+      "cmds": [
+         [
+            "This is a command"
+         ]
+      ],
+      "outputs": [
+         [
+            "This is an output"
+         ]
+      ],
+      "contType": "skills",
+      "fWidth": false,
+      "title": "resume/skills:bash"
+   },
+   "react": {
+      "cmds": [
+         [
+            "This is a command"
+         ]
+      ],
+      "outputs": [
+         [
+            "This is an output"
+         ]
+      ],
+      "contType": "skills",
+      "fWidth": false,
+      "title": "resume/skills:bash"
+   },
+   "terraform": {
+      "cmds": [
+         [
+            "This is a command"
+         ]
+      ],
+      "outputs": [
+         [
+            "This is an output"
+         ]
+      ],
+      "contType": "skills",
+      "fWidth": false,
+      "title": "resume/skills:bash"
+   },
+   "ubuntu": {
+      "cmds": [
+         [
+            "This is a command"
+         ]
+      ],
+      "outputs": [
+         [
+            "This is an output"
+         ]
+      ],
+      "contType": "skills",
+      "fWidth": false,
+      "title": "resume/skills:bash"
+   }
+}

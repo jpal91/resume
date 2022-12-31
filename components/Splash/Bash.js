@@ -14,6 +14,7 @@ const Bash = (props) => {
 	const matches = useMediaQuery(theme.breakpoints.down("md"));
 
 	useEffect(() => {
+        console.log(strings, contState, order, output)
         if (order != contState) {
 			return;
 		}
@@ -48,7 +49,8 @@ const Bash = (props) => {
 					}}
 				/>
 			</Typography>
-			<Typography
+			{output &&
+            <Typography
 				variant="h1"
 				sx={{
 					display: contState <= order ? "none" : "",
@@ -57,8 +59,9 @@ const Bash = (props) => {
                     whiteSpace: 'pre-wrap'
 				}}
 			>
-				{output ? output.map((e) => e) : null}
+				{output.map((e) => e)}
 			</Typography>
+            }
 		</>
 	);
 };

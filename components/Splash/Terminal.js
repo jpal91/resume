@@ -38,8 +38,8 @@ const halfWidth = {
 };
 
 const Terminal = (props) => {
-    const { fWidth, contType, contState, cmds, outputs, title } = props
-    const [len, setLen] = useState(200)
+    const { fWidth, contType, contState, cmds, outputs, title, hidden } = props
+    const [len, setLen] = useState(0)
     const [settings, setSettings] = useState(fullWidth)
 
     useEffect(() => {
@@ -73,7 +73,9 @@ const Terminal = (props) => {
 					lg: `${len + 100}px`,
 					xl: `${len + 100}px`,
 				},
-                height: '100%'
+                // height: '100%',
+                display: hidden && 'none',
+                transition: 'all 1s ease-in'
 			}}
 		>
 			<CardHeader

@@ -13,11 +13,11 @@ import Skills from '../components/Sections/Skills';
 import { setSplash } from '../actions'
 
 const Home = (props) => {
-	const { splash, skills, icons } = props
+	const { splash, skills, icons, skillsObj } = props
 
 	useEffect(() => {
-		console.log(icons)
-	}, [icons])
+		console.log(skillsObj)
+	}, [skillsObj])
 
 	return (
 		<>
@@ -38,7 +38,7 @@ const Home = (props) => {
 
 				</Grid>
 				<Grid container sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', mb: 20}}>
-					<Skills icons={icons}/>
+					<Skills icons={icons} skillsObj={skillsObj}/>
 				</Grid>
 			</Container>
 		</>
@@ -54,12 +54,16 @@ const mapStateToProps = (state) => {
 
 export const getStaticProps = async () => {
 	const dirPath = path.join(process.cwd(), 'public', 'svg-icons')
+	const jsonPath = path.join(process.cwd(), 'helpers', 'skills.json')
 
 	const icons = await fs.readdir(dirPath)
+	const jsonFile = await fs.readFile(jsonPath).then((res) => res)
+	const jsonParsed = JSON.parse(jsonFile)
 
 	return {
 		props: {
-			icons: icons
+			icons: icons,
+			skillsObj: jsonParsed
 		}
 	}
 }

@@ -11,7 +11,7 @@ const initialSkills = {
 const skillsInfo = (state=initialSkills, action) => {
     
     if (action.type == 'SET_SKILLS_INFO') {
-        return { ...action.payload, state }
+        return { ...state, ...action.payload,  }
     } else {
         return state
     }
@@ -35,8 +35,18 @@ const skillsSet = (state=-1, action) => {
     }
 }
 
+const altSkills = (state=-1, action) => {
+
+    if (action.type == 'SET_ALT_SKILLS') {
+        return action.payload
+    } else {
+        return state
+    }
+}
+
 export default combineReducers({
     splash: splashSet,
     skills: skillsSet,
-    skillsInfo: skillsInfo
+    skillsInfo: skillsInfo,
+    altSkills: altSkills
 })
