@@ -77,9 +77,13 @@ const Terminal = (props) => {
 					lg: `300px`,
 					xl: `300px`,
 				},
-                // display: hidden && 'none',
                 opacity: hidden && 0,
-                transition: 'opacity 1s ease-out'
+                visibility: hidden && 'hidden',
+                transform: hidden && 'translateX(-500px)',
+                maxWidth: hidden ? '0px' : '100%',
+                transitionProperty: 'opacity, transform',
+                transitionDuration: '0.5s, 0.5s',
+                transitionTimingFunction: 'ease-in'
 			}}
 		>
 			<CardHeader

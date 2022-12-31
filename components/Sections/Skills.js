@@ -9,6 +9,7 @@ import { InView } from 'react-intersection-observer'
 
 
 import Terminal from '../Splash/Terminal'
+import SkillsInfo from './SkillsInfo'
 import { controller, setSkillsInfo, setSkillsDisplay, setLockTransitions } from '../../actions'
 
 const Skills = (props) => {
@@ -69,6 +70,10 @@ const Skills = (props) => {
                             fWdith={fWidth}
                             title={title}
                             hidden={skillsDisplay >= 2 ? true : false}
+                        />
+                        <SkillsInfo 
+                            name={curName}
+                            hidden={skillsDisplay >= 2 ? false : true}
                         />
                     </Grid>
                 </Fade>

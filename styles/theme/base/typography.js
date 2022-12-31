@@ -1,6 +1,6 @@
 import colors from "./colors";
 
-const { black, white } = colors;
+const { black, white, blueGrey } = colors;
 
 const baseProperties = {
 	fontWeightBold: 700,
@@ -10,7 +10,7 @@ const baseProperties = {
 	color: black.main,
 };
 
-const fontFam = {
+const roboto = {
 	regular: "'Roboto', san-serif;",
 	mono: "'Roboto mono', monospace;",
 	slab: "'Roboto Slab', serif;",
@@ -27,6 +27,11 @@ const typography = {
         color: white.main,
         fontSize: "32px"
 	},
+	h3: {
+		fontWeight: baseProperties.fontWeightBold,
+		fontFamily: roboto.slab,
+		color: blueGrey[400],
+	}
 };
 
 export default typography
