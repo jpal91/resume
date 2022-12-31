@@ -77,7 +77,9 @@ const Terminal = (props) => {
 					lg: `300px`,
 					xl: `300px`,
 				},
-                display: hidden && 'none',
+                // display: hidden && 'none',
+                opacity: hidden && 0,
+                transition: 'opacity 1s ease-out'
 			}}
 		>
 			<CardHeader
@@ -110,6 +112,7 @@ const Terminal = (props) => {
                             contType={contType}
                             contState={contState}
                             output={outputs[i]}
+                            numOutputs={outputs.length}
                             order={i}
                             fWidth={fWidth}
                         />

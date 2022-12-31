@@ -65,7 +65,7 @@ const Skills = (props) => {
                             contState={skillsDisplay == 0 ? skills : altSkills}
                             fWdith={fWidth}
                             title={title}
-                            hidden={false}
+                            hidden={skillsDisplay >= 2 ? true : false}
                         />
                     </Grid>
                 </Fade>

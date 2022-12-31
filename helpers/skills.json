@@ -77,12 +77,16 @@
    "git": {
       "cmds": [
          [
-            "This is a command"
+            "chmod +x ./git"
+         ],
+         [
+            "source ./git_skills"
          ]
       ],
       "outputs": [
+         [],
          [
-            "This is an output"
+            "Initializing git Skills"
          ]
       ],
       "contType": "alt_skills",

@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
-import { controller } from '../../actions'
+import { controller, setSkillsDisplay } from '../../actions'
 
 const Bash = (props) => {
 	
@@ -14,24 +14,31 @@ const Bash = (props) => {
      * contType String - "skills" / "alt_skills"
      * contState Int - Starts at 0 and controls what is rendered in order
      * output Array[String] - Comes from outputs - Outputs to display for the command
+     * numOutputs Int - Number of outputs to track when transitions should happen (only after all outputs have been rendered)
      * order Int - Comes from cmds, given by map in Terminal - order in which to render
      * controller Func - Redux action handler to control all display types for terminals
      * fWidth Bool - Show terminal half screen (sections) or in splash mode (full)
+     * setSkillsDisplay Func - Redux action handler to update skillsDisplay
      */
-    const { strings, contType, contState, output, order, controller, fWidth } = props;
+    const { strings, contType, contState, output, numOutputs, order, controller, fWidth, setSkillsDisplay } = props;
 	
     const tRef = useRef();
 	const theme = useTheme();
 	const matches = useMediaQuery(theme.breakpoints.down("md"));
 
 	useEffect(() => {
-        console.log(strings, contState, order, output)
+        if (contType == 'alt_skills' && contState >= numOutputs) {
+            setTimeout(() => {
+                setSkillsDisplay(2)
+            }, 2000)
+        }
+
         if (order != contState) {
 			return;
 		}
 		tRef.current.cursorBlinking = true;
 		setTimeout(() => tRef.current.start(), 1000);
-	}, [contState]);
+	}, [contState, order]);
 
 	return (
 		<>
@@ -70,11 +77,15 @@ const Bash = (props) => {
                     whiteSpace: 'pre-wrap'
 				}}
 			>
-				{output.map((e) => e)}
+				{output.map((e) => {
+
+
+                    return e
+                })}
 			</Typography>
             }
 		</>
 	);
 };
 
-export default connect(null, { controller })(Bash);
+export default connect(null, { controller, setSkillsDisplay })(Bash);
