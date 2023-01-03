@@ -15,6 +15,7 @@ import {
 	setSkillsInfo,
 	setSkillsDisplay,
 	setLockTransitions,
+	setBGColor
 } from "../../actions";
 
 const Skills = (props) => {
@@ -51,6 +52,7 @@ const Skills = (props) => {
 		setSkillsDisplay,
 		lockTransitions,
 		setLockTransitions,
+		setBGColor
 	} = props;
 	const { outputs, cmds, contType, fWidth, title } = skillsInfo;
 
@@ -59,6 +61,7 @@ const Skills = (props) => {
 
 		setInView(true);
 		controller("skills", 0);
+		setBGColor('background.default')
 	};
 
 	const updateSkills = (name) => {
@@ -219,4 +222,5 @@ export default connect(mapStateToProps, {
 	setSkillsInfo,
 	setSkillsDisplay,
 	setLockTransitions,
+	setBGColor
 })(Skills);

@@ -60,11 +60,20 @@ const lockTransitions = (state=false, action) => {
     }
 }
 
+const bgColor = (state='secondary.light', action) => {
+    if (action.type == 'SET_BG_COLOR') {
+        return action.payload
+    } else {
+        return state
+    }
+}
+
 export default combineReducers({
     splash: splashSet,
     skills: skillsSet,
     skillsInfo: skillsInfo,
     altSkills: altSkills,
     skillsDisplay: skillsDisplay,
-    lockTransitions: lockTransitions
+    lockTransitions: lockTransitions,
+    bgColor: bgColor
 })

@@ -27,7 +27,7 @@ const downButton = keyframes`
 `
 
 const Home = (props) => {
-	const { splash, skills, icons, skillsObj, workObj } = props
+	const { splash, skills, icons, skillsObj, workObj, bgColor } = props
 	const [scrollId, setScrollId] = useState()
 
 	useEffect(() => {
@@ -41,9 +41,9 @@ const Home = (props) => {
 			<Head>
 				<title>Resume</title>
 			</Head>
-			<Container sx={{ width: '100vw', height: '100% !important', maxWidth: '100% !important', maxHeight: '100% !important', p: '0px !important', m: '0px !important' }}>
+			<Container sx={{ width: '100% !important', height: '100% !important', maxWidth: '100% !important', maxHeight: '100% !important', p: '0px !important', m: '0px !important', backgroundColor: bgColor, transition: 'background-color 1s linear', }}>
 			<Container sx={{ maxWidth: '100%', maxHeight: '100%' }}>
-				<NavBar />
+				{/* <NavBar /> */}
 				<Grid container sx={{height: '100vh'}}>
 					<Grid item xs={12} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
 						<Terminal 
@@ -69,7 +69,7 @@ const Home = (props) => {
 				}}>
 					<Skills icons={icons} skillsObj={skillsObj}/>
 				</Grid>
-				<Grid container sx={{ display: 'flex', mb: 40, flexDirection: 'column' }}>
+				<Grid container sx={{ display: 'flex', pb: 40, flexDirection: 'column' }}>
 					<WorkHistory workInfo={workObj}/>
 				</Grid>
 			</Container>
@@ -81,7 +81,8 @@ const Home = (props) => {
 const mapStateToProps = (state) => {
 	return {
 		splash: state.splash,
-		skills: state.skills
+		skills: state.skills,
+		bgColor: state.bgColor
 	}
 }
 

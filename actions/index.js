@@ -26,3 +26,7 @@ export const setSkillsDisplay = (int) => {
 export const setLockTransitions = (bool) => {
     return { type: 'LOCK_TRANSITIONS', payload: bool}
 }
+
+export const setBGColor = (str) => {
+    return { type: 'SET_BG_COLOR', payload: str }
+}

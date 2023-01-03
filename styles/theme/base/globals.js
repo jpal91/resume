@@ -1,11 +1,13 @@
 const globals = {
   html: {
     scrollBehavior: "smooth",
-    overflow: 'auto'
+    overflow: 'auto',
+    // scrollbarTrackColor: 'transparent'
   },
   "::-webkit-scrollbar": {
     width: "10px",
     visibility: 'hidden',
+    // backgroundColor: 'transparent'
     // ":hover": {
     //   visibility: 'visible'
     // }
@@ -14,10 +16,10 @@ const globals = {
   // "*::-webkit-scrollbar:hover" : {
   //   visibility: 'visible'
   // },
-  // "*::-webkit-scrollbar-track": {
-  //   // visibility: "hidden",
-  //   display: 'none'
-  // },
+  "*::-webkit-scrollbar-track": {
+    visibility: "hidden",
+    // background: 'inherit',
+  },
   "::-webkit-scrollbar-thumb": {
     visibility: "hidden",
     // display: 'none'
