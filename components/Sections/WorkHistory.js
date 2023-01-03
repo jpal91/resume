@@ -11,14 +11,22 @@ const WorkHistory = (props) => {
     return (
         <InView onChange={setInView} triggerOnce={true}>
         {({ref}) => (
+            <>
             <Fade in={inView} timeout={{ enter: 1000, exit: 100 }}>
                 <Grid ref={ref} item xs={12} sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
-                    <Typography variant='h3'>Hello</Typography>
-                    <Divider variant='center' sx={{ 
-                        height: '10px', width: '50%',
+                    <Typography variant='h3'>Work History</Typography>
+                    <Divider sx={{ 
+                        height: '5px', width: '70%', margin: '10px 0', border: 0,
+                        '&:after': { display: 'block', content: '""', height: '20px', 
+                        backgroundImage: 'radial-gradient(farthest-side at center top, #81d4fa 0%, rgba(255, 255, 255, 0) 100%)'
+                        }, 
                          }}/>
                 </Grid>
             </Fade>
+            <Grid item xs={12}>
+                
+            </Grid>
+            </>
         )
         }
         </InView>
