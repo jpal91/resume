@@ -104,7 +104,7 @@ const Skills = (props) => {
 									alignItems: "center",
 									borderRight: { sm: `${3 / 16}rem solid` },
 									borderColor: { sm: "lightBlue.200" },
-									height: "400px",
+									height: "500px",
 								}}
 							>
 								<Terminal
@@ -158,7 +158,7 @@ const Skills = (props) => {
 								alignItems: "center",
 								flexWrap: "wrap",
 								flexDirection: "column-reverse",
-								height: "400px",
+								height: "500px",
 							}}
 						>
 							{icons.map((e, i) => {
@@ -172,6 +172,7 @@ const Skills = (props) => {
 											"&:hover": {
 												transform: "scale(1.2)",
 											},
+											m: 2
 										}}
 									>
 										<Fade
