@@ -1,6 +1,6 @@
 import colors from "./colors";
 
-const { black, white, blueGrey } = colors;
+const { black, white, blueGrey, lightBlue, primary, secondary } = colors;
 
 const baseProperties = {
 	fontWeightBold: 700,
@@ -29,8 +29,13 @@ const typography = {
 	},
 	h3: {
 		fontWeight: baseProperties.fontWeightBold,
+		fontFamily: roboto.mono,
+		color: primary.main,
+	},
+	h4: {
+		fontWeight: baseProperties.fontWeightBold,
 		fontFamily: roboto.slab,
-		color: blueGrey[400],
+		color: primary.main
 	}
 };
 

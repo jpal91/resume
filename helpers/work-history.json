@@ -1,0 +1,33 @@
+{
+  "jobs": [
+    {
+      "name": "Rocket Pro TPO / Rocket Mortgage",
+      "startDate": "01/2019",
+      "endDate": null,
+      "location": "Charlotte, NC",
+      "title": "President's Club National Account Executive",
+      "bulletPoints": [
+        "Oversaw an average growth of 66% closed mortgage volume YOY for my account base, peaking at just over $490 million in 2021",
+        "Obtained one of the company’s highest honors of President’s Club by ranking within the top 20% of performance company-wide",
+        "Delivered value to business partners consistently through written and verbal communication",
+        "Engaged with my team daily to share knowledge and formulate strategies",
+        "Grew and established dozens of partnerships, creating lasting relationships and value for our company",
+        "Effectively communicated with 50-100 clients monthly"
+      ]
+    },
+    {
+      "name": "Wyndham Capital Mortgage",
+      "startDate": "06/2015",
+      "endDate": "11/2018",
+      "location": "Charlotte, NC",
+      "title": "President's Club Professional Mortgage Consultant",
+      "bulletPoints": [
+        "Personally oversaw the origination of over $75 million in residential home loans",
+        "Obtained the company’s highest honor of President’s Club two years in a row by ranking within the top 10% of performance company-wide",
+        "Specialized in the analysis of a client’s financial situation to formulate the best course of action",
+        "Consulted clients with various options to maximize return on their investment",
+        "Managed a pipeline of 10-20 clients monthly as their first point of contact"
+      ]
+    }
+  ]
+}

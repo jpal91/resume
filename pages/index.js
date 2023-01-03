@@ -27,7 +27,7 @@ const downButton = keyframes`
 `
 
 const Home = (props) => {
-	const { splash, skills, icons, skillsObj } = props
+	const { splash, skills, icons, skillsObj, workObj } = props
 	const [scrollId, setScrollId] = useState()
 
 	useEffect(() => {
@@ -41,7 +41,8 @@ const Home = (props) => {
 			<Head>
 				<title>Resume</title>
 			</Head>
-			<Container sx={{ width: '100%' }}>
+			<Container sx={{ width: '100vw', height: '100% !important', maxWidth: '100% !important', maxHeight: '100% !important', p: '0px !important', m: '0px !important' }}>
+			<Container sx={{ maxWidth: '100%', maxHeight: '100%' }}>
 				<NavBar />
 				<Grid container sx={{height: '100vh'}}>
 					<Grid item xs={12} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
@@ -68,9 +69,10 @@ const Home = (props) => {
 				}}>
 					<Skills icons={icons} skillsObj={skillsObj}/>
 				</Grid>
-				<Grid container sx={{ display: 'flex', mb: 40 }}>
-					<WorkHistory />
+				<Grid container sx={{ display: 'flex', mb: 40, flexDirection: 'column' }}>
+					<WorkHistory workInfo={workObj}/>
 				</Grid>
+			</Container>
 			</Container>
 		</>
 	);
@@ -85,16 +87,20 @@ const mapStateToProps = (state) => {
 
 export const getStaticProps = async () => {
 	const dirPath = path.join(process.cwd(), 'public', 'svg-icons')
-	const jsonPath = path.join(process.cwd(), 'helpers', 'skills.json')
+	const skillsJson = path.join(process.cwd(), 'helpers', 'skills.json')
+	const workJson = path.join(process.cwd(), 'helpers', 'work-history.json')
 
 	const icons = await fs.readdir(dirPath)
-	const jsonFile = await fs.readFile(jsonPath).then((res) => res)
-	const jsonParsed = JSON.parse(jsonFile)
+	const skillsJsonFile = await fs.readFile(skillsJson).then((res) => res)
+	const workJsonFile = await fs.readFile(workJson).then((res) => res)
+	const skillsJsonParsed = JSON.parse(skillsJsonFile)
+	const workJsonParsed = JSON.parse(workJsonFile)
 
 	return {
 		props: {
 			icons: icons,
-			skillsObj: jsonParsed
+			skillsObj: skillsJsonParsed,
+			workObj: workJsonParsed
 		}
 	}
 }

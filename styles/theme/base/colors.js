@@ -40,13 +40,16 @@ const colors = {
     },
   
     primary: {
-      main: "#e91e63",
-      focus: "#e91e63",
+      // main: "#4fc3f7",
+      main: '#03a9f4',
+      light: '#8bf6ff',
+      dark: '#0093c4'
     },
   
     secondary: {
-      main: "#7b809a",
-      focus: "#8f93a9",
+      main: "#78909c",
+      light: "#a7c0cd",
+      dark: '#4b636e'
     },
   
     info: {
@@ -103,7 +106,10 @@ const colors = {
     },
 
     lightBlue: {
-        200: '#81d4fa'
+        200: '#81d4fa',
+        300: '#4fc3f7',
+        400: '#29b6f6',
+        500: '#03a9f4'
     },
 
     blue: {
