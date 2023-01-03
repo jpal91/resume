@@ -26,16 +26,21 @@ const Home = (props) => {
 			</Head>
 			<Container sx={{ width: '100%' }}>
 				<NavBar />
-				<Grid item xs={12} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100vh' }}>
-					<Terminal 
-						outputs={[["Hello, my name is Justin"], ["Welcome to my Resume"]]}
-						cmds={[[" cat names.txt | grep $MY_NAME | echo"], ["echo $MY_GREETING"]]}
-						contType={'splash'}
-						contState={splash}
-						fWidth={true}
-						title={'~:bash'}
-					/>
+				<Grid container sx={{height: '100vh'}}>
+					<Grid item xs={12} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+						<Terminal 
+							outputs={[["Hello, my name is Justin"], ["Welcome to my Resume"]]}
+							cmds={[[" cat names.txt | grep $MY_NAME | echo"], ["echo $MY_GREETING"]]}
+							contType={'splash'}
+							contState={splash}
+							fWidth={true}
+							title={'~:bash'}
+						/>
 
+					</Grid>
+					<Grid item xs={12} sx={{ display: 'flex'}}>
+						Hello
+					</Grid>
 				</Grid>
 				<Grid container sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mb: 20}}>
 					<Skills icons={icons} skillsObj={skillsObj}/>
