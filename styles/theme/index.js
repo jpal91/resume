@@ -8,6 +8,7 @@ import breakpoints from "./base/breakpoints";
 // import grid from "./components/grid";
 // import container from "./components/container";
 import appbar from "./components/appbar";
+import paper from "./components/paper";
 // import alert from "./components/alert";
 // import listItemText from "./components/listitemtext";
 // import fab from "./components/fab";
@@ -35,5 +36,6 @@ export default createTheme({
 	// 	MuiCard: { ...card },
 	// 	MuiDrawer: { ...drawer },
 		MuiAppBar: { ...appbar },
+		MuiPaper: { ...paper },
 	},
 });

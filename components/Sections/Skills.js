@@ -80,7 +80,7 @@ const Skills = (props) => {
 						in={inView && skillsDisplay < 2}
 						timeout={{ enter: 1000, exit: 100 }}
 					>
-						<Grid xs={12} sx={{ display: "flex", mb: 4 }}>
+						<Grid item xs={12} sx={{ display: "flex", mb: 4 }}>
 							<Typograhpy variant="h3">Skills</Typograhpy>
 						</Grid>
 					</Fade>
@@ -92,6 +92,7 @@ const Skills = (props) => {
 						>
 							<Grid
 								item
+								id='skills-terminal'
 								xs={12}
 								sm={6}
 								xl={6}

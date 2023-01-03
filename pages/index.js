@@ -1,10 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { promises as fs } from "fs";
 import path from "path";
 import { connect } from 'react-redux';
 import Head from "next/head";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
+import Paper from '@mui/material/Paper'
+import ButtonBase from '@mui/material/ButtonBase'
+import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
+import { keyframes } from '@emotion/react';
 
 import NavBar from '../components/NavBar/NavBar'
 import Terminal from '../components/Splash/Terminal'
@@ -12,12 +16,24 @@ import Skills from '../components/Sections/Skills';
 
 import { setSplash } from '../actions'
 
+const downButton = keyframes`
+	from {
+		transform: translateY(0px)
+	}
+	to {
+		transform: translateY(25px)
+	}
+`
+
 const Home = (props) => {
 	const { splash, skills, icons, skillsObj } = props
+	const [scrollId, setScrollId] = useState()
 
 	useEffect(() => {
-		console.log(skillsObj)
-	}, [skillsObj])
+		if (typeof window != undefined) {
+			setScrollId(document.getElementById('skills-terminal'))
+		}
+	}, [])
 
 	return (
 		<>
@@ -27,7 +43,7 @@ const Home = (props) => {
 			<Container sx={{ width: '100%' }}>
 				<NavBar />
 				<Grid container sx={{height: '100vh'}}>
-					<Grid item xs={12} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+					<Grid item xs={12} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
 						<Terminal 
 							outputs={[["Hello, my name is Justin"], ["Welcome to my Resume"]]}
 							cmds={[[" cat names.txt | grep $MY_NAME | echo"], ["echo $MY_GREETING"]]}
@@ -38,8 +54,12 @@ const Home = (props) => {
 						/>
 
 					</Grid>
-					<Grid item xs={12} sx={{ display: 'flex'}}>
-						Hello
+					<Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center'}}>
+						<Paper variant='downButton' sx={{ animation: `${downButton} 1s linear infinite alternate`}}>
+							<ButtonBase onClick={() => scrollId.scrollIntoView()} sx={{ height: '100%', width: '100%', borderRadius: '100%'}}>
+								<KeyboardDoubleArrowDownIcon sx={{ fontSize: '64px', color: 'blueGrey.500' }}/>
+							</ButtonBase>
+						</Paper>
 					</Grid>
 				</Grid>
 				<Grid container sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mb: 20}}>
