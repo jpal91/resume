@@ -13,6 +13,7 @@ import { keyframes } from '@emotion/react';
 import NavBar from '../components/NavBar/NavBar'
 import Terminal from '../components/Splash/Terminal'
 import Skills from '../components/Sections/Skills';
+import WorkHistory from '../components/Sections/WorkHistory'
 
 import { setSplash } from '../actions'
 
@@ -54,16 +55,21 @@ const Home = (props) => {
 						/>
 
 					</Grid>
-					<Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center'}}>
+					<Grid item xs={12} sx={{ display: {xs: 'none', md: 'flex'}, justifyContent: 'center'}}>
 						<Paper variant='downButton' sx={{ animation: `${downButton} 1s linear infinite alternate`}}>
-							<ButtonBase onClick={() => scrollId.scrollIntoView()} sx={{ height: '100%', width: '100%', borderRadius: '100%'}}>
+							<ButtonBase onClick={() => scrollId.scrollIntoView({ block: 'center', behavior: 'smooth' })} sx={{ height: '100%', width: '100%', borderRadius: '100%'}}>
 								<KeyboardDoubleArrowDownIcon sx={{ fontSize: '64px', color: 'blueGrey.500' }}/>
 							</ButtonBase>
 						</Paper>
 					</Grid>
 				</Grid>
-				<Grid container sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mb: 20}}>
+				<Grid container sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', 
+				pb: 50
+				}}>
 					<Skills icons={icons} skillsObj={skillsObj}/>
+				</Grid>
+				<Grid container sx={{ display: 'flex', mb: 40 }}>
+					<WorkHistory />
 				</Grid>
 			</Container>
 		</>

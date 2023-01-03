@@ -7,7 +7,6 @@ import Fade from "@mui/material/Fade";
 import Typograhpy from "@mui/material/Typography";
 import ButtonBase from "@mui/material/ButtonBase";
 import { InView } from "react-intersection-observer";
-import { TransitionGroup } from "react-transition-group";
 
 import Terminal from "../Splash/Terminal";
 import SkillsInfo from "./SkillsInfo";
@@ -80,7 +79,7 @@ const Skills = (props) => {
 						in={inView && skillsDisplay < 2}
 						timeout={{ enter: 1000, exit: 100 }}
 					>
-						<Grid item xs={12} sx={{ display: "flex", mb: 4 }}>
+						<Grid  item xs={12} sx={{ display: "flex", justifyContent: 'center', mb: { xs: 0, sm: 4 } }}>
 							<Typograhpy variant="h3">Skills</Typograhpy>
 						</Grid>
 					</Fade>
