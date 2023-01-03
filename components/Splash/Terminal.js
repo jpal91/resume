@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
+import Fade from '@mui/material/Fade'
+import Slide from '@mui/material/Slide'
 
 import CircleIcon from "@mui/icons-material/Circle";
 
@@ -66,7 +68,7 @@ const Terminal = (props) => {
     }, [fWidth])
 
 	return (
-		<Card
+        <Card
 			raised={true}
 			sx={{
 				...settings,
@@ -77,13 +79,13 @@ const Terminal = (props) => {
 					lg: `300px`,
 					xl: `300px`,
 				},
-                opacity: hidden && 0,
-                visibility: hidden && 'hidden',
-                transform: hidden && 'translateX(-500px)',
-                maxWidth: hidden ? '0px' : '100%',
-                transitionProperty: 'opacity, transform',
-                transitionDuration: '0.5s, 0.5s',
-                transitionTimingFunction: 'ease-in'
+                // opacity: hidden && 0,
+                // visibility: hidden && 'hidden',
+                // transform: hidden && 'translateX(-500px)',
+                // maxWidth: hidden ? '0px' : '100%',
+                // transitionProperty: 'opacity, transform',
+                // transitionDuration: '0.5s, 0.5s',
+                // transitionTimingFunction: 'ease-in'
 			}}
 		>
 			<CardHeader

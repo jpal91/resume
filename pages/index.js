@@ -37,7 +37,7 @@ const Home = (props) => {
 					/>
 
 				</Grid>
-				<Grid container sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', mb: 20}}>
+				<Grid container sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mb: 20}}>
 					<Skills icons={icons} skillsObj={skillsObj}/>
 				</Grid>
 			</Container>
