@@ -94,7 +94,7 @@ const Skills = (props) => {
 							<Typograhpy variant="h3" sx={{ border: `${4/16}rem solid`, py: 2, px: 4,}}>Skills</Typograhpy>
 						</Grid>
 					</Fade>
-					<Grid container sx={{ display: "flex", mt: 2 }}>
+					<Grid item xs={12} sx={{ display: "flex", mt: 2 }}>
 						<Fade
 							in={inView && skillsDisplay < 2}
 							ref={ref}

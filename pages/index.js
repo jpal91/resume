@@ -16,6 +16,7 @@ import NavBar from '../components/NavBar/NavBar'
 import Terminal from '../components/Splash/Terminal'
 import Skills from '../components/Sections/Skills';
 import WorkHistory from '../components/Sections/WorkHistory'
+import Education from '../components/Sections/Education';
 
 import { setSplash, setBGColor } from '../actions'
 
@@ -85,13 +86,16 @@ const Home = (props) => {
 					</Grid>
 				</Grid>
 				<Grid container sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', 
-				pb: 50
+				height: '100vh', alignContent: 'flex-start'
 				}}>
 					
 					<Skills icons={icons} skillsObj={skillsObj}/>
 				</Grid>
-				<Grid container sx={{ display: 'flex', pb: 40, flexDirection: 'column' }}>
+				<Grid container sx={{ display: 'flex', flexDirection: 'row', height: '100vh', alignContent: 'flex-start' }}>
 					<WorkHistory workInfo={workObj}/>
+				</Grid>
+				<Grid container sx={{ display: 'flex', pb: 40, flexDirection: 'column'}}>
+					<Education />
 				</Grid>
 			</Container>
 			{/* </Container> */}

@@ -1,31 +1,42 @@
-import React,{ useState, useRef } from 'react'
+import React,{ useState, useEffect } from 'react'
+import { connect } from 'react-redux'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import Fade from '@mui/material/Fade'
 import Slide from '@mui/material/Slide'
 import Divider from '@mui/material/Divider'
+import Box from '@mui/material/Box'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
-import { InView } from "react-intersection-observer";
+import { InView, useInView } from "react-intersection-observer";
 import { keyframes } from '@emotion/react'
+
+import { setBGColor } from '../../actions'
 
 const slideIn = keyframes`
     from {
         transform: translateY(100px);
+        opacity: 0;
     }
     
     to {
         transform: translateY(0px);
+        opacity: 1;
     }
 `
 
 const WorkHistory = (props) => {
-    const { workInfo } = props
+    const { workInfo, setBGColor } = props
     const [inView, setInView] = useState(false)
-    const containerRef = useRef(null)
+    const [workRef, workInView] = useInView()
+
+    useEffect(() => {
+        if (!workInView) return
+        setBGColor('default')
+    }, [workInView])
     
     return (
         <InView onChange={setInView} triggerOnce={true}>
@@ -42,14 +53,13 @@ const WorkHistory = (props) => {
                          }}/> */}
                 </Grid>
             </Fade>
-            {/* <Slide direction='up' in={inView} timeout={{ enter: 1000 }} container={containerRef.current}> */}
-            <Fade in={inView} timeout={{ enter: 1000 }}>
-            <Grid ref={ref} item xs={12} sx={{p: 2, mt: 2, animation: inView && `${slideIn} 0.5s ease-in forwards`}}>
+            {/* <Fade in={inView} timeout={{ enter: 1000 }}> */}
+            <Grid ref={ref} item xs={12} sx={{p: 2, mt: 2,}}>
                 {workInfo.jobs.map((e) => {
                     const { name, startDate, endDate, title, location, bulletPoints } = e
                     
                     return (
-                        <React.Fragment key={name}>
+                        <Box key={name} sx={{ animation: inView && `${slideIn} 0.5s linear 0.5s forwards`, opacity: 0 }}>
                         
                             <Typography variant='h4'>{title}</Typography>
                             <Typography>{`${startDate} - ${endDate ? endDate : 'Current'}`}</Typography>
@@ -69,13 +79,12 @@ const WorkHistory = (props) => {
                             </Fade>
                         ))}
                         </List>
-                        </React.Fragment>
+                        </Box>
                     )
                 })}
             </Grid>
-            {/* </Slide> */}
-            </Fade>
-            <div ></div>
+            {/* </Fade> */}
+            <div ref={workRef}></div>
             </React.Fragment>
         )
         }
@@ -83,4 +92,5 @@ const WorkHistory = (props) => {
     )
 }
 
-export default WorkHistory
+
+export default connect(null, { setBGColor })(WorkHistory)
