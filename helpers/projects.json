@@ -17,7 +17,7 @@
             "endDate": null,
             "website": null,
             "github": "https://github.com/jpal91/leetcode",
-            "image": null,
+            "image": "leetcode.png",
             "bulletPoints": [
                 "An ongoing project to add code solutions to algorithm and data structure problems presented on the coding challenge site LeetCode",
                 "Included comments to briefly describe each solution, its development, along with time and space complexity",
@@ -31,7 +31,7 @@
             "endDate": "07/2022",
             "website": "https://markdown-nextjs-lime.vercel.app",
             "github": "https://github.com/jpal91/markdown-nextjs",
-            "image": null,
+            "image": "markdown.png",
             "bulletPoints": [
                 "Utilized Next.js / React.js to develop a reactive web-based Markdown application",
                 "Developed custom logic for Markdown conversion using Regular Expressions instead of a third-party package",
@@ -47,7 +47,7 @@
             "endDate": "07/2022",
             "website": "https://comments-nextjs.vercel.app",
             "github": "https://github.com/jpal91/comments-nextjs",
-            "image": null,
+            "image": "comments.png",
             "bulletPoints": [
                 "Utilized Next.js / React.js to create an interactive comments section",
                 "Implemented the ability to create, remove, update, delete, and reply to existing comments",
@@ -62,7 +62,7 @@
             "endDate": "07/2022",
             "website": "https://rest-country-nextjs.vercel.app",
             "github": "https://github.com/jpal91/rest-country-nextjs",
-            "image": null,
+            "image": "countries.png",
             "bulletPoints":[
                 "Utilized Next.js / React.js to create a reactive web application for searching world countries and displaying info/facts on a selection",
                 "Leveraged RESTful protocols to get data from the REST Countries API and integrate it into the application",
@@ -76,7 +76,7 @@
             "endDate":"07/2022",
             "website": "https://rest-country-nextjs.vercel.app",
             "github": "https://github.com/jpal91/rest-country-nextjs",
-            "image": null,
+            "image": "rps.png",
             "bulletPoints": [
                 "Utilized React.js to create an interactive web app game of Rock, Paper, Scissors",
                 "Implemented state management through Redux",

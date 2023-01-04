@@ -17,6 +17,7 @@ import Terminal from '../components/Splash/Terminal'
 import Skills from '../components/Sections/Skills';
 import WorkHistory from '../components/Sections/WorkHistory'
 import Education from '../components/Sections/Education';
+import Projects from '../components/Sections/Projects';
 
 import { setSplash, setBGColor } from '../actions'
 
@@ -43,7 +44,7 @@ const downArrow = keyframes`
 
 
 const Home = (props) => {
-	const { splash, skills, icons, skillsObj, workObj, setBGColor } = props
+	const { splash, skills, icons, skillsObj, workObj, setBGColor, projObj } = props
 	const [scrollId, setScrollId] = useState()
 	const { ref, inView } = useInView()
 
@@ -94,8 +95,11 @@ const Home = (props) => {
 				<Grid container sx={{ display: 'flex', flexDirection: 'row', minHeight: '100vh', alignContent: 'flex-start' }}>
 					<WorkHistory workInfo={workObj}/>
 				</Grid>
-				<Grid container sx={{ display: 'flex', flexDirection: 'row', height: '100vh', alignContent: 'flex-start'}}>
+				<Grid container sx={{ display: 'flex', flexDirection: 'row', height: '50vh', alignContent: 'flex-start'}}>
 					<Education />
+				</Grid>
+				<Grid container sx={{ display: 'flex', flexDirection: 'row', minHeight: '100vh', alignContent: 'flex-start'}}>
+					<Projects projects={projObj}/>
 				</Grid>
 			</Container>
 			{/* </Container> */}
@@ -115,18 +119,23 @@ export const getStaticProps = async () => {
 	const dirPath = path.join(process.cwd(), 'public', 'svg-icons')
 	const skillsJson = path.join(process.cwd(), 'helpers', 'skills.json')
 	const workJson = path.join(process.cwd(), 'helpers', 'work-history.json')
+	const projectsJson = path.join(process.cwd(), 'helpers', 'projects.json')
 
 	const icons = await fs.readdir(dirPath)
 	const skillsJsonFile = await fs.readFile(skillsJson).then((res) => res)
 	const workJsonFile = await fs.readFile(workJson).then((res) => res)
+	const projectJsonFile = await fs.readFile(projectsJson).then((res) => res)
+	
 	const skillsJsonParsed = JSON.parse(skillsJsonFile)
 	const workJsonParsed = JSON.parse(workJsonFile)
+	const projectJsonParsed = JSON.parse(projectJsonFile)
 
 	return {
 		props: {
 			icons: icons,
 			skillsObj: skillsJsonParsed,
-			workObj: workJsonParsed
+			workObj: workJsonParsed,
+			projObj: projectJsonParsed
 		}
 	}
 }
