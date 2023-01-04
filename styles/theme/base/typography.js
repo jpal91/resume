@@ -20,6 +20,10 @@ const ubuntu = {
 	regular: "'Ubuntu Mono', monospace;"
 }
 
+const poppins = {
+	regular: "'Poppins', sans-serif;"
+}
+
 const typography = {
 	h1: {
 		fontWeight: baseProperties.fontWeightBold,
@@ -29,13 +33,21 @@ const typography = {
 	},
 	h3: {
 		fontWeight: baseProperties.fontWeightBold,
-		fontFamily: roboto.mono,
+		fontFamily: poppins.regular,
 		color: primary.main,
 	},
 	h4: {
 		fontWeight: baseProperties.fontWeightBold,
-		fontFamily: roboto.slab,
+		fontFamily: poppins.regular,
 		color: primary.main
+	},
+	body: {
+		fontWeight: baseProperties.fontWeightRegular,
+		fontFamily: poppins.regular
+	},
+	bodyBold: {
+		fontWeight: baseProperties.fontWeightBold,
+		fontFamily: poppins.regular
 	}
 };
 

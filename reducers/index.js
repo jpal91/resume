@@ -60,7 +60,7 @@ const lockTransitions = (state=false, action) => {
     }
 }
 
-const bgColor = (state='secondary.light', action) => {
+const bgColor = (state='blueGrey.400', action) => {
     if (action.type == 'SET_BG_COLOR') {
         return action.payload
     } else {

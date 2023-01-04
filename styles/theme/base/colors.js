@@ -17,6 +17,12 @@
 const colors = {
     background: {
       default: "#f0f2f5",
+      blueGrey: {
+        300: '#90a4ae',
+        400: '#78909c',
+        500: '#607d8b',
+        600: '#546e7a'
+    },
     },
   
     text: {

@@ -1,47 +1,25 @@
 const globals = {
   html: {
-    scrollBehavior: "smooth",
-    overflow: 'auto',
-    // scrollbarTrackColor: 'transparent'
+    scrollBehavior: "smooth"
+  },
+  body: {
+    transition: 'background-color 1s linear' 
   },
   "::-webkit-scrollbar": {
     width: "10px",
-    visibility: 'hidden',
-    // backgroundColor: 'transparent'
-    // ":hover": {
-    //   visibility: 'visible'
-    // }
-    // display: 'none'
+    visibility: 'hidden'
   },
-  // "*::-webkit-scrollbar:hover" : {
-  //   visibility: 'visible'
-  // },
-  "*::-webkit-scrollbar-track": {
-    visibility: "hidden",
-    // background: 'inherit',
+  "::-webkit-scrollbar-track": {
+    visibility: "hidden"
   },
   "::-webkit-scrollbar-thumb": {
     visibility: "hidden",
-    // display: 'none'
     border: '5px solid gray',
     borderRadius: '10px',
-    ":hover" : {
+    ":hover": {
       visibility: 'visible'
     }
   },
-  // ":hover": {
-  //   "::-webkit-scrollbar-thumb": {
-  //     border: "5px solid gray",
-  //     borderRadius: "10px",
-  //     visibility: "visible"
-  //   },
-  //   "::-webkit-scrollbar": {
-  //     visibility: 'visible'
-  //   },
-  //   "::-webkit-scrollbar-track" : {
-  //     visibility: 'visible'
-  //   },
-  // },
   "a:link": {
     color: 'cornflowerblue'
   },

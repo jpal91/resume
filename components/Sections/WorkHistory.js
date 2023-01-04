@@ -30,7 +30,7 @@ const WorkHistory = (props) => {
     return (
         <InView onChange={setInView} triggerOnce={true}>
         {({ref}) => (
-            <React.Fragment ref={containerRef}>
+            <React.Fragment>
             <Fade in={inView} timeout={{ enter: 500, exit: 100 }}>
                 <Grid  item xs={12} sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
                     <Typography variant='h3'>Work History</Typography>
@@ -46,14 +46,14 @@ const WorkHistory = (props) => {
             <Fade in={inView} timeout={{ enter: 1000 }}>
             <Grid ref={ref} item xs={12} sx={{p: 2, mt: 2, animation: inView && `${slideIn} 0.5s ease-in forwards`}}>
                 {workInfo.jobs.map((e) => {
-                    const { name, startDate, endDate, title, bulletPoints } = e
+                    const { name, startDate, endDate, title, location, bulletPoints } = e
                     
                     return (
-                        <>
+                        <React.Fragment key={name}>
                         
                             <Typography variant='h4'>{title}</Typography>
                             <Typography>{`${startDate} - ${endDate ? endDate : 'Current'}`}</Typography>
-                            <Typography>{name}</Typography>
+                            <Typography variant='bodyBold'>{name} - {location}</Typography>
                         <List dense>
                         {bulletPoints.map((el, idx) => (
                             <Fade key={`${name}${idx}`} in={inView} timeout={{ enter: 2000 + (idx * 1000) }}>
@@ -64,12 +64,12 @@ const WorkHistory = (props) => {
                                              <DoubleArrowIcon sx={{ fontSize: '20px', color: 'primary.dark'}}/>
                                         {/* </Avatar> */}
                                     </ListItemIcon>
-                                    <ListItemText>{el}</ListItemText>
+                                    <ListItemText primaryTypographyProps={{ variant: 'body', fontSize: '14px' }}>{el}</ListItemText>
                                 </ListItem>
                             </Fade>
                         ))}
                         </List>
-                        </>
+                        </React.Fragment>
                     )
                 })}
             </Grid>

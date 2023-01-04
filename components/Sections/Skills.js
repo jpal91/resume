@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import Image from "next/image";
 import Grid from "@mui/material/Grid";
@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import Fade from "@mui/material/Fade";
 import Typograhpy from "@mui/material/Typography";
 import ButtonBase from "@mui/material/ButtonBase";
-import { InView } from "react-intersection-observer";
+import { InView, useInView } from "react-intersection-observer";
 
 import Terminal from "../Splash/Terminal";
 import SkillsInfo from "./SkillsInfo";
@@ -21,6 +21,7 @@ import {
 const Skills = (props) => {
 	const [inView, setInView] = useState(false);
 	const [curName, setName] = useState("main");
+	const [skillsRef, skillsInView] = useInView()
 
 	/**
 	 * skills Int - Initial controller for skills terminal, controls what is being displayed and icons appearing (updated by controller)
@@ -61,7 +62,7 @@ const Skills = (props) => {
 
 		setInView(true);
 		controller("skills", 0);
-		setBGColor('background.default')
+
 	};
 
 	const updateSkills = (name) => {
@@ -74,10 +75,16 @@ const Skills = (props) => {
 		setSkillsInfo(skillsObj[name]);
 	};
 
+	useEffect(() => {
+		if (!skillsInView) return
+		setBGColor('default')
+	}, [skillsInView])
+
 	return (
 		<InView onChange={(e) => startSeq(e)} triggerOnce={true}>
 			{({ ref }) => (
 				<>
+					
 					<Fade
 						in={inView && skillsDisplay < 2}
 						timeout={{ enter: 1000, exit: 100 }}
@@ -201,6 +208,7 @@ const Skills = (props) => {
 							})}
 						</Grid>
 					</Grid>
+					<div ref={skillsRef}></div>
 				</>
 			)}
 		</InView>
