@@ -41,13 +41,18 @@ const typography = {
 		fontFamily: poppins.regular,
 		color: primary.main
 	},
+	h5: {
+		fontWeight: baseProperties.fontWeightRegular,
+		fontFamily: poppins.regular,
+		color: primary.main
+	},
 	body: {
 		fontWeight: baseProperties.fontWeightRegular,
 		fontFamily: poppins.regular
 	},
 	bodyBold: {
 		fontWeight: baseProperties.fontWeightBold,
-		fontFamily: poppins.regular
+		fontFamily: poppins.regular,
 	}
 };
 

@@ -54,7 +54,7 @@ const WorkHistory = (props) => {
                 </Grid>
             </Fade>
             {/* <Fade in={inView} timeout={{ enter: 1000 }}> */}
-            <Grid ref={ref} item xs={12} sx={{p: 2, mt: 2,}}>
+            <Grid ref={ref} item xs={12} sx={{p: 2, mt: 4,}}>
                 {workInfo.jobs.map((e) => {
                     const { name, startDate, endDate, title, location, bulletPoints } = e
                     

@@ -41,8 +41,11 @@ const Education = (props) => {
                         </Grid>
                     </Fade>
 
-                        <Grid item xs={12} sx={{p: 2, mt: 2, animation: inView && `${slideIn} 0.5s ease-in 0.5s forwards`, opacity: 0 }}>
-                            <Typography>Test</Typography>
+                        <Grid item xs={12} sx={{p: 2, mt: 4, animation: inView && `${slideIn} 0.5s ease-in 0.5s forwards`, opacity: 0}}>
+                            <Typography variant='h4'>Bachelor of Science in Business Administration</Typography>
+                            <Typography variant='h5' sx={{ mb: 1 }}>Concentration in Economics</Typography>
+                            <Typography variant='bodyBold' component={'p'}>Appalachian State University - Boone, NC</Typography>
+                            <Typography variant='bodyBold' component={'p'}>08/2009 - 12/2013</Typography>
                         </Grid>
                     <div ref={eduRef}></div>
                 </>

@@ -91,10 +91,10 @@ const Home = (props) => {
 					
 					<Skills icons={icons} skillsObj={skillsObj}/>
 				</Grid>
-				<Grid container sx={{ display: 'flex', flexDirection: 'row', height: '100vh', alignContent: 'flex-start' }}>
+				<Grid container sx={{ display: 'flex', flexDirection: 'row', minHeight: '100vh', alignContent: 'flex-start' }}>
 					<WorkHistory workInfo={workObj}/>
 				</Grid>
-				<Grid container sx={{ display: 'flex', pb: 40, flexDirection: 'column'}}>
+				<Grid container sx={{ display: 'flex', flexDirection: 'row', height: '100vh', alignContent: 'flex-start'}}>
 					<Education />
 				</Grid>
 			</Container>
