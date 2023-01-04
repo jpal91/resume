@@ -8,6 +8,7 @@ import Container from "@mui/material/Container";
 import Paper from '@mui/material/Paper'
 import ButtonBase from '@mui/material/ButtonBase'
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { keyframes } from '@emotion/react';
 import { InView, useInView } from "react-intersection-observer";
 
@@ -26,6 +27,19 @@ const downButton = keyframes`
 		transform: translateY(25px)
 	}
 `
+
+const downArrow = keyframes`
+	from {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+
+	to {
+		opacity: 0.5;
+		transform: translateY(25px);
+	}
+`
+
 
 const Home = (props) => {
 	const { splash, skills, icons, skillsObj, workObj, setBGColor } = props
@@ -64,12 +78,10 @@ const Home = (props) => {
 						/>
 						
 					</Grid>
-					<Grid item xs={12} sx={{ display: {xs: 'none', md: 'flex'}, justifyContent: 'center'}}>
-						<Paper variant='downButton' sx={{ animation: `${downButton} 1s linear infinite alternate`, boxShadow: '0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), inset 0px 3px 14px 2px rgb(0 0 0 / 12%)'}}>
-							<ButtonBase onClick={() => scrollId.scrollIntoView({ block: 'center', behavior: 'smooth' })} sx={{ height: '100%', width: '100%', borderRadius: '100%'}}>
-								<KeyboardDoubleArrowDownIcon sx={{ fontSize: '64px', color: 'blueGrey.500' }}/>
-							</ButtonBase>
-						</Paper>
+					<Grid item xs={12} sx={{ display: {xs: 'none', md: 'flex'}, justifyContent: 'flex-start', flexDirection: 'column', alignItems: 'center',}}>
+						<ButtonBase disableRipple onClick={() => scrollId.scrollIntoView({ block: 'center', behavior: 'smooth' })} >
+							<KeyboardDoubleArrowDownIcon sx={{ fontSize: '84px', color: inView ? 'white.main' : 'blueGrey.400', animation: `${downArrow} 2s ease-in alternate infinite`, transition: 'color 1s linear' }}/>
+						</ButtonBase>
 					</Grid>
 				</Grid>
 				<Grid container sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', 

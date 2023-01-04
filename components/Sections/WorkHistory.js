@@ -32,14 +32,14 @@ const WorkHistory = (props) => {
         {({ref}) => (
             <React.Fragment>
             <Fade in={inView} timeout={{ enter: 500, exit: 100 }}>
-                <Grid  item xs={12} sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
-                    <Typography variant='h3'>Work History</Typography>
-                    <Divider sx={{ 
+                <Grid  item xs={12} sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', }}>
+                    <Typography variant='h3' sx={{ border: `${4/16}rem solid`, py: 2, px: 4}}>Work History</Typography>
+                    {/* <Divider sx={{ 
                         height: '5px', width: '70%', margin: '10px 0', border: 0,
                         '&:after': { display: 'block', content: '""', height: '20px', 
                         backgroundImage: 'radial-gradient(farthest-side at center top, #a7c0cd 0%, rgba(255, 255, 255, 0) 100%)'
                         }, 
-                         }}/>
+                         }}/> */}
                 </Grid>
             </Fade>
             {/* <Slide direction='up' in={inView} timeout={{ enter: 1000 }} container={containerRef.current}> */}

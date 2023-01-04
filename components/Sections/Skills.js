@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import Fade from "@mui/material/Fade";
 import Typograhpy from "@mui/material/Typography";
 import ButtonBase from "@mui/material/ButtonBase";
+import Divider from '@mui/material/Divider'
 import { InView, useInView } from "react-intersection-observer";
 
 import Terminal from "../Splash/Terminal";
@@ -90,10 +91,10 @@ const Skills = (props) => {
 						timeout={{ enter: 1000, exit: 100 }}
 					>
 						<Grid  item xs={12} sx={{ display: "flex", justifyContent: 'center', mb: { xs: 0, sm: 4 } }}>
-							<Typograhpy variant="h3">Skills</Typograhpy>
+							<Typograhpy variant="h3" sx={{ border: `${4/16}rem solid`, py: 2, px: 4,}}>Skills</Typograhpy>
 						</Grid>
 					</Fade>
-					<Grid container sx={{ display: "flex" }}>
+					<Grid container sx={{ display: "flex", mt: 2 }}>
 						<Fade
 							in={inView && skillsDisplay < 2}
 							ref={ref}
@@ -112,7 +113,7 @@ const Skills = (props) => {
 									justifyContent: "center",
 									alignItems: "center",
 									borderRight: { sm: `${3 / 16}rem solid` },
-									borderColor: { sm: "lightBlue.200" },
+									borderColor: { sm: "primary.main" },
 									height: "500px",
 								}}
 							>
