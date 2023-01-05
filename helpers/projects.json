@@ -1,8 +1,8 @@
 {
     "projects": [
         {
-            "name": "Resume (The page you're on right now!)",
-            "description": null,
+            "name": "Resume",
+            "description": "(The page you're on right now!)",
             "startDate": "12/2022",
             "endDate": null,
             "website": null,

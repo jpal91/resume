@@ -80,9 +80,9 @@ const Home = (props) => {
 						/>
 						
 					</Grid>
-					<Grid item xs={12} sx={{ display: {xs: 'none', md: 'flex'}, justifyContent: 'flex-start', flexDirection: 'column', alignItems: 'center',}}>
-						<ButtonBase disableRipple onClick={() => scrollId.scrollIntoView({ block: 'center', behavior: 'smooth' })} >
-							<KeyboardDoubleArrowDownIcon sx={{ fontSize: '84px', color: inView ? 'white.main' : 'blueGrey.400', animation: `${downArrow} 2s ease-in alternate infinite`, transition: 'color 1s linear' }}/>
+					<Grid item xs={12} sx={{ display: {xs: 'none', md: 'flex'}, justifyContent: 'flex-start', flexDirection: 'column', alignItems: 'center', opacity: splash >= 2 ? 1 : 0, transition: 'opacity 1s linear 1s' }}>
+						<ButtonBase disableRipple onClick={() => scrollId.scrollIntoView({ block: 'center', behavior: 'smooth', })} >
+							<KeyboardDoubleArrowDownIcon sx={{ fontSize: '84px', color: inView ? 'white.main' : 'blueGrey.400', animation: splash >= 2 && `${downArrow} 2s ease-in alternate infinite`, transition: 'color 1s linear', }}/>
 						</ButtonBase>
 					</Grid>
 				</Grid>

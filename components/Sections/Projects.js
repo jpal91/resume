@@ -6,6 +6,10 @@ import Typography from "@mui/material/Typography";
 import Fade from "@mui/material/Fade";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
+import Paper from "@mui/material/Paper";
+import Button from '@mui/material/Button'
+import CardHeader from "@mui/material/CardHeader";
+import CardContent from "@mui/material/CardContent";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
@@ -32,19 +36,19 @@ const slideIn = keyframes`
 const Projects = (props) => {
 	const { projects, setBGColor } = props;
 	const [inView, setInView] = useState(false);
-    const [projRef, projInView] = useInView()
+	const [projRef, projInView] = useInView();
 
-    useEffect(() => {
-        if (!projInView) return
-        setBGColor('blueGrey.400')
-    }, [projInView])
+	useEffect(() => {
+		if (!projInView) return;
+		setBGColor("default");
+	}, [projInView]);
 
 	return (
 		<InView onChange={setInView} triggerOnce={true}>
 			{({ ref }) => (
 				<>
 					<div ref={ref}></div>
-                    <div ref={projRef}></div>
+					<div ref={projRef}></div>
 					<Fade in={inView} timeout={{ enter: 1000 }}>
 						<Grid
 							item
@@ -72,8 +76,13 @@ const Projects = (props) => {
 						container
 						item
 						xs={12}
-						rowGap={7}
-						sx={{ p: 2, mt: 4 }}
+						gap={7}
+						sx={{
+							p: 2,
+							mt: 4,
+							display: "flex",
+							justifyContent: "center",
+						}}
 					>
 						{projects.projects.map((e, i) => {
 							const {
@@ -91,115 +100,81 @@ const Projects = (props) => {
 							return (
 								<InView key={name} triggerOnce={true}>
 									{({ ref, inView }) => (
-										<Grid
-											item
-											xs={12}
+										<Card
+											key={name}
 											ref={ref}
 											sx={{
-												display: "flex",
+												backgroundColor: "#11111111",
+												overflow: "visible",
+												backgroundColor: "inherit",
+												boxShadow: "none",
 												animation:
 													inView &&
-													`${slideIn} 0.5s ease-in 0.5s forwards`,
+													`${slideIn} 1s ease-in ${
+														0.25 * i
+													}s forwards`,
 												opacity: 0,
-												flexDirection: mod
-													? "row-reverse"
-													: "row",
-												alignItems: "center",
-                                                boxShadow: boxShadows.xl,
-                                                p: 2,
-                                                backgroundColor: 'grey.400',
-                                                borderRadius: '5px'
 											}}
 										>
-											<Grid
-												item
-												xs={12}
-												sm={3}
+											<Box
 												sx={{
-													display: "flex",
-													mx: 2,
-													p: 1,
-													minWidth: "325px",
+													position: "relative",
+													width: "400px",
+													minHeight: "200px",
+													backgroundImage:
+														"radial-gradient(farthest-corner at bottom 20px right 40px, #546e7a -40%, #2196f3 60%)",
+													mt: 4,
+													borderRadius: "3px",
+													boxShadow:
+														"4px 4px 5px 2px rgb(0 0 0 / 20%)",
+													transition:
+														"transform 0.5s ease-in",
+													"&:hover": {
+														transform:
+															"scale(1.05)",
+													},
 												}}
 											>
-												{/* <Card raised sx={{ backgroundColor: 'rgba(0, 0, 0, 0)' }}> */}
-												<Image
-													width={300}
-													height={200}
-													src={
-														image
-															? `/proj-pics/${image}`
-															: "/svg-icons/next-js.svg"
-													}
-													alt="picture"
-												/>
-												{/* </Card> */}
-											</Grid>
-											<Grid
-												container
-												item
-												xs={12}
-												sm={9}
-												sx={{
-													display: "flex",
-													flexDirection: "column",
-													alignContent:
-														!mod && "flex-end",
-												}}
-											>
-												<Typography variant="h4">
-													{name}
-												</Typography>
-												<Typography variant="h5">
-													{description}
-												</Typography>
-												<Typography variant="body">{`${startDate} - ${
-													endDate
-														? endDate
-														: "Current"
-												}`}</Typography>
-												{website && (
-													<Typography variant="body">
-														{website}
-													</Typography>
-												)}
-												<Typography variant="body">
-													{github}
-												</Typography>
-												<List
-													dense
-													sx={{ lineSpacing: "2px" }}
+												<Box
+													sx={{
+														position: "absolute",
+														top: 0,
+														left: "5%",
+														mt: -4,
+														width: "90%",
+													}}
 												>
-													{bulletPoints.map(
-														(el, idx) => (
-															<ListItem
-																key={`${name}${idx}`}
-															>
-																<ListItemIcon>
-																	<DoubleArrowIcon
-																		sx={{
-																			fontSize:
-																				"20px",
-																			color: "primary.dark",
-																		}}
-																	/>
-																</ListItemIcon>
-																<ListItemText
-																	primaryTypographyProps={{
-																		variant:
-																			"body",
-																		fontSize:
-																			"12px",
-																	}}
-																>
-																	{el}
-																</ListItemText>
-															</ListItem>
-														)
-													)}
-												</List>
-											</Grid>
-										</Grid>
+													<Paper
+														sx={{
+															display: "flex",
+															p: 0.5,
+															justifyContent:
+																"center",
+															backgroundColor:
+																"grey.300",
+															width: "100%",
+															height: "100%",
+															overflow: "hidden",
+														}}
+													>
+														<Image
+															src={`/proj-pics/${image}`}
+															height="200"
+															width="350"
+															alt={name}
+														/>
+													</Paper>
+												</Box>
+												<Grid item xs={12} sx={{ pt: "200px", pb: 1, px: 3, display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: 'center', textOverflow: 'ellipsis', overflow: 'hidden',}}>
+													<Typography variant='cardHeader'>
+														{name}
+													</Typography>
+                                                    <Button variant='contained' sx={{ backgroundColor: 'blueGrey.400', color: 'white.main', p: 1, m: 2}}>
+                                                        Learn More
+                                                    </Button>
+												</Grid>
+											</Box>
+										</Card>
 									)}
 								</InView>
 							);
@@ -211,4 +186,4 @@ const Projects = (props) => {
 	);
 };
 
-export default connect(null, { setBGColor })(Projects)
+export default connect(null, { setBGColor })(Projects);

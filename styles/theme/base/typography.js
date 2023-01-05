@@ -1,6 +1,6 @@
 import colors from "./colors";
 
-const { black, white, blueGrey, lightBlue, primary, secondary } = colors;
+const { black, white, blueGrey, lightBlue, primary, secondary, grey } = colors;
 
 const baseProperties = {
 	fontWeightBold: 700,
@@ -53,6 +53,18 @@ const typography = {
 	bodyBold: {
 		fontWeight: baseProperties.fontWeightBold,
 		fontFamily: poppins.regular,
+	},
+	cardHeader: {
+		fontWeight: baseProperties.fontWeightBold,
+		fontFamily: poppins.regular,
+		fontSize: '24px',
+		color: grey[200]
+	},
+	cardSubHead: {
+		fontWeight: baseProperties.fontWeightMedium,
+		fontFamily: poppins.regular,
+		fontSize: '12px',
+		color: grey[200]
 	}
 };
 
