@@ -73,8 +73,8 @@ const Terminal = (props) => {
 			sx={{
 				...settings,
                 height: {
-					xs: `260px`,
-					sm: `260px`,
+					xs: `300px`,
+					sm: `300px`,
 					md: `300px`,
 					lg: `300px`,
 					xl: `300px`,

@@ -69,7 +69,7 @@ const Home = (props) => {
 				{/* <NavBar /> */}
 				<Grid container sx={{height: '100vh'}}>
 					<Container sx={{ display: 'flex', width: '100%', height: '100%', flexDirection: 'column'}}>
-					<Grid item xs={12} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+					<Grid item xs={12} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: {xs: 'center', sm: 'flex-end'}}}>
 						<div id='splash' ref={ref}></div>
 						<Terminal 
 							outputs={[["Hello, my name is Justin"], ["Welcome to my Resume"]]}
@@ -81,7 +81,7 @@ const Home = (props) => {
 						/>
 						
 					</Grid>
-					<Grid item xs={12} sx={{ display: {xs: 'none', md: 'flex'}, justifyContent: 'flex-start', flexDirection: 'column', alignItems: 'center', opacity: splash >= 2 ? 1 : 0, transition: 'opacity 1s linear 1s' }}>
+					<Grid item xs={12} sx={{ display: {xs: 'none', md: 'flex'}, justifyContent: 'center', flexDirection: 'column', alignItems: 'center', opacity: splash >= 2 ? 1 : 0, transition: 'opacity 1s linear 1s' }}>
 						<ButtonBase disableRipple onClick={() => scrollId.scrollIntoView({ block: 'center', behavior: 'smooth', })} >
 							<KeyboardDoubleArrowDownIcon sx={{ fontSize: '84px', color: inView ? 'white.main' : 'blueGrey.400', animation: splash >= 2 && `${downArrow} 2s ease-in alternate infinite`, transition: 'color 1s linear', }}/>
 						</ButtonBase>
@@ -93,12 +93,12 @@ const Home = (props) => {
 					<Skills icons={icons} skillsObj={skillsObj}/>
 					</Container>
 				</Grid>
-				<Grid container sx={{ minHeight: '100vh', backgroundColor: 'white.main'}}>
+				<Grid container sx={{ minHeight: '100vh', backgroundColor: 'white.main', alignContent: 'flex-start'}}>
 					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', p: 3}}>
 						<WorkHistory workInfo={workObj}/>
 					</Container>
 				</Grid>
-				<Grid container sx={{ backgroundColor: 'grey.400', minHeight: '50vh' }}>
+				<Grid container sx={{ backgroundColor: 'grey.400', minHeight: '50vh', display: 'flex', alignContent: 'flex-start' }}>
 					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', p: 3}}>
 						<Education />
 					</Container>

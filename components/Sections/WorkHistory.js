@@ -44,7 +44,7 @@ const WorkHistory = (props) => {
         {({ref}) => (
             <React.Fragment>
             <Fade in={inView} timeout={{ enter: 500, exit: 100 }}>
-                <Grid  item xs={12} sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', }}>
+                <Grid  item xs={12} sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row', alignItems: 'center', }}>
                     <Typography variant='h3' sx={{ py: 2, px: 2}}>work history</Typography>
                     <Box sx={{ display: 'flex', borderRadius: '100%', border: `${3/16}rem solid`, borderColor: 'primary.main', p: 1}}>
 						<WorkHistoryIcon sx={{ color: 'primary.main', fontSize: '40px', }}/>
@@ -52,7 +52,7 @@ const WorkHistory = (props) => {
                 </Grid>
             </Fade>
             {/* <Fade in={inView} timeout={{ enter: 1000 }}> */}
-            <Grid ref={ref} item xs={12} sx={{p: 2, mt: 4,}}>
+            <Grid ref={ref} item xs={12} sx={{p: 2, mt: 1, display: 'flex', flexDirection: 'column', gap: 2}}>
                 {workInfo.jobs.map((e) => {
                     const { name, startDate, endDate, title, location, bulletPoints } = e
                     

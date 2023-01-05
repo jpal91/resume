@@ -91,7 +91,7 @@ const Skills = (props) => {
 						in={inView && skillsDisplay < 2}
 						timeout={{ enter: 1000, exit: 100 }}
 					>
-						<Grid  item xs={12} sx={{ display: "flex", justifyContent: 'center', mb: { xs: 0, sm: 4 } }}>
+						<Grid  item xs={12} sx={{ display: "flex", justifyContent: 'center', alignItems: 'center', mb: { xs: 0, sm: 4 } }}>
 							<Typograhpy variant="h3" sx={{ py: 2, px: 2,}}>skills</Typograhpy>
 							<Box sx={{ display: 'flex', borderRadius: '100%', border: `${3/16}rem solid`, borderColor: 'primary.main', p: 1}}>
 								<BuildIcon sx={{ color: 'primary.main', fontSize: '40px', }}/>
@@ -167,7 +167,7 @@ const Skills = (props) => {
 							xl={6}
 							sx={{
 								width: "100%",
-								display: "flex",
+								display: { xs: 'none', sm: "flex" },
 								justifyContent: "space-evenly",
 								alignItems: "center",
 								flexWrap: "wrap",
