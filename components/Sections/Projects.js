@@ -95,8 +95,8 @@ const Projects = (props) => {
 								website,
 								github,
 								image,
-								bulletPoints,
-                                techUsed
+                                techUsed,
+								subHeader
 							} = e;
 
 							return (
@@ -200,6 +200,7 @@ const Projects = (props) => {
 															website={website}
 															github={github}
                                                             techUsed={techUsed && techUsed}
+															subHeader={subHeader}
 														/>
 													</Grid>
 												</Box>

@@ -2,6 +2,7 @@
     "projects": [
         {
             "name": "Resume",
+            "subHeader": "(The page you're on right now!)",
             "description": "(The page you're on right now!)",
             "techUsed": [
                 "Next.js", "Material UI", "AWS", "Terraform"
@@ -9,14 +10,17 @@
             "startDate": "12/2022",
             "endDate": null,
             "website": null,
-            "github": null,
+            "github": "https://github.com/jpal91/resume",
             "image": "",
             "bulletPoints": []
         },
         {
             "name": "LeetCode Solutions",
-            "description": null,
-            "techUsed": [],
+            "subHeader": null,
+            "description": "An ongoing project to add code solutions to algorithm and data structure problems presented on the coding challenge site LeetCode.",
+            "techUsed": [
+                "Python", "JavaScript", "SQL"
+            ],
             "startDate": "10/2022",
             "endDate": null,
             "website": null,
@@ -30,8 +34,11 @@
         },
         {
             "name": ".MARKDOWN",
-            "description": "A Markdown Editor Built With Next.js / Redux / RegExp / MongoDB",
-            "techUsed": [],
+            "subHeader": "In-Browser Markdown Editor",
+            "description": "This in-browser editor uses custom logic to convert Markdown Script into rendered markdown. Also utilizes OAuth to create a back-end that can save user info to be reused on a different browser or kept locally.",
+            "techUsed": [
+                "Next.js", "RegExp", "MongoDB", "Material UI"
+            ],
             "startDate": "06/2022",
             "endDate": "07/2022",
             "website": "https://markdown-nextjs-lime.vercel.app",
@@ -47,8 +54,11 @@
         },
         {
             "name": "Interactive Comments",
-            "description": "Reactive Comments Section",
-            "techUsed": [],
+            "subHeader": "Reactive Comments Section",
+            "description": "A comments section similar to what you would see on a social media site or blog. Gives you the ability to create, read, update, and delete through a MongoDB back-end.",
+            "techUsed": [
+                "Next.js", "JavaScript", "MongoDB", "Material UI"
+            ],
             "startDate": "06/2022",
             "endDate": "07/2022",
             "website": "https://comments-nextjs.vercel.app",
@@ -63,8 +73,11 @@
         },
         {
             "name": "REST Countries API App",
-            "description": "A World Countries Search Engine using the REST Countries API",
-            "techUsed": [],
+            "subHeader": "World Countries Search Engine",
+            "description": "Using the REST Countries API, this app allows users to search for a country of their choice and get basic info back on their selection.",
+            "techUsed": [
+                "Next.js", "REST API", "Material UI"
+            ],
             "startDate":"06/2022",
             "endDate": "07/2022",
             "website": "https://rest-country-nextjs.vercel.app",
@@ -78,8 +91,11 @@
         },
         {
             "name": "Rock, Paper, Scissors",
-            "description": "Reactive In-Browser Game",
-            "techUsed": [],
+            "subHeader": "In-Browser Game",
+            "description": "A fun in-browser game of Rock, Paper, Scissors to kill some time!",
+            "techUsed": [
+                "React.js", "Redux", "Material UI"
+            ],
             "startDate":"06/2022",
             "endDate":"07/2022",
             "website": "https://rest-country-nextjs.vercel.app",
