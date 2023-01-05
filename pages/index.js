@@ -68,6 +68,7 @@ const Home = (props) => {
 			{/* <Container sx={{ maxWidth: '100%', maxHeight: '100%' }}> */}
 				{/* <NavBar /> */}
 				<Grid container sx={{height: '100vh'}}>
+					<Container sx={{ display: 'flex', width: '100%', height: '100%', flexDirection: 'column'}}>
 					<Grid item xs={12} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
 						<div id='splash' ref={ref}></div>
 						<Terminal 
@@ -85,22 +86,26 @@ const Home = (props) => {
 							<KeyboardDoubleArrowDownIcon sx={{ fontSize: '84px', color: inView ? 'white.main' : 'blueGrey.400', animation: splash >= 2 && `${downArrow} 2s ease-in alternate infinite`, transition: 'color 1s linear', }}/>
 						</ButtonBase>
 					</Grid>
+					</Container>
 				</Grid>
-				<Grid container sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', 
-				height: '100vh', alignContent: 'flex-start'
-				}}>
-					
+				<Grid container sx={{ display: 'flex', minHeight: '100vh', alignContent: 'flex-start'}}>
+					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', p: 3}}>
 					<Skills icons={icons} skillsObj={skillsObj}/>
+					</Container>
 				</Grid>
-				<Grid container sx={{ display: 'flex', flexDirection: 'row', minHeight: '100vh', alignContent: 'flex-start' }}>
-					<WorkHistory workInfo={workObj}/>
+				<Grid container sx={{ minHeight: '100vh', backgroundColor: 'white.main'}}>
+					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', p: 3}}>
+						<WorkHistory workInfo={workObj}/>
+					</Container>
 				</Grid>
-				<Grid container sx={{ display: 'flex', flexDirection: 'row', height: '50vh', alignContent: 'flex-start'}}>
-					<Education />
+				<Grid container sx={{ backgroundColor: 'grey.400', minHeight: '50vh' }}>
+					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', p: 3}}>
+						<Education />
+					</Container>
 				</Grid>
 				
-				<Grid container sx={{  backgroundColor: 'grey.600'}}>
-					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', minHeight: '100vh', alignContent: 'flex-start', p: 3}}>
+				<Grid container sx={{  backgroundColor: 'grey.600', minHeight: '100vh'}}>
+					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', p: 3}}>
 					<Projects projects={projObj}/>
 					</Container>
 				</Grid>
