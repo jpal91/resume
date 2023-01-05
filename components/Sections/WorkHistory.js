@@ -11,6 +11,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
+import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
 import { InView, useInView } from "react-intersection-observer";
 import { keyframes } from '@emotion/react'
 
@@ -44,13 +45,10 @@ const WorkHistory = (props) => {
             <React.Fragment>
             <Fade in={inView} timeout={{ enter: 500, exit: 100 }}>
                 <Grid  item xs={12} sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', }}>
-                    <Typography variant='h3' sx={{ border: `${4/16}rem solid`, py: 2, px: 4}}>Work History</Typography>
-                    {/* <Divider sx={{ 
-                        height: '5px', width: '70%', margin: '10px 0', border: 0,
-                        '&:after': { display: 'block', content: '""', height: '20px', 
-                        backgroundImage: 'radial-gradient(farthest-side at center top, #a7c0cd 0%, rgba(255, 255, 255, 0) 100%)'
-                        }, 
-                         }}/> */}
+                    <Typography variant='h3' sx={{ py: 2, px: 2}}>work history</Typography>
+                    <Box sx={{ display: 'flex', borderRadius: '100%', border: `${3/16}rem solid`, borderColor: 'primary.main', p: 1}}>
+						<WorkHistoryIcon sx={{ color: 'primary.main', fontSize: '40px', }}/>
+					</Box>
                 </Grid>
             </Fade>
             {/* <Fade in={inView} timeout={{ enter: 1000 }}> */}

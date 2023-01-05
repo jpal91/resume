@@ -16,6 +16,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
+import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import { InView, useInView } from "react-intersection-observer";
 import { keyframes } from "@emotion/react";
 
@@ -65,13 +66,18 @@ const Projects = (props) => {
 							<Typography
 								variant="h3"
 								sx={{
-									border: `${4 / 16}rem solid`,
+									// border: `${4 / 16}rem solid`,
 									py: 2,
-									px: 4,
+									px: 2,
+									color: 'white.main'
 								}}
 							>
-								Projects
+								projects
+								
 							</Typography>
+							<Box sx={{ display: 'flex', borderRadius: '100%', border: `${3/16}rem solid`, borderColor: 'white.main', p: 1}}>
+								<AccountTreeIcon sx={{ color: 'white.main', fontSize: '40px', }}/>
+							</Box>
 						</Grid>
 					</Fade>
 					<Grid

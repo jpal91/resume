@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import Fade from '@mui/material/Fade'
+import Box from '@mui/material/Box'
+import SchoolIcon from '@mui/icons-material/School';
 import { InView, useInView } from 'react-intersection-observer'
 import { keyframes } from '@emotion/react'
 
@@ -37,7 +39,10 @@ const Education = (props) => {
                     <div ref={ref}></div>
                     <Fade in={inView} timeout={{ enter: 1000 }}>
                         <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', }}>
-                            <Typography variant='h3' sx={{ border: `${4/16}rem solid`, py: 2, px: 4}}>Education</Typography>
+                            <Typography variant='h3' sx={{ py: 2, px: 2}}>education</Typography>
+                            <Box sx={{ display: 'flex', borderRadius: '100%', border: `${3/16}rem solid`, borderColor: 'primary.main', p: 1}}>
+								<SchoolIcon sx={{ color: 'primary.main', fontSize: '40px', }}/>
+							</Box>
                         </Grid>
                     </Fade>
 

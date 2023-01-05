@@ -88,7 +88,7 @@ const Home = (props) => {
 					</Grid>
 					</Container>
 				</Grid>
-				<Grid container sx={{ display: 'flex', minHeight: '100vh', alignContent: 'flex-start'}}>
+				<Grid container sx={{ display: 'flex', minHeight: '100vh', alignContent: 'flex-start', alignItems: 'center'}}>
 					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', p: 3}}>
 					<Skills icons={icons} skillsObj={skillsObj}/>
 					</Container>
@@ -104,8 +104,8 @@ const Home = (props) => {
 					</Container>
 				</Grid>
 				
-				<Grid container sx={{  backgroundColor: 'grey.600', minHeight: '100vh'}}>
-					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', p: 3}}>
+				<Grid container sx={{  backgroundColor: 'grey.600', minHeight: '100vh', backgroundImage: 'linear-gradient(to bottom right, transparent 49.9%, #03a9f4 50%), linear-gradient(to top left, transparent 49.9%, #78909c 0)',}}>
+					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', p: 5,}}>
 					<Projects projects={projObj}/>
 					</Container>
 				</Grid>
