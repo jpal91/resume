@@ -47,8 +47,8 @@ const Education = (props) => {
                         </Grid>
                     </Fade>
 
-                        <Grid item xs={12} sx={{p: 2, mt: 1, animation: inView && `${slideIn} 0.5s ease-in 0.5s forwards`, opacity: 0, display: 'flex', flexDirection: 'row-reverse', justifyContent: 'center', columnGap: 5}}>
-                            <Box sx={{ display: 'flex' }}>
+                        <Grid item xs={12} sx={{p: 2, mt: 1, animation: inView && `${slideIn} 0.5s ease-in 0.5s forwards`, opacity: 0, display: 'flex', flexDirection: { xs: 'column', sm: 'row-reverse' }, justifyContent: 'center', alignItems: { xs: 'center', sm: 'normal' }, columnGap: 5}}>
+                            <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                             <Typography variant='h4'>BS in Business Administration</Typography>
                             <Typography variant='h5' sx={{ mb: 1 }}>Concentration in Economics</Typography>
                             <Typography variant='bodyBold' component={'p'}>Appalachian State University - Boone, NC</Typography>
