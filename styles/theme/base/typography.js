@@ -70,6 +70,24 @@ const typography = {
 		fontWeight: baseProperties.fontWeightRegular,
 		fontFamily: poppins.regular,
 		color: white.main
+	},
+	modalHeader: {
+		fontWeight: baseProperties.fontWeightBold,
+		fontFamily: poppins.regular,
+		color: primary.main,
+		fontSize: '24px'
+	},
+	modalSubHeader: {
+		fontWeight: baseProperties.fontWeightMedium,
+		fontFamily: poppins.regular,
+		color: blueGrey[400],
+		fontSize: '16px'
+	},
+	modalBody: {
+		fontWeight: baseProperties.fontWeightRegular,
+		fontFamily: poppins.regular,
+		color: blueGrey[400],
+		fontSize: '16px'
 	}
 };
 

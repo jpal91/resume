@@ -3,6 +3,9 @@
         {
             "name": "Resume",
             "description": "(The page you're on right now!)",
+            "techUsed": [
+                "Next.js", "Material UI", "AWS", "Terraform"
+            ],
             "startDate": "12/2022",
             "endDate": null,
             "website": null,
@@ -13,6 +16,7 @@
         {
             "name": "LeetCode Solutions",
             "description": null,
+            "techUsed": [],
             "startDate": "10/2022",
             "endDate": null,
             "website": null,
@@ -27,6 +31,7 @@
         {
             "name": ".MARKDOWN",
             "description": "A Markdown Editor Built With Next.js / Redux / RegExp / MongoDB",
+            "techUsed": [],
             "startDate": "06/2022",
             "endDate": "07/2022",
             "website": "https://markdown-nextjs-lime.vercel.app",
@@ -43,6 +48,7 @@
         {
             "name": "Interactive Comments",
             "description": "Reactive Comments Section",
+            "techUsed": [],
             "startDate": "06/2022",
             "endDate": "07/2022",
             "website": "https://comments-nextjs.vercel.app",
@@ -58,6 +64,7 @@
         {
             "name": "REST Countries API App",
             "description": "A World Countries Search Engine using the REST Countries API",
+            "techUsed": [],
             "startDate":"06/2022",
             "endDate": "07/2022",
             "website": "https://rest-country-nextjs.vercel.app",
@@ -72,6 +79,7 @@
         {
             "name": "Rock, Paper, Scissors",
             "description": "Reactive In-Browser Game",
+            "techUsed": [],
             "startDate":"06/2022",
             "endDate":"07/2022",
             "website": "https://rest-country-nextjs.vercel.app",
