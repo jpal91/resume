@@ -31,11 +31,10 @@ const BGProvider = (props) => {
 				body: { 
                     backgroundColor: `${bgMap[bgColor]} !important`,
                     // backgroundImage: 'radial-gradient(farthest-corner at bottom 400px right 400px, #546e7a 0%, #2196f3 100%)' 
-					backgroundImage: "url('/svg-icons/arrowforward.svg'), url('/svg-icons/arrowforward.svg')",
-					backgroundRepeat: 'repeat, repeat',
-					backgroundSize: '25px 25px, 15px 15px',
-					backgroundPosition: '5% 10%',
-					animation: `${bg} 5s linear`
+					// backgroundImage: "url('/svg-icons/arrowforward.svg')",
+					// backgroundRepeat: 'repeat',
+					// backgroundSize: '25px 25px',
+					// backgroundPosition: '5% 10%',
                 },
 			}}
 		/>

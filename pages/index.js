@@ -65,7 +65,7 @@ const Home = (props) => {
 				<title>Resume</title>
 			</Head>
 			{/* <Container sx={{ width: '100% !important', height: '100% !important', maxWidth: '100% !important', maxHeight: '100% !important', p: '0px !important', m: '0px !important', backgroundColor: bgColor, transition: 'background-color 1s linear', }}> */}
-			<Container sx={{ maxWidth: '100%', maxHeight: '100%' }}>
+			{/* <Container sx={{ maxWidth: '100%', maxHeight: '100%' }}> */}
 				{/* <NavBar /> */}
 				<Grid container sx={{height: '100vh'}}>
 					<Grid item xs={12} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
@@ -98,10 +98,12 @@ const Home = (props) => {
 				<Grid container sx={{ display: 'flex', flexDirection: 'row', height: '50vh', alignContent: 'flex-start'}}>
 					<Education />
 				</Grid>
-				<Grid container sx={{ display: 'flex', flexDirection: 'row', minHeight: '100vh', alignContent: 'flex-start'}}>
+				
+				<Grid container sx={{ display: 'flex', flexDirection: 'row', minHeight: '100vh', alignContent: 'flex-start', position: 'relative', backgroundColor: 'grey.600'}}>
+					<Container sx={{ maxWidth: '100%', maxHeight: '100%', height: '100vh !important', backgroundColor: 'blueGrey.400'}}></Container>
 					<Projects projects={projObj}/>
 				</Grid>
-			</Container>
+			{/* </Container> */}
 			{/* </Container> */}
 		</>
 	);
