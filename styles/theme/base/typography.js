@@ -65,6 +65,11 @@ const typography = {
 		fontFamily: poppins.regular,
 		fontSize: '12px',
 		color: grey[200]
+	},
+	cardBody: {
+		fontWeight: baseProperties.fontWeightRegular,
+		fontFamily: poppins.regular,
+		color: white.main
 	}
 };
 

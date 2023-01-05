@@ -30,3 +30,7 @@ export const setLockTransitions = (bool) => {
 export const setBGColor = (str) => {
     return { type: 'SET_BG_COLOR', payload: str }
 }
+
+export const setModals = (id, state) => {
+    return { type: 'SET_MODALS', payload: { id: id, newState: state } }
+}

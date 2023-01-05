@@ -8,6 +8,7 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import Paper from "@mui/material/Paper";
 import Button from '@mui/material/Button'
+import ButtonBase from '@mui/material/ButtonBase'
 import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import List from "@mui/material/List";
@@ -18,7 +19,7 @@ import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import { InView, useInView } from "react-intersection-observer";
 import { keyframes } from "@emotion/react";
 
-import { setBGColor } from "../../actions";
+import { setBGColor, setModals } from "../../actions";
 import boxShadows from "../../styles/theme/base/boxShadows";
 
 const slideIn = keyframes`
@@ -34,7 +35,7 @@ const slideIn = keyframes`
 `;
 
 const Projects = (props) => {
-	const { projects, setBGColor } = props;
+	const { projects, setBGColor, setModals } = props;
 	const [inView, setInView] = useState(false);
 	const [projRef, projInView] = useInView();
 
@@ -95,7 +96,7 @@ const Projects = (props) => {
 								image,
 								bulletPoints,
 							} = e;
-							const mod = i % 2 == 0;
+							setModals(i, false)
 
 							return (
 								<InView key={name} triggerOnce={true}>
@@ -127,12 +128,6 @@ const Projects = (props) => {
 													borderRadius: "3px",
 													boxShadow:
 														"4px 4px 5px 2px rgb(0 0 0 / 20%)",
-													transition:
-														"transform 0.5s ease-in",
-													"&:hover": {
-														transform:
-															"scale(1.05)",
-													},
 												}}
 											>
 												<Box
@@ -165,13 +160,17 @@ const Projects = (props) => {
 														/>
 													</Paper>
 												</Box>
-												<Grid item xs={12} sx={{ pt: "200px", pb: 1, px: 3, display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: 'center', textOverflow: 'ellipsis', overflow: 'hidden',}}>
+												<Grid item xs={12} sx={{ pt: "200px", pb: 1, px: 3, display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden',}}>
 													<Typography variant='cardHeader'>
 														{name}
 													</Typography>
-                                                    <Button variant='contained' sx={{ backgroundColor: 'blueGrey.400', color: 'white.main', p: 1, m: 2}}>
-                                                        Learn More
-                                                    </Button>
+                                                    
+                                                        <Paper sx={{ backgroundColor: 'inherit', border: '1px solid', borderColor: 'white.main', my: 1 }}>
+                                                            <ButtonBase sx={{ p: 1.5, '&:active': { color: 'white.main' }, '&:focus': { color: 'white.main' } }} >
+                                                                <Typography variant='cardBody'>Learn More</Typography>
+                                                            </ButtonBase>
+                                                        </Paper>
+                                                    
 												</Grid>
 											</Box>
 										</Card>
@@ -186,4 +185,4 @@ const Projects = (props) => {
 	);
 };
 
-export default connect(null, { setBGColor })(Projects);
+export default connect(null, { setBGColor, setModals })(Projects);

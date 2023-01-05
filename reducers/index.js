@@ -68,6 +68,18 @@ const bgColor = (state='default', action) => {
     }
 }
 
+const modalState = (state={}, action) => {
+    if (action.type == 'SET_MODALS') {
+        const stateObj = state
+        const { id, newState } = action.payload
+        stateObj[id] = newState
+        
+        return stateObj
+    } else {
+        return state
+    }
+}
+
 export default combineReducers({
     splash: splashSet,
     skills: skillsSet,
@@ -75,5 +87,6 @@ export default combineReducers({
     altSkills: altSkills,
     skillsDisplay: skillsDisplay,
     lockTransitions: lockTransitions,
-    bgColor: bgColor
+    bgColor: bgColor,
+    modalState: modalState
 })
