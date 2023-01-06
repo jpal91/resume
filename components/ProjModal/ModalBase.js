@@ -34,7 +34,7 @@ const ModalBase = (props) => {
                     boxShadow: 24,
                 }}
             >
-                <Grid container fluid sx={{ display: 'flex' }}>
+                <Grid container sx={{ display: 'flex' }}>
                     <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'flex-end', p: 1, mr: 1.5, mt: 1}}>
                         <ButtonBase onClick={handleClose} sx={{ borderRadius: '100%'}}>
                             <CloseIcon sx={{ backgroundColor: 'primary.main', borderRadius: '100%', color: 'white.main' }}/>
