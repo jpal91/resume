@@ -9,7 +9,7 @@ import SchoolIcon from '@mui/icons-material/School';
 import { InView, useInView } from 'react-intersection-observer'
 import { keyframes } from '@emotion/react'
 
-import { setBGColor } from '../../actions'
+import { setBGColor, setSection } from '../../actions'
 
 const slideIn = keyframes`
     from {
@@ -24,14 +24,17 @@ const slideIn = keyframes`
 `
 
 const Education = (props) => {
-    const { setBGColor } = props
+    const { setBGColor, setSection } = props
     const [inView, setInView] = useState(false)
-    const [eduRef, eduInView] = useInView()
+    const [eduRef, eduInView] = useInView({ threshold: 0.55 })
 
     useEffect(() => {
+        
         if (!eduInView) return
+        setSection('education', eduInView)
         setBGColor('default')
     }, [eduInView])
+
 
     return (
         <InView onChange={setInView} triggerOnce={true}>
@@ -56,11 +59,11 @@ const Education = (props) => {
                             </Box>
                             <Image src='/proj-pics/app_state.svg' height={300} width={200} alt='app-state'/>
                         </Grid>
-                    <Box ref={eduRef} sx={{ position: 'absolute', top: '20%', left: '50%', visibility: 'hidden'}}>Center</Box>
+                    <Box id='education' ref={eduRef} sx={{ position: 'absolute', height: '100%', width: '100%', visibility: 'hidden'}}>Center</Box>
                 </>
             )}
         </InView>
     )
 }
 
-export default connect(null, { setBGColor })(Education)
+export default connect(null, { setBGColor, setSection })(Education)

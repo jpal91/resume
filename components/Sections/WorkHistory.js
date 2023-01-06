@@ -15,7 +15,7 @@ import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
 import { InView, useInView } from "react-intersection-observer";
 import { keyframes } from '@emotion/react'
 
-import { setBGColor } from '../../actions'
+import { setBGColor, setSection } from '../../actions'
 
 const slideIn = keyframes`
     from {
@@ -30,16 +30,19 @@ const slideIn = keyframes`
 `
 
 const WorkHistory = (props) => {
-    const { workInfo, setBGColor } = props
+    const { workInfo, setBGColor, setSection } = props
     const [inView, setInView] = useState(false)
-    const [workRef, workInView] = useInView()
+    const [workRef, workInView] = useInView({ threshold: 0.55 })
 
     useEffect(() => {
+        
         if (!workInView) return
+        setSection('work history', workInView)
         setBGColor('default')
     }, [workInView])
-    
+
     return (
+        <>
         <InView onChange={setInView} triggerOnce={true}>
         {({ref}) => (
             <React.Fragment>
@@ -82,13 +85,15 @@ const WorkHistory = (props) => {
                 })}
             </Grid>
             {/* </Fade> */}
-            <div ref={workRef}></div>
+            
             </React.Fragment>
         )
         }
         </InView>
+        <Box id='workhistory' ref={workRef} sx={{ position: 'absolute', height: '100%', width: '100%', visibility: 'hidden'}}>Center</Box>
+        </>
     )
 }
 
 
-export default connect(null, { setBGColor })(WorkHistory)
+export default connect(null, { setBGColor, setSection })(WorkHistory)

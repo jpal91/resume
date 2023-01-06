@@ -17,13 +17,14 @@ import {
 	setSkillsInfo,
 	setSkillsDisplay,
 	setLockTransitions,
-	setBGColor
+	setBGColor,
+	setSection
 } from "../../actions";
 
 const Skills = (props) => {
 	const [inView, setInView] = useState(false);
 	const [curName, setName] = useState("main");
-	const [skillsRef, skillsInView] = useInView()
+	const [skillsRef, skillsInView] = useInView({ threshold: 0.55 })
 
 	/**
 	 * skills Int - Initial controller for skills terminal, controls what is being displayed and icons appearing (updated by controller)
@@ -55,7 +56,8 @@ const Skills = (props) => {
 		setSkillsDisplay,
 		lockTransitions,
 		setLockTransitions,
-		setBGColor
+		setBGColor,
+		setSection
 	} = props;
 	const { outputs, cmds, contType, fWidth, title } = skillsInfo;
 
@@ -78,11 +80,14 @@ const Skills = (props) => {
 	};
 
 	useEffect(() => {
+		
 		if (!skillsInView) return
+		setSection('skills', skillsInView)
 		setBGColor('default')
 	}, [skillsInView])
 
 	return (
+		<>
 		<InView onChange={(e) => startSeq(e)} triggerOnce={true}>
 			{({ ref }) => (
 				<>
@@ -213,10 +218,12 @@ const Skills = (props) => {
 							})}
 						</Grid>
 					</Grid>
-					<div ref={skillsRef}></div>
+					
 				</>
 			)}
 		</InView>
+		<Box ref={skillsRef} sx={{ position: 'absolute', height: '100%', width: '100%', visibility: 'hidden'}}>Center</Box>
+		</>
 	);
 };
 
@@ -235,5 +242,6 @@ export default connect(mapStateToProps, {
 	setSkillsInfo,
 	setSkillsDisplay,
 	setLockTransitions,
-	setBGColor
+	setBGColor,
+	setSection
 })(Skills);

@@ -1,3 +1,4 @@
+import React from 'react'
 import Modal from '@mui/material/Modal'
 import Card from '@mui/material/Card'
 import Grid from '@mui/material/Grid'
@@ -59,11 +60,11 @@ const ModalBase = (props) => {
                             </Grid>
                             <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center', p: 1, columnGap: 1, flexWrap: 'wrap'}}>
                                 {techUsed.map((e, i) => (
-                                    <>
+                                    <React.Fragment key={`${name}-tech-${i}`}>
                                     {i != 0 && <Typography variant='modalBody'>|</Typography>}
                                     <Typography variant='modalBody' sx={{ '&:hover': { color: 'primary.main' }}}>{e}</Typography>
                                     
-                                    </>
+                                    </React.Fragment>
                                 ))}
                             </Grid>
                             <Divider sx={{ width: '80%', color: 'blueGrey.600' }}/>

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import Image from 'next/image'
 import Grid from "@mui/material/Grid";
 import Fade from "@mui/material/Fade";
@@ -13,6 +14,8 @@ import EmailIcon from "@mui/icons-material/Email";
 import { InView, useInView } from "react-intersection-observer";
 import { keyframes } from "@emotion/react";
 
+import { setSection } from "../../actions";
+
 const slideIn = keyframes`
     from {
         transform: translateX(-25px);
@@ -26,10 +29,18 @@ const slideIn = keyframes`
 `;
 
 const Contact = (props) => {
-	const [inView, setInView] = useState(false);
+	const { setSection }= props
+    const [inView, setInView] = useState(false);
+    const [contactRef, contactInView] = useInView({ threshold: 0.8 })
+
+    useEffect(() => {
+        if (!contactInView) return
+        setSection('contact', contactInView)
+    }, [contactInView])
 
 	return (
-		<InView onChange={setInView} triggerOnce={true}>
+		<>
+        <InView onChange={setInView} triggerOnce={true}>
 			{({ ref }) => (
 				<>
 					<Fade in={inView} timeout={{ enter: 1000 }}>
@@ -134,7 +145,7 @@ const Contact = (props) => {
                     <Grid ref={ref} item xs={12} sx={{ display: 'flex', justifyContent: 'center', mt: 15 }}>
                         <Fade in={inView} timeout={{ enter: 5000 }}>
                         <Image 
-                            src='/proj-pics/logo.svg'
+                            src='/proj-pics/logo4.svg'
                             width='200'
                             height='200'
                             alt='logo'
@@ -144,7 +155,9 @@ const Contact = (props) => {
 				</>
 			)}
 		</InView>
+        <Box ref={contactRef} sx={{ position: 'absolute', top: '50%', left: '50%', visibility: 'hidden'}}>Center</Box>
+        </>
 	);
 };
 
-export default Contact;
+export default connect(null, { setSection })(Contact)

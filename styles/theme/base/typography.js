@@ -88,6 +88,12 @@ const typography = {
 		fontFamily: poppins.regular,
 		color: blueGrey[400],
 		fontSize: '16px'
+	},
+	navItem: {
+		fontWeight: baseProperties.fontWeightMedium,
+		fontFamily: poppins.regular,
+		color: white.main,
+		fontSize: '16px'
 	}
 };
 

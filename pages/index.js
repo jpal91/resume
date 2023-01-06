@@ -22,7 +22,7 @@ import Education from '../components/Sections/Education';
 import Projects from '../components/Sections/Projects';
 import Contact from '../components/Sections/Contact';
 
-import { setSplash, setBGColor } from '../actions'
+import { setSplash, setBGColor, setSection } from '../actions'
 
 const downButton = keyframes`
 	from {
@@ -47,9 +47,10 @@ const downArrow = keyframes`
 
 
 const Home = (props) => {
-	const { splash, skills, icons, skillsObj, workObj, setBGColor, projObj } = props
+	const { splash, skills, icons, skillsObj, workObj, setBGColor, projObj, setSection } = props
 	const [scrollId, setScrollId] = useState()
 	const { ref, inView } = useInView()
+	const [footRef, footInView] = useInView({ threshold: 0.8 })
 
 	useEffect(() => {
 		if (typeof window != undefined) {
@@ -58,9 +59,13 @@ const Home = (props) => {
 	}, [])
 
 	useEffect(() => {
-		if (!inView) return
-		setBGColor('blueGrey.400')
-	}, [inView])
+		if (footInView) {
+			setSection('footer')
+		} else if (inView) {
+			setSection('home', inView)
+			setBGColor('blueGrey.400')
+		}
+	}, [inView, footInView])
 
 	return (
 		<>
@@ -73,7 +78,7 @@ const Home = (props) => {
 				<Nav />
 				<Grid container sx={{height: '100vh'}}>
 					<Container sx={{ display: 'flex', width: '100%', height: '100%', flexDirection: 'column'}}>
-					<Grid item xs={12} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: {xs: 'center', sm: 'flex-start'}}}>
+					<Grid item xs={12} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: {xs: 'center', sm: 'center'}, position: 'relative'}}>
 						<div id='splash'></div>
 						<Terminal 
 							outputs={[["Hello, my name is Justin"], ["Welcome to my Resume"]]}
@@ -83,7 +88,7 @@ const Home = (props) => {
 							fWidth={true}
 							title={'~:bash'}
 						/>
-						<Box ref={ref} sx={{ position: 'absolute', top: '50%', left: '50%', visibility: 'hidden'}} />
+						<Box ref={ref} sx={{ position: 'absolute', top: '50%', left: '50%', visibility: 'hidden'}}>Center</Box>
 					</Grid>
 					<Grid item xs={12} sx={{ display: {xs: 'none', md: 'flex'}, justifyContent: 'flex-start', flexDirection: 'column', alignItems: 'center', opacity: splash >= 2 ? 1 : 0, transition: 'opacity 1s linear 1s' }}>
 						<ButtonBase disableRipple onClick={() => scrollId.scrollIntoView({ block: 'center', behavior: 'smooth', })} >
@@ -93,12 +98,12 @@ const Home = (props) => {
 					</Container>
 				</Grid>
 				<Grid container sx={{ display: 'flex', minHeight: '100vh', alignContent: 'flex-start', alignItems: 'center'}}>
-					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', p: 3}}>
+					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', p: 3, position: 'relative'}}>
 					<Skills icons={icons} skillsObj={skillsObj}/>
 					</Container>
 				</Grid>
 				<Grid container sx={{ minHeight: '100vh', backgroundColor: 'white.main', alignContent: 'flex-start'}}>
-					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', p: 3}}>
+					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', p: 3, position: 'relative'}}>
 						<WorkHistory workInfo={workObj}/>
 					</Container>
 				</Grid>
@@ -114,12 +119,12 @@ const Home = (props) => {
 					</Container>
 				</Grid>
 				<Grid container sx={{ backgroundColor: 'grey.700', minHeight: '80vh', display: 'flex', alignContent: 'flex-start'}}>
-					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', p: 3}}>
+					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', p: 3, position: 'relative'}}>
 						<Contact />
 					</Container>
 				</Grid>
-				<Grid container sx={{ backgroundColor: 'grey.900', minHeight: '20vh', display: 'flex', alignContent: 'flex-start'}}>
-
+				<Grid container sx={{ backgroundColor: 'grey.900', minHeight: '20vh', display: 'flex', alignContent: 'flex-start', position: 'relative'}}>
+					<Box id='footer' ref={footRef} sx={{ position: 'absolute', height: '100%', width: '100%', visibility: 'hidden'}}>Center</Box>
 				</Grid>
 			{/* </Container> */}
 			{/* </Container> */}
@@ -160,4 +165,4 @@ export const getStaticProps = async () => {
 	}
 }
 
-export default connect(mapStateToProps, { setSplash, setBGColor } )(Home)
+export default connect(mapStateToProps, { setSplash, setBGColor, setSection } )(Home)
