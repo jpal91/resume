@@ -183,6 +183,10 @@ const Nav = (props) => {
 													section == e && "underline",
 												textDecorationThickness: "5px",
 												textUnderlineOffset: "7px",
+                                                '&:hover': {
+                                                    color: 'lightGreen.A400',
+                                                },
+                                                transition: 'color 0.5s ease-out'
 											}}
 										>
 											<Typography
