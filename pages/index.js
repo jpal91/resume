@@ -76,13 +76,13 @@ const Home = (props) => {
 			{/* <Container sx={{ maxWidth: '100%', maxHeight: '100%' }}> */}
 				{/* <NavBar /> */}
 				<Nav />
-				<Grid container sx={{height: '100vh'}}>
+				<Grid id='home-sec' container sx={{height: '100vh'}}>
 					<Container sx={{ display: 'flex', width: '100%', height: '100%', flexDirection: 'column'}}>
 					<Grid item xs={12} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: {xs: 'center', sm: 'center'}, position: 'relative'}}>
 						<div id='splash'></div>
 						<Terminal 
 							outputs={[["Hello, my name is Justin"], ["Welcome to my Resume"]]}
-							cmds={[[" cat names.txt | grep $MY_NAME | echo"], ["echo $MY_GREETING"]]}
+							cmds={[[" echo Hello, my name is $(grep '^J.*n$' names.txt)"], ["echo $MY_GREETING"]]}
 							contType={'splash'}
 							contState={splash}
 							fWidth={true}
@@ -97,33 +97,33 @@ const Home = (props) => {
 					</Grid>
 					</Container>
 				</Grid>
-				<Grid container sx={{ display: 'flex', minHeight: '100vh', alignContent: 'flex-start', alignItems: 'center'}}>
+				<Grid id='skills-sec' container sx={{ display: 'flex', minHeight: '100vh', alignContent: 'flex-start', alignItems: 'center'}}>
 					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', p: 3, position: 'relative'}}>
 					<Skills icons={icons} skillsObj={skillsObj}/>
 					</Container>
 				</Grid>
-				<Grid container sx={{ minHeight: '100vh', backgroundColor: 'white.main', alignContent: 'flex-start'}}>
+				<Grid id='workhistory-sec' container sx={{ minHeight: '100vh', backgroundColor: 'white.main', alignContent: 'flex-start'}}>
 					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', p: 3, position: 'relative'}}>
 						<WorkHistory workInfo={workObj}/>
 					</Container>
 				</Grid>
-				<Grid container sx={{ backgroundColor: 'grey.400', minHeight: '50vh', display: 'flex', alignContent: 'flex-start' }}>
+				<Grid id='education-sec' container sx={{ backgroundColor: 'grey.400', minHeight: '50vh', display: 'flex', alignContent: 'flex-start' }}>
 					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', p: 3, position: 'relative'}}>
 						<Education />
 					</Container>
 				</Grid>
 				
-				<Grid container sx={{  backgroundColor: 'grey.600', minHeight: '100vh', backgroundImage: 'linear-gradient(to bottom right, transparent 49.9%, #03a9f4 50%), linear-gradient(to top left, transparent 49.9%, #78909c 0)',}}>
+				<Grid id='projects-sec' container sx={{  backgroundColor: 'grey.600', minHeight: '100vh', backgroundImage: 'linear-gradient(to bottom right, transparent 49.9%, #03a9f4 50%), linear-gradient(to top left, transparent 49.9%, #78909c 0)',}}>
 					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', p: 5, position: 'relative'}}>
 						<Projects projects={projObj}/>
 					</Container>
 				</Grid>
-				<Grid container sx={{ backgroundColor: 'grey.700', minHeight: '80vh', display: 'flex', alignContent: 'flex-start'}}>
+				<Grid id='contact-sec' container sx={{ backgroundColor: 'grey.700', minHeight: '80vh', display: 'flex', alignContent: 'flex-start'}}>
 					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', p: 3, position: 'relative'}}>
 						<Contact />
 					</Container>
 				</Grid>
-				<Grid container sx={{ backgroundColor: 'grey.900', minHeight: '20vh', display: 'flex', alignContent: 'flex-start', position: 'relative'}}>
+				<Grid id='footer-sec' container sx={{ backgroundColor: 'grey.900', minHeight: '20vh', display: 'flex', alignContent: 'flex-start', position: 'relative'}}>
 					<Box id='footer' ref={footRef} sx={{ position: 'absolute', height: '100%', width: '100%', visibility: 'hidden'}}>Center</Box>
 				</Grid>
 			{/* </Container> */}
