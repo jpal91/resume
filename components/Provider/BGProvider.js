@@ -24,6 +24,7 @@ const BGProvider = (props) => {
 	const bgMap = {
 		default: background.default,
 		"blueGrey.400": background.blueGrey[400],
+		project: background.default
 	};
 	const globalStyles = (
 		<GlobalStyles

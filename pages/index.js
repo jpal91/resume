@@ -6,6 +6,7 @@ import Head from "next/head";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import Paper from '@mui/material/Paper'
+import Box from '@mui/material/Box'
 import ButtonBase from '@mui/material/ButtonBase'
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -13,6 +14,7 @@ import { keyframes } from '@emotion/react';
 import { InView, useInView } from "react-intersection-observer";
 
 import NavBar from '../components/NavBar/NavBar'
+import Nav  from '../components/NavBar/Nav';
 import Terminal from '../components/Splash/Terminal'
 import Skills from '../components/Sections/Skills';
 import WorkHistory from '../components/Sections/WorkHistory'
@@ -68,10 +70,11 @@ const Home = (props) => {
 			{/* <Container sx={{ width: '100% !important', height: '100% !important', maxWidth: '100% !important', maxHeight: '100% !important', p: '0px !important', m: '0px !important', backgroundColor: bgColor, transition: 'background-color 1s linear', }}> */}
 			{/* <Container sx={{ maxWidth: '100%', maxHeight: '100%' }}> */}
 				{/* <NavBar /> */}
+				<Nav />
 				<Grid container sx={{height: '100vh'}}>
 					<Container sx={{ display: 'flex', width: '100%', height: '100%', flexDirection: 'column'}}>
-					<Grid item xs={12} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: {xs: 'center', sm: 'flex-end'}}}>
-						<div id='splash' ref={ref}></div>
+					<Grid item xs={12} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: {xs: 'center', sm: 'flex-start'}}}>
+						<div id='splash'></div>
 						<Terminal 
 							outputs={[["Hello, my name is Justin"], ["Welcome to my Resume"]]}
 							cmds={[[" cat names.txt | grep $MY_NAME | echo"], ["echo $MY_GREETING"]]}
@@ -80,9 +83,9 @@ const Home = (props) => {
 							fWidth={true}
 							title={'~:bash'}
 						/>
-						
+						<Box ref={ref} sx={{ position: 'absolute', top: '50%', left: '50%', visibility: 'hidden'}} />
 					</Grid>
-					<Grid item xs={12} sx={{ display: {xs: 'none', md: 'flex'}, justifyContent: 'center', flexDirection: 'column', alignItems: 'center', opacity: splash >= 2 ? 1 : 0, transition: 'opacity 1s linear 1s' }}>
+					<Grid item xs={12} sx={{ display: {xs: 'none', md: 'flex'}, justifyContent: 'flex-start', flexDirection: 'column', alignItems: 'center', opacity: splash >= 2 ? 1 : 0, transition: 'opacity 1s linear 1s' }}>
 						<ButtonBase disableRipple onClick={() => scrollId.scrollIntoView({ block: 'center', behavior: 'smooth', })} >
 							<KeyboardDoubleArrowDownIcon sx={{ fontSize: '84px', color: inView ? 'white.main' : 'blueGrey.400', animation: splash >= 2 && `${downArrow} 2s ease-in alternate infinite`, transition: 'color 1s linear', }}/>
 						</ButtonBase>
@@ -100,13 +103,13 @@ const Home = (props) => {
 					</Container>
 				</Grid>
 				<Grid container sx={{ backgroundColor: 'grey.400', minHeight: '50vh', display: 'flex', alignContent: 'flex-start' }}>
-					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', p: 3}}>
+					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', p: 3, position: 'relative'}}>
 						<Education />
 					</Container>
 				</Grid>
 				
 				<Grid container sx={{  backgroundColor: 'grey.600', minHeight: '100vh', backgroundImage: 'linear-gradient(to bottom right, transparent 49.9%, #03a9f4 50%), linear-gradient(to top left, transparent 49.9%, #78909c 0)',}}>
-					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', p: 5,}}>
+					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', p: 5, position: 'relative'}}>
 						<Projects projects={projObj}/>
 					</Container>
 				</Grid>

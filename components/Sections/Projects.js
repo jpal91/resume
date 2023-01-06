@@ -42,16 +42,17 @@ const Projects = (props) => {
 	const [projRef, projInView] = useInView();
 
 	useEffect(() => {
-		if (!projInView) return;
-		setBGColor("default");
+
+        if (!projInView) return;
+		setBGColor("project");
 	}, [projInView]);
 
 	return (
+        <>
 		<InView onChange={setInView} triggerOnce={true}>
 			{({ ref }) => (
 				<>
 					<div ref={ref}></div>
-					<div ref={projRef}></div>
 					<Fade in={inView} timeout={{ enter: 1000 }}>
 						<Grid
 							item
@@ -220,6 +221,8 @@ const Projects = (props) => {
 				</>
 			)}
 		</InView>
+        <Box ref={projRef} sx={{ position: 'absolute', top: '50%', left: '50%', visibility: 'hidden'}}>Center</Box>
+        </>
 	);
 };
 

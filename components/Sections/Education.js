@@ -56,7 +56,7 @@ const Education = (props) => {
                             </Box>
                             <Image src='/proj-pics/app_state.svg' height={300} width={200} alt='app-state'/>
                         </Grid>
-                    <div ref={eduRef}></div>
+                    <Box ref={eduRef} sx={{ position: 'absolute', top: '20%', left: '50%', visibility: 'hidden'}}>Center</Box>
                 </>
             )}
         </InView>

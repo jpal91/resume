@@ -34,7 +34,7 @@ const Contact = (props) => {
 				<>
 					<Fade in={inView} timeout={{ enter: 1000 }}>
 						<Grid
-							ref={ref}
+							
 							item
 							xs={12}
 							sx={{
@@ -131,7 +131,7 @@ const Contact = (props) => {
                             </Link>
 						</ButtonBase>
 					</Grid>
-                    <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center', mt: 15 }}>
+                    <Grid ref={ref} item xs={12} sx={{ display: 'flex', justifyContent: 'center', mt: 15 }}>
                         <Fade in={inView} timeout={{ enter: 5000 }}>
                         <Image 
                             src='/proj-pics/logo.svg'
