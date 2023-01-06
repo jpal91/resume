@@ -62,7 +62,7 @@ const Home = (props) => {
 
 	useEffect(() => {
 		if (footInView) {
-			setSection('footer')
+			// setSection('footer')
 		} else if (inView) {
 			setSection('home', inView)
 			setBGColor('blueGrey.400')

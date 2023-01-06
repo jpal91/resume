@@ -37,7 +37,7 @@ const ModalBase = (props) => {
                 <Grid container sx={{ display: 'flex' }}>
                     <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'flex-end', p: 1, mr: 1.5, mt: 1}}>
                         <ButtonBase onClick={handleClose} sx={{ borderRadius: '100%'}}>
-                            <CloseIcon sx={{ backgroundColor: 'primary.main', borderRadius: '100%', color: 'white.main' }}/>
+                            <CloseIcon sx={{ backgroundColor: 'primary.main', borderRadius: '100%', color: 'white.main', '&:hover': { filter: 'brightness(0.8)'}, transition: 'filter 0.5s ease-out' }}/>
                         </ButtonBase>
                     </Grid>
                     <Grid container item xs={12} sx={{ display: 'flex', px: 2, pb: 2 }}>
@@ -89,13 +89,13 @@ const ModalBase = (props) => {
                                 
                                 <ButtonBase aria-label='Link to GitHub' title='Link to GitHub' sx={{ borderRadius: '100%' }}>
                                     <Link color='inherit' href={github} target='_blank' rel='noopener noreferrer'>
-                                        <GitHubIcon fontSize='large' sx={{ color: 'black.main', '&:hover': { color: 'primary.main' }}}/>
+                                        <GitHubIcon fontSize='large' sx={{ color: 'black.main', '&:hover': { color: 'primary.main' }, transition: 'color 0.5s ease-out'}}/>
                                     </Link>
                                 </ButtonBase>
                                 
                                 <ButtonBase aria-label='Link to Project Website' title='Link to Project Website' sx={{ borderRadius: '100%' }}>
                                     <Link color='inherit' href={website} target='_blank' rel='noopener noreferrer'>
-                                        <LaunchIcon fontSize='large'sx={{ color: 'black.main', '&:hover': { color: 'primary.main' }}}/>
+                                        <LaunchIcon fontSize='large'sx={{ color: 'black.main', '&:hover': { color: 'primary.main' }, transition: 'color 0.5s ease-out'}}/>
                                     </Link>
                                 </ButtonBase>
                             </Grid>
