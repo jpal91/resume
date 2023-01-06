@@ -9,7 +9,7 @@ import Paper from '@mui/material/Paper'
 import Box from '@mui/material/Box'
 import ButtonBase from '@mui/material/ButtonBase'
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 import { keyframes } from '@emotion/react';
 import { InView, useInView } from "react-intersection-observer";
 
@@ -49,12 +49,14 @@ const downArrow = keyframes`
 const Home = (props) => {
 	const { splash, skills, icons, skillsObj, workObj, setBGColor, projObj, setSection } = props
 	const [scrollId, setScrollId] = useState()
+	const [homeScrollId, setHomeScrollId] = useState()
 	const { ref, inView } = useInView()
 	const [footRef, footInView] = useInView({ threshold: 0.8 })
 
 	useEffect(() => {
 		if (typeof window != undefined) {
 			setScrollId(document.getElementById('skills-terminal'))
+			setHomeScrollId(document.getElementById('home-sec'))
 		}
 	}, [])
 
@@ -125,6 +127,13 @@ const Home = (props) => {
 				</Grid>
 				<Grid id='footer-sec' container sx={{ backgroundColor: 'grey.900', minHeight: '20vh', display: 'flex', alignContent: 'flex-start', position: 'relative'}}>
 					<Box id='footer' ref={footRef} sx={{ position: 'absolute', height: '100%', width: '100%', visibility: 'hidden'}}>Center</Box>
+					<ButtonBase disableRipple onClick={() => homeScrollId.scrollIntoView({ block: 'start', behavior: 'smooth'})}>
+					<Box sx={{ display: 'flex', justifyContent: 'center', position: 'relative', }}>
+						<Box sx={{ backgroundColor: 'primary.main', position: 'absolute', top: 0, left: '', mt: -4, '&:hover': { filter: 'brightness(1.1)'}, transition: 'filter 0.5s linear'  }}>
+							<KeyboardDoubleArrowUpIcon sx={{ color: 'white.main', fontSize: '64px',}} />
+						</Box>
+					</Box>
+					</ButtonBase>
 				</Grid>
 			{/* </Container> */}
 			{/* </Container> */}

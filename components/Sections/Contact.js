@@ -102,7 +102,8 @@ const Contact = (props) => {
                                         opacity: 0,
                                         "&:hover": {
                                             color: 'primary.main'
-                                        }
+                                        },
+                                        transition: 'color 0.5s ease-out'
                                     }}
                                 />
                             </Link>
@@ -119,7 +120,8 @@ const Contact = (props) => {
                                         opacity: 0,
                                         "&:hover": {
                                             color: 'primary.main'
-                                        }
+                                        },
+                                        transition: 'color 0.5s ease-out'
                                     }}
                                 />
                             </Link>
@@ -136,7 +138,8 @@ const Contact = (props) => {
                                         opacity: 0,
                                         "&:hover": {
                                             color: 'primary.main'
-                                        }
+                                        },
+                                        transition: 'color 0.5s ease-out'
                                     }}
                                 />
                             </Link>
