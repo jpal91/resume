@@ -110,10 +110,13 @@ const Home = (props) => {
 						<Projects projects={projObj}/>
 					</Container>
 				</Grid>
-				<Grid container sx={{ backgroundColor: 'grey.800', minHeight: '100vh', display: 'flex', alignContent: 'flex-start'}}>
+				<Grid container sx={{ backgroundColor: 'grey.700', minHeight: '80vh', display: 'flex', alignContent: 'flex-start'}}>
 					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', p: 3}}>
 						<Contact />
 					</Container>
+				</Grid>
+				<Grid container sx={{ backgroundColor: 'grey.900', minHeight: '20vh', display: 'flex', alignContent: 'flex-start'}}>
+
 				</Grid>
 			{/* </Container> */}
 			{/* </Container> */}

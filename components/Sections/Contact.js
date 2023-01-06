@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Image from 'next/image'
 import Grid from "@mui/material/Grid";
 import Fade from "@mui/material/Fade";
 import Typography from "@mui/material/Typography";
@@ -130,6 +131,16 @@ const Contact = (props) => {
                             </Link>
 						</ButtonBase>
 					</Grid>
+                    <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center', mt: 15 }}>
+                        <Fade in={inView} timeout={{ enter: 5000 }}>
+                        <Image 
+                            src='/proj-pics/logo.svg'
+                            width='200'
+                            height='200'
+                            alt='logo'
+                        />
+                        </Fade>
+                    </Grid>
 				</>
 			)}
 		</InView>
