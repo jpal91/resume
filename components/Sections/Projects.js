@@ -59,7 +59,7 @@ const Projects = (props) => {
 							sx={{
 								display: "flex",
 								justifyContent: "center",
-								flexDirection: "column",
+								flexDirection: "row",
 								alignItems: "center",
 							}}
 						>

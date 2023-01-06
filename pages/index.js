@@ -18,6 +18,7 @@ import Skills from '../components/Sections/Skills';
 import WorkHistory from '../components/Sections/WorkHistory'
 import Education from '../components/Sections/Education';
 import Projects from '../components/Sections/Projects';
+import Contact from '../components/Sections/Contact';
 
 import { setSplash, setBGColor } from '../actions'
 
@@ -106,7 +107,12 @@ const Home = (props) => {
 				
 				<Grid container sx={{  backgroundColor: 'grey.600', minHeight: '100vh', backgroundImage: 'linear-gradient(to bottom right, transparent 49.9%, #03a9f4 50%), linear-gradient(to top left, transparent 49.9%, #78909c 0)',}}>
 					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', p: 5,}}>
-					<Projects projects={projObj}/>
+						<Projects projects={projObj}/>
+					</Container>
+				</Grid>
+				<Grid container sx={{ backgroundColor: 'grey.800', minHeight: '100vh', display: 'flex', alignContent: 'flex-start'}}>
+					<Container sx={{ maxWidth: '100%', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', p: 3}}>
+						<Contact />
 					</Container>
 				</Grid>
 			{/* </Container> */}
