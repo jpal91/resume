@@ -23,17 +23,7 @@ const slideIn = keyframes`
 
 const ProjCard = (props) => {
 	const { project, index } = props;
-	const {
-		name,
-		description,
-		startDate,
-		endDate,
-		website,
-		github,
-		image,
-		techUsed,
-		subHeader,
-	} = project;
+	const { name, image } = project;
 
 	return (
 		<InView triggerOnce={true}>
@@ -107,18 +97,7 @@ const ProjCard = (props) => {
 						>
 							<Typography variant="cardHeader">{name}</Typography>
 
-							<ProjModal
-								key={index}
-								id={index}
-								name={name}
-								description={description}
-								startDate={startDate}
-								endDate={endDate}
-								website={website}
-								github={github}
-								techUsed={techUsed && techUsed}
-								subHeader={subHeader}
-							/>
+							<ProjModal key={index} project={project} />
 						</Grid>
 					</Box>
 				</Card>

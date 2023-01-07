@@ -26,11 +26,11 @@ const Projects = (props) => {
 			<InView onChange={setInView} triggerOnce={true}>
 				{({ ref }) => (
 					<>
-						<div ref={ref}></div>
 						<Fade in={inView} timeout={{ enter: 1000 }}>
 							<Grid
 								item
 								xs={12}
+								ref={ref}
 								sx={{
 									display: "flex",
 									justifyContent: "center",
