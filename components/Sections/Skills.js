@@ -148,12 +148,6 @@ const Skills = (props) => {
 											xs: 'none',
 											lg: `${3 / 16}rem solid`,
 										},
-										
-										borderBottom: {
-											xs: 'none',
-											sm: `${3 / 16}rem solid`,
-											lg: 'none'
-										},
 										borderColor: { sm: 'primary.main', lg: "primary.main"},
 										height: "500px",
 										pb: { xs: 3, lg: 0 }
