@@ -322,7 +322,7 @@ const Home = (props) => {
 								position: "absolute",
 								top: 0,
 								left: "",
-								mt: -4,
+								mt: { xs: 4, sm: -4 },
 								"&:hover": { filter: "brightness(1.1)" },
 								transition: "filter 0.5s linear",
 							}}
