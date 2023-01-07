@@ -80,7 +80,7 @@ const Skills = (props) => {
 	useEffect(() => {
 		
 		if (!skillsInView) return
-		setSection('skills', skillsInView)
+		setSection('skills')
 	}, [skillsInView])
 
 	return (

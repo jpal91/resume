@@ -37,7 +37,7 @@ const WorkHistory = (props) => {
     useEffect(() => {
         
         if (!workInView) return
-        setSection('work history', workInView)
+        setSection('work history')
 
     }, [workInView])
 

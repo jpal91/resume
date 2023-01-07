@@ -67,7 +67,7 @@ const Home = (props) => {
 
 	useEffect(() => {
 		if (inView) {
-			setSection("home", inView);
+			setSection("home");
 		}
 	}, [inView, footInView]);
 

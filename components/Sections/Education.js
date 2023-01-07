@@ -31,7 +31,7 @@ const Education = (props) => {
     useEffect(() => {
         
         if (!eduInView) return
-        setSection('education', eduInView)
+        setSection('education')
     }, [eduInView])
 
 

@@ -35,7 +35,7 @@ const Contact = (props) => {
 
     useEffect(() => {
         if (!contactInView) return
-        setSection('contact', contactInView)
+        setSection('contact')
     }, [contactInView])
 
 	return (

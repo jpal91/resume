@@ -61,22 +61,8 @@ const lockTransitions = (state=false, action) => {
 }
 
 
-const sectionState = {
-    home: false,
-    skills: false,
-    'work history': false,
-    education: false,
-    projects: false,
-    contact: false
-}
-
 const section = (state='home', action) => {
     if (action.type == 'SET_SECTION') {
-        // const { section, status } = action.payload
-        // const currentState = state
-        // currentState[section] = status
-
-        // return currentState
         return action.payload
     } else {
         return state

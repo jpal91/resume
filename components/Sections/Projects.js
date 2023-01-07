@@ -44,7 +44,7 @@ const Projects = (props) => {
 	useEffect(() => {
 		
         if (!projInView) return;
-		setSection('projects', projInView)
+		setSection('projects')
 
 	}, [projInView]);
 

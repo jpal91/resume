@@ -28,6 +28,6 @@ export const setLockTransitions = (bool) => {
 }
 
 
-export const setSection = (section, status) => {
+export const setSection = (section) => {
     return { type: 'SET_SECTION', payload: section }
 }
