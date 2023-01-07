@@ -22,14 +22,6 @@ import Contact from "../components/Sections/Contact";
 
 import { setSplash, setSection } from "../actions";
 
-const downButton = keyframes`
-	from {
-		transform: translateY(0px)
-	}
-	to {
-		transform: translateY(25px)
-	}
-`;
 
 const downArrow = keyframes`
 	from {
@@ -49,10 +41,10 @@ const Home = (props) => {
 		icons,
 		skillsObj,
 		workObj,
-
 		projObj,
 		setSection,
 	} = props;
+	
 	const [scrollId, setScrollId] = useState();
 	const [homeScrollId, setHomeScrollId] = useState();
 	const { ref, inView } = useInView();
