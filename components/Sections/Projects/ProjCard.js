@@ -44,7 +44,7 @@ const ProjCard = (props) => {
 					<Box
 						sx={{
 							position: "relative",
-							width: "400px",
+							width: { xs: '350px', sm: '400px' },
 							minHeight: "200px",
 							backgroundImage:
 								"radial-gradient(farthest-corner at bottom 20px right 40px, #546e7a -40%, #2196f3 60%)",
