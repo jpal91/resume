@@ -122,7 +122,7 @@ const Home = (props) => {
 						item
 						xs={12}
 						sx={{
-							display: { xs: "none", md: "flex" },
+							display: { xs: "none", sm: "flex" },
 							justifyContent: "flex-start",
 							flexDirection: "column",
 							alignItems: "center",
@@ -186,6 +186,7 @@ const Home = (props) => {
 					minHeight: "100vh",
 					backgroundColor: "white.main",
 					alignContent: "flex-start",
+
 				}}
 			>
 				<Container

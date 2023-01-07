@@ -14,7 +14,7 @@ import { setSection } from "../../../actions";
 const Projects = (props) => {
 	const { projects, setSection } = props;
 	const [inView, setInView] = useState(false);
-	const [projRef, projInView] = useInView({ threshold: 0.55 });
+	const [projRef, projInView] = useInView({ threshold: 0.35 });
 
 	useEffect(() => {
 		if (!projInView) return;
@@ -99,6 +99,8 @@ const Projects = (props) => {
 					height: "100%",
 					width: "100%",
 					visibility: "hidden",
+					top: 0,
+                    left: 0
 				}}
 			>
 				Center

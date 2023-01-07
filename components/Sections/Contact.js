@@ -158,7 +158,7 @@ const Contact = (props) => {
 				</>
 			)}
 		</InView>
-        <Box ref={contactRef} sx={{ position: 'absolute', top: '50%', left: '50%', visibility: 'hidden'}}>Center</Box>
+        <Box ref={contactRef} sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', visibility: 'hidden'}}>Center</Box>
         </>
 	);
 };

@@ -9,6 +9,7 @@ import Typography from "@mui/material/Typography";
 import SvgIcon from "@mui/material/SvgIcon";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import { keyframes } from "@emotion/react";
+import { useMediaQuery } from "@mui/material";
 
 import Logo from "./Logo";
 
@@ -62,6 +63,7 @@ const Nav = (props) => {
     const timeRef = useRef()
 	const trigger = useScrollTrigger();
 	const { section } = props;
+	const mediaQuery = useMediaQuery('(pointer: fine)')
 
     
 
@@ -70,6 +72,7 @@ const Nav = (props) => {
 			const ids = getIds(sections)
 			setScrollIds(ids);
 		}
+		console.log(mediaQuery)
 	}, []);
 
     // useEffect(() => {
@@ -138,19 +141,19 @@ const Nav = (props) => {
 			{/* <Slide appear={false} direction='down' in={!trigger && section != 'footer' && section != 'home'} addEndListener={() => console.log('Done')}> */}
 			<AppBar
 				sx={{
-					mt: 1,
+					mt: { xs: 0, md: 1 },
 					width: "max-content",
-					minWidth: "60%",
+					minWidth: { xs: '100%', md: '90%', lg: '80%', xl: '60%' },
 					maxWidth: '100%',
-					display: "center",
+					display: { xs: 'none', sm: 'flex' },
 					mx: "auto",
-					borderRadius: "10px",
+					borderRadius: { xs: 0, md: "10px"},
 					backgroundColor: "primary.main",
-                    // animation: scroll ? `${show} 1s ease-in forwards`: `${hide} 1s ease-in forwards`,
-                    // '&:hover': {
-                    //     opacity: 1,
-                    //     animation: `${show} 1s ease-in forwards`
-                    // },
+                    animation: scroll || !mediaQuery ? `${show} 1s ease-in forwards`: `${hide} 1s ease-in forwards`,
+                    '&:hover': {
+                        opacity: 1,
+                        animation: `${show} 1s ease-in forwards`
+                    },
 				}}
 
 			>
@@ -177,7 +180,7 @@ const Nav = (props) => {
 								display: "flex",
 								alignItems: "center",
 								justifyContent: "center",
-								columnGap: 5.5,
+								columnGap: { sm: 2, md: 4, lg: 5 },
 							}}
 						>
 							{sections.map((e, i) => (
@@ -204,7 +207,7 @@ const Nav = (props) => {
 												textDecorationThickness: "5px",
 												textUnderlineOffset: "7px",
                                                 '&:hover': {
-                                                    color: 'lightGreen.A400',
+                                                    color: mediaQuery && 'lightGreen.A400',
                                                 },
                                                 transition: 'color 0.5s ease-out'
 											}}
