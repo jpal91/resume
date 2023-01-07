@@ -58,6 +58,7 @@ const sections = [
 const Nav = (props) => {
 	const [scrollIds, setScrollIds] = useState({});
 	const [scroll, setScroll] = useState(false);
+	const [lastSection, setLastSection] = useState('home')
     const timeRef = useRef()
 	const trigger = useScrollTrigger();
 	const { section } = props;
@@ -71,34 +72,51 @@ const Nav = (props) => {
 		}
 	}, []);
 
-    useEffect(() => {
+    // useEffect(() => {
         
 
-        if (!scroll) {
-            document.addEventListener('scroll', (event) => {
+    //     if (!scroll) {
+    //         document.addEventListener('scroll', (event) => {
                 
-                    setScroll(true)
+    //                 setScroll(true)
 
 
-            })
+    //         })
             
 
             
-        }
+    //     }
 
-        if (scroll) {
+    //     if (scroll) {
 
-        timeRef.current = setTimeout(() => {
+    //     timeRef.current = setTimeout(() => {
 
-            setScroll(false)
-        }, 3000)
-        }
+    //         setScroll(false)
+    //     }, 3000)
+    //     }
 
-        return () => {
-            clearTimeout(timeRef.current)
-        }
+    //     return () => {
+    //         clearTimeout(timeRef.current)
+    //     }
         
-    })
+    // })
+
+	// useEffect(() => {
+	// 	if (section != lastSection) {
+	// 		setScroll(true)
+	// 	}
+
+	// 	if (scroll) {
+	// 		timeRef.current = setTimeout(() => {
+	// 			setScroll(false)
+	// 			setLastSection(section)
+	// 		}, 3000)
+	// 	}
+
+	// 	return () => {
+	// 		clearTimeout(timeRef.current)
+	// 	}
+	// }, [section, lastSection, scroll])
 
     // useEffect(() => {
     //     if (trigger && !scroll) {
