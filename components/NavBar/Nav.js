@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import Slide from "@mui/material/Slide";
+import Box from '@mui/material/Box'
 import ButtonBase from "@mui/material/ButtonBase";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
@@ -101,22 +101,22 @@ const Nav = (props) => {
         
     // })
 
-	// useEffect(() => {
-	// 	if (section != lastSection) {
-	// 		setScroll(true)
-	// 	}
+	useEffect(() => {
+		if (section != lastSection && !scroll) {
+			setScroll(true)
+		}
 
-	// 	if (scroll) {
-	// 		timeRef.current = setTimeout(() => {
-	// 			setScroll(false)
-	// 			setLastSection(section)
-	// 		}, 3000)
-	// 	}
+		if (scroll) {
+			timeRef.current = setTimeout(() => {
+				setScroll(false)
+				setLastSection(section)
+			}, 3000)
+		}
 
-	// 	return () => {
-	// 		clearTimeout(timeRef.current)
-	// 	}
-	// }, [section, lastSection, scroll])
+		return () => {
+			clearTimeout(timeRef.current)
+		}
+	}, [section, lastSection, scroll])
 
     // useEffect(() => {
     //     if (trigger && !scroll) {
@@ -139,17 +139,18 @@ const Nav = (props) => {
 			<AppBar
 				sx={{
 					mt: 1,
-					width: "min-content",
+					width: "max-content",
 					minWidth: "60%",
+					maxWidth: '100%',
 					display: "center",
 					mx: "auto",
 					borderRadius: "10px",
 					backgroundColor: "primary.main",
-                    animation: scroll ? `${show} 1s ease-in forwards`: `${hide} 1s ease-in forwards`,
-                    '&:hover': {
-                        opacity: 1,
-                        animation: `${show} 1s ease-in forwards`
-                    },
+                    // animation: scroll ? `${show} 1s ease-in forwards`: `${hide} 1s ease-in forwards`,
+                    // '&:hover': {
+                    //     opacity: 1,
+                    //     animation: `${show} 1s ease-in forwards`
+                    // },
 				}}
 
 			>
@@ -191,6 +192,7 @@ const Nav = (props) => {
 											})
 										}
 									>
+
 										<Typography
 											variant="navItem"
 											sx={{
@@ -219,6 +221,7 @@ const Nav = (props) => {
 											>{`>> `}</Typography>
 											{e}
 										</Typography>
+
 									</ButtonBase>
 								</React.Fragment>
 							))}
