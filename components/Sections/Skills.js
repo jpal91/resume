@@ -6,24 +6,23 @@ import Box from "@mui/material/Box";
 import Fade from "@mui/material/Fade";
 import Typograhpy from "@mui/material/Typography";
 import ButtonBase from "@mui/material/ButtonBase";
-import Divider from '@mui/material/Divider'
-import BuildIcon from '@mui/icons-material/Build';
+import BuildIcon from "@mui/icons-material/Build";
 import { InView, useInView } from "react-intersection-observer";
 
 import Terminal from "../Splash/Terminal";
-import SkillsInfo from "./SkillsInfo";
+
 import {
 	controller,
 	setSkillsInfo,
 	setSkillsDisplay,
 	setLockTransitions,
-	setSection
+	setSection,
 } from "../../actions";
 
 const Skills = (props) => {
 	const [inView, setInView] = useState(false);
 	const [curName, setName] = useState("main");
-	const [skillsRef, skillsInView] = useInView({ threshold: 0.55 })
+	const [skillsRef, skillsInView] = useInView({ threshold: 0.55 });
 
 	/**
 	 * skills Int - Initial controller for skills terminal, controls what is being displayed and icons appearing (updated by controller)
@@ -55,7 +54,7 @@ const Skills = (props) => {
 		setSkillsDisplay,
 		lockTransitions,
 		setLockTransitions,
-		setSection
+		setSection,
 	} = props;
 	const { outputs, cmds, contType, fWidth, title } = skillsInfo;
 
@@ -64,7 +63,6 @@ const Skills = (props) => {
 
 		setInView(true);
 		controller("skills", 0);
-
 	};
 
 	const updateSkills = (name) => {
@@ -78,148 +76,169 @@ const Skills = (props) => {
 	};
 
 	useEffect(() => {
-		
-		if (!skillsInView) return
-		setSection('skills')
-	}, [skillsInView])
+		if (!skillsInView) return;
+		setSection("skills");
+	}, [skillsInView]);
 
 	return (
 		<>
-		<InView onChange={(e) => startSeq(e)} triggerOnce={true}>
-			{({ ref }) => (
-				<>
-					
-					<Fade
-						in={inView && skillsDisplay < 2}
-						timeout={{ enter: 1000, exit: 100 }}
-					>
-						<Grid  item xs={12} sx={{ display: "flex", justifyContent: 'center', alignItems: 'center', mb: { xs: 0, sm: 4 } }}>
-							<Typograhpy variant="h3" sx={{ py: 2, px: 2,}}>skills</Typograhpy>
-							<Box sx={{ display: 'flex', borderRadius: '100%', border: `${3/16}rem solid`, borderColor: 'primary.main', p: 1}}>
-								<BuildIcon sx={{ color: 'primary.main', fontSize: '40px', }}/>
-							</Box>
-						</Grid>
-					</Fade>
-					<Grid item xs={12} sx={{ display: "flex", mt: 2 }}>
+			<InView onChange={(e) => startSeq(e)} triggerOnce={true}>
+				{({ ref }) => (
+					<>
 						<Fade
 							in={inView && skillsDisplay < 2}
-							ref={ref}
 							timeout={{ enter: 1000, exit: 100 }}
 						>
 							<Grid
 								item
-								id='skills-terminal'
+								xs={12}
+								sx={{
+									display: "flex",
+									justifyContent: "center",
+									alignItems: "center",
+									mb: { xs: 0, sm: 4 },
+								}}
+							>
+								<Typograhpy variant="h3" sx={{ py: 2, px: 2 }}>
+									skills
+								</Typograhpy>
+								<Box
+									sx={{
+										display: "flex",
+										borderRadius: "100%",
+										border: `${3 / 16}rem solid`,
+										borderColor: "primary.main",
+										p: 1,
+									}}
+								>
+									<BuildIcon
+										sx={{
+											color: "primary.main",
+											fontSize: "40px",
+										}}
+									/>
+								</Box>
+							</Grid>
+						</Fade>
+
+						<Grid item xs={12} sx={{ display: "flex", mt: 2 }}>
+							<Fade
+								in={inView && skillsDisplay < 2}
+								ref={ref}
+								timeout={{ enter: 1000, exit: 100 }}
+							>
+								<Grid
+									item
+									id="skills-terminal"
+									xs={12}
+									sm={6}
+									xl={6}
+									sx={{
+										width: "100%",
+										display:
+											skillsDisplay >= 2
+												? "none"
+												: "flex",
+										justifyContent: "center",
+										alignItems: "center",
+										borderRight: {
+											sm: `${3 / 16}rem solid`,
+										},
+										borderColor: { sm: "primary.main" },
+										height: "500px",
+									}}
+								>
+									<Terminal
+										name={curName}
+										cmds={cmds}
+										outputs={outputs}
+										contType={contType}
+										contState={
+											skillsDisplay == 0
+												? skills
+												: altSkills
+										}
+										fWdith={fWidth}
+										title={title}
+										hidden={skillsDisplay >= 2}
+									/>
+								</Grid>
+							</Fade>
+
+							{/* Future section for skills info */}
+
+							<Grid
+								item
 								xs={12}
 								sm={6}
 								xl={6}
 								sx={{
 									width: "100%",
-									display:
-										skillsDisplay >= 2 ? "none" : "flex",
-									justifyContent: "center",
+									display: { xs: "none", sm: "flex" },
+									justifyContent: "space-evenly",
 									alignItems: "center",
-									borderRight: { sm: `${3 / 16}rem solid` },
-									borderColor: { sm: "primary.main" },
+									flexWrap: "wrap",
+									flexDirection: "column-reverse",
 									height: "500px",
 								}}
 							>
-								<Terminal
-									name={curName}
-									cmds={cmds}
-									outputs={outputs}
-									contType={contType}
-									contState={
-										skillsDisplay == 0 ? skills : altSkills
-									}
-									fWdith={fWidth}
-									title={title}
-									hidden={skillsDisplay >= 2}
-								/>
-							</Grid>
-						</Fade>
-						{/* Future section for skills info */}
-                        {/* <Fade
-							in={skillsDisplay >= 2}
-							timeout={{ enter: 1000, exit: 100 }}
-						>
-							<Grid
-								item
-								xs={12}
-								sm={6}
-								xl={6}
-								sx={{
-									width: "100%",
-									display:
-										skillsDisplay < 2 ? "none" : "flex",
-									borderRight: { sm: `${3 / 16}rem solid` },
-									borderColor: { sm: "lightBlue.200" },
-									height: "400px",
-								}}
-							>
-								<SkillsInfo
-									name={curName}
-									hidden={skillsDisplay >= 2 ? false : true}
-								/>
-							</Grid>
-						</Fade> */}
-						<Grid
-							item
-							xs={12}
-							sm={6}
-							xl={6}
-							sx={{
-								width: "100%",
-								display: { xs: 'none', sm: "flex" },
-								justifyContent: "space-evenly",
-								alignItems: "center",
-								flexWrap: "wrap",
-								flexDirection: "column-reverse",
-								height: "500px",
-							}}
-						>
-							{icons.map((e, i) => {
-								const name = e.replace(".svg", "");
-								return (
-									<Box
-										key={name}
-										sx={{
-											transition:
-												"transform 0.5s ease-in-out",
-											"&:hover": {
-												transform: "scale(1.2)",
-											},
-											m: 2
-										}}
-									>
-										<Fade
-											in={inView && skills >= 1}
-											timeout={{ enter: 1000 + i * 500 }}
+								{icons.map((e, i) => {
+									const name = e.replace(".svg", "");
+									return (
+										<Box
+											key={name}
+											sx={{
+												transition:
+													"transform 0.5s ease-in-out",
+												"&:hover": {
+													transform: "scale(1.2)",
+												},
+												m: 2,
+											}}
 										>
-											<ButtonBase
-												onClick={() =>
-													updateSkills(name)
-												}
-												sx={{ borderRadius: "10px" }}
-												disabled
+											<Fade
+												in={inView && skills >= 1}
+												timeout={{
+													enter: 1000 + i * 500,
+												}}
 											>
-												<Image
-													src={`/svg-icons/${e}`}
-													height="60"
-													width="60"
-													alt={name}
-												/>
-											</ButtonBase>
-										</Fade>
-									</Box>
-								);
-							})}
+												<ButtonBase
+													onClick={() =>
+														updateSkills(name)
+													}
+													sx={{
+														borderRadius: "10px",
+													}}
+													disabled
+												>
+													<Image
+														src={`/svg-icons/${e}`}
+														height="60"
+														width="60"
+														alt={name}
+													/>
+												</ButtonBase>
+											</Fade>
+										</Box>
+									);
+								})}
+							</Grid>
+							
 						</Grid>
-					</Grid>
-					
-				</>
-			)}
-		</InView>
-		<Box ref={skillsRef} sx={{ position: 'absolute', height: '100%', width: '100%', visibility: 'hidden'}}>Center</Box>
+					</>
+				)}
+			</InView>
+			<Box
+				ref={skillsRef}
+				sx={{
+					position: "absolute",
+					height: "100%",
+					width: "100%",
+					visibility: "hidden",
+				}}
+			>
+				Center
+			</Box>
 		</>
 	);
 };
@@ -239,5 +258,5 @@ export default connect(mapStateToProps, {
 	setSkillsInfo,
 	setSkillsDisplay,
 	setLockTransitions,
-	setSection
+	setSection,
 })(Skills);
