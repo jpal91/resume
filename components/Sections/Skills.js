@@ -17,7 +17,6 @@ import {
 	setSkillsInfo,
 	setSkillsDisplay,
 	setLockTransitions,
-	setBGColor,
 	setSection
 } from "../../actions";
 
@@ -56,7 +55,6 @@ const Skills = (props) => {
 		setSkillsDisplay,
 		lockTransitions,
 		setLockTransitions,
-		setBGColor,
 		setSection
 	} = props;
 	const { outputs, cmds, contType, fWidth, title } = skillsInfo;
@@ -83,7 +81,6 @@ const Skills = (props) => {
 		
 		if (!skillsInView) return
 		setSection('skills', skillsInView)
-		setBGColor('default')
 	}, [skillsInView])
 
 	return (
@@ -242,6 +239,5 @@ export default connect(mapStateToProps, {
 	setSkillsInfo,
 	setSkillsDisplay,
 	setLockTransitions,
-	setBGColor,
 	setSection
 })(Skills);

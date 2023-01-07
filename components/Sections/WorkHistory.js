@@ -15,7 +15,7 @@ import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
 import { InView, useInView } from "react-intersection-observer";
 import { keyframes } from '@emotion/react'
 
-import { setBGColor, setSection } from '../../actions'
+import { setSection } from '../../actions'
 
 const slideIn = keyframes`
     from {
@@ -30,7 +30,7 @@ const slideIn = keyframes`
 `
 
 const WorkHistory = (props) => {
-    const { workInfo, setBGColor, setSection } = props
+    const { workInfo, setSection } = props
     const [inView, setInView] = useState(false)
     const [workRef, workInView] = useInView({ threshold: 0.55 })
 
@@ -38,7 +38,7 @@ const WorkHistory = (props) => {
         
         if (!workInView) return
         setSection('work history', workInView)
-        setBGColor('default')
+
     }, [workInView])
 
     return (
@@ -96,4 +96,4 @@ const WorkHistory = (props) => {
 }
 
 
-export default connect(null, { setBGColor, setSection })(WorkHistory)
+export default connect(null, { setSection })(WorkHistory)

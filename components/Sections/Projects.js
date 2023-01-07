@@ -21,7 +21,7 @@ import { InView, useInView } from "react-intersection-observer";
 import { keyframes } from "@emotion/react";
 
 import ProjModal from "../ProjModal";
-import { setBGColor, setSection } from "../../actions";
+import { setSection } from "../../actions";
 import boxShadows from "../../styles/theme/base/boxShadows";
 
 const slideIn = keyframes`
@@ -37,7 +37,7 @@ const slideIn = keyframes`
 `;
 
 const Projects = (props) => {
-	const { projects, setBGColor, setSection } = props;
+	const { projects, setSection } = props;
 	const [inView, setInView] = useState(false);
 	const [projRef, projInView] = useInView({ threshold: 0.55 });
 
@@ -45,7 +45,7 @@ const Projects = (props) => {
 		
         if (!projInView) return;
 		setSection('projects', projInView)
-		setBGColor("project");
+
 	}, [projInView]);
 
 	return (
@@ -227,4 +227,4 @@ const Projects = (props) => {
 	);
 };
 
-export default connect(null, { setBGColor, setSection })(Projects);
+export default connect(null, { setSection })(Projects);

@@ -60,13 +60,6 @@ const lockTransitions = (state=false, action) => {
     }
 }
 
-const bgColor = (state='default', action) => {
-    if (action.type == 'SET_BG_COLOR') {
-        return action.payload
-    } else {
-        return state
-    }
-}
 
 const sectionState = {
     home: false,
@@ -98,6 +91,5 @@ export default combineReducers({
     altSkills: altSkills,
     skillsDisplay: skillsDisplay,
     lockTransitions: lockTransitions,
-    bgColor: bgColor,
     section: section
 })

@@ -27,11 +27,7 @@ export const setLockTransitions = (bool) => {
     return { type: 'LOCK_TRANSITIONS', payload: bool}
 }
 
-export const setBGColor = (str) => {
-    return { type: 'SET_BG_COLOR', payload: str }
-}
 
 export const setSection = (section, status) => {
-    // return { type: 'SET_SECTION', payload: { section: section, status: status }}
     return { type: 'SET_SECTION', payload: section }
 }

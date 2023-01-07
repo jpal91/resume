@@ -9,7 +9,7 @@ import SchoolIcon from '@mui/icons-material/School';
 import { InView, useInView } from 'react-intersection-observer'
 import { keyframes } from '@emotion/react'
 
-import { setBGColor, setSection } from '../../actions'
+import { setSection } from '../../actions'
 
 const slideIn = keyframes`
     from {
@@ -24,7 +24,7 @@ const slideIn = keyframes`
 `
 
 const Education = (props) => {
-    const { setBGColor, setSection } = props
+    const { setSection } = props
     const [inView, setInView] = useState(false)
     const [eduRef, eduInView] = useInView({ threshold: 0.55 })
 
@@ -32,7 +32,6 @@ const Education = (props) => {
         
         if (!eduInView) return
         setSection('education', eduInView)
-        setBGColor('default')
     }, [eduInView])
 
 
@@ -66,4 +65,4 @@ const Education = (props) => {
     )
 }
 
-export default connect(null, { setBGColor, setSection })(Education)
+export default connect(null, { setSection })(Education)

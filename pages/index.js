@@ -5,15 +5,13 @@ import { connect } from "react-redux";
 import Head from "next/head";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
-import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import ButtonBase from "@mui/material/ButtonBase";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
 import { keyframes } from "@emotion/react";
-import { InView, useInView } from "react-intersection-observer";
+import {  useInView } from "react-intersection-observer";
 
-import NavBar from "../components/NavBar/NavBar";
 import Nav from "../components/NavBar/Nav";
 import Terminal from "../components/Splash/Terminal";
 import Skills from "../components/Sections/Skills";
@@ -22,7 +20,7 @@ import Education from "../components/Sections/Education";
 import Projects from "../components/Sections/Projects";
 import Contact from "../components/Sections/Contact";
 
-import { setSplash, setBGColor, setSection } from "../actions";
+import { setSplash, setSection } from "../actions";
 
 const downButton = keyframes`
 	from {
@@ -48,11 +46,10 @@ const downArrow = keyframes`
 const Home = (props) => {
 	const {
 		splash,
-		skills,
 		icons,
 		skillsObj,
 		workObj,
-		setBGColor,
+	
 		projObj,
 		setSection,
 	} = props;
@@ -69,11 +66,8 @@ const Home = (props) => {
 	}, []);
 
 	useEffect(() => {
-		if (footInView) {
-			// setSection('footer')
-		} else if (inView) {
+		if (inView) {
 			setSection("home", inView);
-			setBGColor("blueGrey.400");
 		}
 	}, [inView, footInView]);
 
@@ -82,9 +76,6 @@ const Home = (props) => {
 			<Head>
 				<title>Resume</title>
 			</Head>
-			{/* <Container sx={{ width: '100% !important', height: '100% !important', maxWidth: '100% !important', maxHeight: '100% !important', p: '0px !important', m: '0px !important', backgroundColor: bgColor, transition: 'background-color 1s linear', }}> */}
-			{/* <Container sx={{ maxWidth: '100%', maxHeight: '100%' }}> */}
-			{/* <NavBar /> */}
 			<Nav />
 			<Grid id="home-sec" container sx={{ height: "100vh" }}>
 				<Container
@@ -350,8 +341,6 @@ const Home = (props) => {
 					</Box>
 				</ButtonBase>
 			</Grid>
-			{/* </Container> */}
-			{/* </Container> */}
 		</>
 	);
 };
@@ -360,7 +349,6 @@ const mapStateToProps = (state) => {
 	return {
 		splash: state.splash,
 		skills: state.skills,
-		bgColor: state.bgColor,
 	};
 };
 
@@ -389,6 +377,6 @@ export const getStaticProps = async () => {
 	};
 };
 
-export default connect(mapStateToProps, { setSplash, setBGColor, setSection })(
+export default connect(mapStateToProps, { setSplash, setSection })(
 	Home
 );
