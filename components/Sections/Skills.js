@@ -121,7 +121,9 @@ const Skills = (props) => {
 							</Grid>
 						</Fade>
 
-						<Grid item xs={12} sx={{ display: "flex", mt: 2 }}>
+						<Grid item xs={12} sx={{ display: "flex", mt: { xs: 1, md: 0, lg: 2 }, 
+							flexDirection: { xs: 'column', lg: 'row'}
+							}}>
 							<Fade
 								in={inView && skillsDisplay < 2}
 								ref={ref}
@@ -131,8 +133,7 @@ const Skills = (props) => {
 									item
 									id="skills-terminal"
 									xs={12}
-									sm={6}
-									xl={6}
+									lg={6}
 									sx={{
 										width: "100%",
 										display:
@@ -140,12 +141,22 @@ const Skills = (props) => {
 												? "none"
 												: "flex",
 										justifyContent: "center",
+										
 										alignItems: "center",
+										
 										borderRight: {
-											sm: `${3 / 16}rem solid`,
+											xs: 'none',
+											lg: `${3 / 16}rem solid`,
 										},
-										borderColor: { sm: "primary.main" },
+										
+										borderBottom: {
+											xs: 'none',
+											sm: `${3 / 16}rem solid`,
+											lg: 'none'
+										},
+										borderColor: { xs: 'primary.main', lg: "primary.main"},
 										height: "500px",
+										pb: { xs: 3, lg: 0 }
 									}}
 								>
 									<Terminal
@@ -170,20 +181,21 @@ const Skills = (props) => {
 							<Grid
 								item
 								xs={12}
-								sm={6}
-								xl={6}
+								lg={6}
 								sx={{
 									width: "100%",
-									display: { xs: "none", sm: "flex" },
+									display: { xs: "none", sm: 'flex' },
 									justifyContent: "space-evenly",
 									alignItems: "center",
 									flexWrap: "wrap",
 									flexDirection: "column-reverse",
 									height: "500px",
+									p: { sm: 5, lg: 0 }
 								}}
 							>
 								{icons.map((e, i) => {
 									const name = e.replace(".svg", "");
+
 									return (
 										<Box
 											key={name}
