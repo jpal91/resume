@@ -10,7 +10,7 @@ import ButtonBase from "@mui/material/ButtonBase";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
 import { keyframes } from "@emotion/react";
-import {  useInView } from "react-intersection-observer";
+import { useInView } from "react-intersection-observer";
 
 import Nav from "../components/NavBar/Nav";
 import Terminal from "../components/Splash/Terminal";
@@ -49,7 +49,7 @@ const Home = (props) => {
 		icons,
 		skillsObj,
 		workObj,
-	
+
 		projObj,
 		setSection,
 	} = props;
@@ -377,6 +377,4 @@ export const getStaticProps = async () => {
 	};
 };
 
-export default connect(mapStateToProps, { setSplash, setSection })(
-	Home
-);
+export default connect(mapStateToProps, { setSplash, setSection })(Home);
