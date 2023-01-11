@@ -3,12 +3,13 @@ import { promises as fs } from "fs";
 import path from "path";
 import { connect } from "react-redux";
 import Head from "next/head";
+import useSWR from 'swr'
+import axios from 'axios'
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import ButtonBase from "@mui/material/ButtonBase";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
-import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
 import { keyframes } from "@emotion/react";
 import { useInView } from "react-intersection-observer";
 
@@ -19,6 +20,7 @@ import WorkHistory from "../components/Sections/WorkHistory";
 import Education from "../components/Sections/Education";
 import Projects from "../components/Sections/Projects";
 import Contact from "../components/Sections/Contact";
+import Footer from "../components/Footer";
 
 import { setSplash, setSection } from "../actions";
 
@@ -46,22 +48,23 @@ const Home = (props) => {
 	} = props;
 	
 	const [scrollId, setScrollId] = useState();
-	const [homeScrollId, setHomeScrollId] = useState();
 	const { ref, inView } = useInView();
-	const [footRef, footInView] = useInView({ threshold: 0.8 });
+	const fetcher = url => axios.get(url).then(res => res.data)
+	const { data } = useSWR('/api/get-visitors', fetcher)
 
 	useEffect(() => {
 		if (typeof window != undefined) {
 			setScrollId(document.getElementById("skills-terminal"));
-			setHomeScrollId(document.getElementById("home-sec"));
 		}
+		
+
 	}, []);
 
 	useEffect(() => {
 		if (inView) {
 			setSection("home");
 		}
-	}, [inView, footInView]);
+	}, [inView]);
 
 	return (
 		<>
@@ -276,64 +279,8 @@ const Home = (props) => {
 					<Contact />
 				</Container>
 			</Grid>
-			<Grid
-				id="footer-sec"
-				container
-				sx={{
-					backgroundColor: "grey.900",
-					minHeight: "20vh",
-					display: "flex",
-					alignContent: "flex-start",
-					position: "relative",
-					justifyContent: "center",
-				}}
-			>
-				<Box
-					id="footer"
-					ref={footRef}
-					sx={{
-						position: "absolute",
-						height: "100%",
-						width: "100%",
-						visibility: "hidden",
-					}}
-				>
-					Center
-				</Box>
-				<ButtonBase
-					disableRipple
-					onClick={() =>
-						homeScrollId.scrollIntoView({
-							block: "start",
-							behavior: "smooth",
-						})
-					}
-				>
-					<Box
-						sx={{
-							display: "flex",
-							justifyContent: "center",
-							position: "relative",
-						}}
-					>
-						<Box
-							sx={{
-								backgroundColor: "primary.main",
-								position: "absolute",
-								top: 0,
-								left: "",
-								mt: { xs: 4, sm: -4 },
-								"&:hover": { filter: "brightness(1.1)" },
-								transition: "filter 0.5s linear",
-							}}
-						>
-							<KeyboardDoubleArrowUpIcon
-								sx={{ color: "white.main", fontSize: "64px" }}
-							/>
-						</Box>
-					</Box>
-				</ButtonBase>
-			</Grid>
+			
+			<Footer data={data} />
 		</>
 	);
 };
