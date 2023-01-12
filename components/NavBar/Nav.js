@@ -161,7 +161,7 @@ const Nav = (props) => {
 			>
 				<Toolbar disableGutters={true} sx={{ width: "100%", height: '100%' }}>
 					<Grid container sx={{ height: '100%'}}>
-						<Grid item xs={2} sx={{display: 'flex', backgroundColor: 'lightBlue.200', width: '100%', height: '100%', borderRadius: '10px', justifyContent: 'center', alignItems: 'center'
+						<Grid item xs={2} sx={{display: 'flex', backgroundColor: 'lightBlue.200', width: '100%', height: '100%', borderRadius: '10px' , justifyContent: 'center', alignItems: 'center'
 						// borderTopLeftRadius: '10px', 
 						// borderBottomLeftRadius: '10px'
 						}}>
@@ -190,8 +190,11 @@ const Nav = (props) => {
 								justifyContent: "center",
 								columnGap: { sm: 2, md: 4, lg: 5 },
 								backgroundColor: 'grey.700',
-								borderRadius: '10px',
-								pr: 2
+								borderRadius: { xs: 0, md: '10px'},
+								borderTopLeftRadius: {  xs: '10px', md: 0 },
+								borderBottomLeftRadius: { xs: '10px', md: 0 },
+								pr: 2,
+								
 							}}
 						>
 							{sections.map((e, i) => (
