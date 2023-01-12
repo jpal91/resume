@@ -23,7 +23,10 @@ const BGProvider = (props) => {
 					backgroundImage: 'url("proj-pics/bg-arrows2.svg")',
 					backgroundRepeat: 'no-repeat',
 					backgroundAttachment: 'fixed',
-					backgroundPosition: 'top center'
+					backgroundPosition: 'top center',
+					backgroundSize: 'cover',
+					// backgroundBlendMode: 'difference'
+					backgroundBlendMode: 'overlay',
                 },
 			}}
 		/>
