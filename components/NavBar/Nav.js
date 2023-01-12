@@ -12,6 +12,7 @@ import { keyframes } from "@emotion/react";
 import { useMediaQuery } from "@mui/material";
 
 import Logo from "./Logo";
+import Logo2 from './Logo2'
 
 const hide = keyframes`
     0% {
@@ -64,6 +65,7 @@ const Nav = (props) => {
 	const trigger = useScrollTrigger();
 	const { section } = props;
 	const mediaQuery = useMediaQuery('(pointer: fine)')
+	const width = 75
 
     
 
@@ -143,44 +145,53 @@ const Nav = (props) => {
 				sx={{
 					mt: { xs: 0, md: 1 },
 					width: "max-content",
-					minWidth: { xs: '100%', md: '90%', lg: '80%', xl: '60%' },
+					minWidth: { xs: '100%', md: '95%', lg: '75%', xl: '57%' },
 					maxWidth: '100%',
 					display: { xs: 'none', sm: 'flex' },
 					mx: "auto",
 					borderRadius: { xs: 0, md: "10px"},
-					backgroundColor: "primary.main",
-                    animation: scroll || !mediaQuery ? `${show} 1s ease-in forwards`: `${hide} 1s ease-in forwards`,
-                    '&:hover': {
-                        opacity: 1,
-                        animation: `${show} 1s ease-in forwards`
-                    },
+					backgroundColor: "lightBlue.200",
+                    // animation: scroll || !mediaQuery ? `${show} 1s ease-in forwards`: `${hide} 1s ease-in forwards`,
+                    // '&:hover': {
+                    //     opacity: 1,
+                    //     animation: `${show} 1s ease-in forwards`
+                    // },
 				}}
 
 			>
-				<Toolbar sx={{ width: "100%" }}>
-					<Grid container>
-						<Grid item xs={1}>
+				<Toolbar disableGutters={true} sx={{ width: "100%", height: '100%' }}>
+					<Grid container sx={{ height: '100%'}}>
+						<Grid item xs={2} sx={{display: 'flex', backgroundColor: 'lightBlue.200', width: '100%', height: '100%', borderRadius: '10px'
+						// borderTopLeftRadius: '10px', 
+						// borderBottomLeftRadius: '10px'
+						}}>
 							<SvgIcon
-								component={Logo}
+								component={Logo2}
 								sx={{
-									width: "50px",
-									height: "50px",
-									color: "white.main",
-									boxShadow:
-										"4px 4px 5px 2px rgb(0 0 0 / 20%)",
+									// width: "50px",
+									// height: "30px",
+									width: `${width}px`,
+									height: `${width * 0.6}px`,
+									color: "grey.200",
+									// boxShadow:
+									// 	"4px 4px 5px 2px rgb(0 0 0 / 20%)",
 									transition: "color 1s linear",
+									filter: 'drop-shadow(2px 2px 1px rgb(0 0 0 / 0.4))'
 								}}
-								viewBox="0 0 20 20"
+								viewBox="0 0 20 12.12"
 							/>
 						</Grid>
 						<Grid
 							item
-							xs={11}
+							xs={10}
 							sx={{
 								display: "flex",
 								alignItems: "center",
 								justifyContent: "center",
 								columnGap: { sm: 2, md: 4, lg: 5 },
+								backgroundColor: 'grey.700',
+								borderRadius: '10px',
+								pr: 2
 							}}
 						>
 							{sections.map((e, i) => (
@@ -200,8 +211,8 @@ const Nav = (props) => {
 											variant="navItem"
 											sx={{
 												color:
-													section == e &&
-													"lightGreen.A400",
+													section == e ?
+													"lightGreen.A400" : 'lightBlue.200',
 												textDecoration:
 													section == e && "underline",
 												textDecorationThickness: "5px",
@@ -221,7 +232,7 @@ const Nav = (props) => {
 														"hidden",
 													color: "lightGreen.A400",
 												}}
-											>{`>> `}</Typography>
+											>{`> `}</Typography>
 											{e}
 										</Typography>
 

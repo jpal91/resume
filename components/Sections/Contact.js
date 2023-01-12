@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import ButtonBase from "@mui/material/ButtonBase";
 import Link from '@mui/material/Link'
+import SvgIcon from "@mui/material/SvgIcon";
 import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -15,6 +16,7 @@ import { InView, useInView } from "react-intersection-observer";
 import { keyframes } from "@emotion/react";
 
 import { setSection } from "../../actions";
+import Logo2 from '../NavBar/Logo2'
 
 const slideIn = keyframes`
     from {
@@ -32,6 +34,7 @@ const Contact = (props) => {
 	const { setSection }= props
     const [inView, setInView] = useState(false);
     const [contactRef, contactInView] = useInView({ threshold: 0.8 })
+    const width = 400
 
     useEffect(() => {
         if (!contactInView) return
@@ -146,14 +149,30 @@ const Contact = (props) => {
 						</ButtonBase>
 					</Grid>
                     <Grid ref={ref} item xs={12} sx={{ display: 'flex', justifyContent: 'center', mt: 15 }}>
-                        <Fade in={inView} timeout={{ enter: 5000 }}>
-                        <Image 
-                            src='/proj-pics/logo4.svg'
-                            width='200'
-                            height='200'
+                        {/* <Fade in={inView} timeout={{ enter: 5000 }}> */}
+                        {/* <Image 
+                            src='/proj-pics/logo-cloud.svg'
+                            width='400'
+                            height='240'
                             alt='logo'
-                        />
-                        </Fade>
+                        /> */}
+                        	<SvgIcon
+								component={Logo2}
+                                
+								sx={{
+									// width: "50px",
+									// height: "30px",
+									width: `${width}px`,
+									height: `${width * 0.6}px`,
+									color: "white.main",
+									// boxShadow:
+									// 	"4px 4px 5px 2px rgb(0 0 0 / 20%)",
+									transition: "color 1s linear",
+									filter: 'drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))'
+								}}
+								viewBox="0 0 20 12.12"
+							/>
+                        {/* </Fade> */}
                     </Grid>
 				</>
 			)}
