@@ -151,17 +151,17 @@ const Nav = (props) => {
 					mx: "auto",
 					borderRadius: { xs: 0, md: "10px"},
 					backgroundColor: "lightBlue.200",
-                    // animation: scroll || !mediaQuery ? `${show} 1s ease-in forwards`: `${hide} 1s ease-in forwards`,
-                    // '&:hover': {
-                    //     opacity: 1,
-                    //     animation: `${show} 1s ease-in forwards`
-                    // },
+                    animation: scroll || !mediaQuery ? `${show} 1s ease-in forwards`: `${hide} 1s ease-in forwards`,
+                    '&:hover': {
+                        opacity: 1,
+                        animation: `${show} 1s ease-in forwards`
+                    },
 				}}
 
 			>
 				<Toolbar disableGutters={true} sx={{ width: "100%", height: '100%' }}>
 					<Grid container sx={{ height: '100%'}}>
-						<Grid item xs={2} sx={{display: 'flex', backgroundColor: 'lightBlue.200', width: '100%', height: '100%', borderRadius: '10px'
+						<Grid item xs={2} sx={{display: 'flex', backgroundColor: 'lightBlue.200', width: '100%', height: '100%', borderRadius: '10px', justifyContent: 'center', alignItems: 'center'
 						// borderTopLeftRadius: '10px', 
 						// borderBottomLeftRadius: '10px'
 						}}>
