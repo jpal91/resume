@@ -151,7 +151,7 @@ const Nav = (props) => {
 					mx: "auto",
 					borderRadius: { xs: 0, md: "10px"},
 					backgroundColor: "lightBlue.200",
-                    animation: scroll || !mediaQuery ? `${show} 1s ease-in forwards`: `${hide} 1s ease-in forwards`,
+                    animation: !mediaQuery ? 'none' : scroll ? `${show} 1s ease-in forwards`: `${hide} 1s ease-in forwards`,
                     '&:hover': {
                         opacity: 1,
                         animation: `${show} 1s ease-in forwards`
