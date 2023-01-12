@@ -20,10 +20,10 @@ const BGProvider = (props) => {
 			styles={{
 				body: { 
                     backgroundColor: `${sectMap[section] && sectMap[section]} !important`,
-					// backgroundImage: 'url("proj-pics/bg-logo.png")',
-					// backgroundRepeat: 'no-repeat',
-					// backgroundAttachment: 'fixed',
-					// backgroundPosition: 'center'
+					backgroundImage: 'url("proj-pics/bg-arrows2.svg")',
+					backgroundRepeat: 'no-repeat',
+					backgroundAttachment: 'fixed',
+					backgroundPosition: 'top center'
                 },
 			}}
 		/>
