@@ -65,7 +65,7 @@ const Nav = (props) => {
 	const trigger = useScrollTrigger();
 	const { section } = props;
 	const mediaQuery = useMediaQuery('(pointer: fine)')
-	const width = 75
+	const width = 90
 
     
 
