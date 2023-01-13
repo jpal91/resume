@@ -10,6 +10,8 @@ import { keyframes } from "@emotion/react";
 
 import Terminal from '../Terminal/Terminal';
 
+import { setSection } from '../../actions';
+
 const downArrow = keyframes`
 	from {
 		opacity: 1;
@@ -22,8 +24,32 @@ const downArrow = keyframes`
 	}
 `;
 
+const payload = [
+    {
+        type: 'cmd',
+        values: [" echo Hello, my name is $(grep '^J.*n$' names.txt)"],
+        stage: 0
+    },
+    {
+        type: 'output',
+        values: ["Hello, my name is Justin"],
+        stage: 0
+    },
+    {
+        type: 'cmd',
+        values: ["echo $MY_GREETING"],
+        stage: 1
+    },
+    {
+        type: 'output',
+        values: ["Welcome to my Resume"],
+        stage: 1
+    },
+
+]
+
 const Splash = (props) => {
-	const { splash } = props
+	const { splash, setSection } = props
     const [scrollId, setScrollId] = useState();
     const { ref, inView } = useInView();
 
@@ -32,6 +58,11 @@ const Splash = (props) => {
 			setScrollId(document.getElementById("skills-terminal"));
 		}
 	}, []);
+
+    useEffect(() => {
+        if (!inView) return
+        setSection('home')
+    }, [inView])
     
     return (
 		<Container
@@ -55,18 +86,11 @@ const Splash = (props) => {
 			>
 				<div id="splash"></div>
 				<Terminal
-					outputs={[
-						["Hello, my name is Justin"],
-						["Welcome to my Resume"],
-					]}
-					cmds={[
-						[" echo Hello, my name is $(grep '^J.*n$' names.txt)"],
-						["echo $MY_GREETING"],
-					]}
 					contType={"splash"}
 					contState={splash}
 					fWidth={true}
 					title={"~:bash"}
+                    payload={payload}
 				/>
 				<Box
 					ref={ref}
@@ -123,4 +147,17 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(Splash);
+export default connect(mapStateToProps, { setSection })(Splash);
+
+
+    // {
+    //     type: 'ml',
+    //     values:
+    //         `|||||    ||||||| ||||||| ||   || ||||   |||| |||||||
+    //         ||   ||  ||      ||      ||   || || || || || ||
+    //         ||   ||  ||      ||      ||   || ||  |||  || ||
+    //         ||||||   ||||||| ||||||| ||   || ||       || |||||||
+    //         ||   ||  ||           || ||   || ||       || ||
+    //         ||    || ||||||| ||||||| ||||||| ||       || |||||||`,
+    //     stage: 2
+    // }

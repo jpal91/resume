@@ -19,6 +19,29 @@ import {
 	setSection,
 } from "../../actions";
 
+const payload = [
+    {
+        type: 'cmd',
+        values: ['curl -s -o nice-things-to-have.txt', 'curl -s -o superpow', 'curl -s -o skills.txt https://myskills.com'],
+        stage: 0
+    },
+    {
+        type: 'output',
+        values: [],
+        stage: 0
+    },
+    {
+        type: 'cmd',
+        values: ['cat skills.txt'],
+        stage: 1
+    },
+    {
+        type: 'output',
+        values: ['git\tDocker\tbash\tAWS\tPostgreSQL\n', 'MySQL\tmongoDB\tLinux\tMaterial UI\n', 'GitHub\tUbuntu\tReact\tTerraform\n', 'Python\tNode.js\tNext.js\tJupyter Notebooks\n', 'JavaScript\n', 'And many more!'],
+        stage: 1
+    }
+]
+
 const Skills = (props) => {
 	const [inView, setInView] = useState(false);
 	const [curName, setName] = useState("main");
@@ -56,7 +79,7 @@ const Skills = (props) => {
 		setLockTransitions,
 		setSection,
 	} = props;
-	const { outputs, cmds, contType, fWidth, title } = skillsInfo;
+	const { contType, fWidth, title } = skillsInfo;
 
 	const startSeq = (e) => {
 		if (!e) return;
@@ -164,8 +187,6 @@ const Skills = (props) => {
 								>
 									<Terminal
 										name={curName}
-										cmds={cmds}
-										outputs={outputs}
 										contType={contType}
 										contState={
 											skillsDisplay == 0
@@ -175,6 +196,7 @@ const Skills = (props) => {
 										fWdith={fWidth}
 										title={title}
 										hidden={skillsDisplay >= 2}
+										payload={payload}
 									/>
 								</Grid>
 							</Fade>
