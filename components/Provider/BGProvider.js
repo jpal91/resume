@@ -2,8 +2,6 @@ import { connect } from "react-redux";
 import GlobalStyles from "@mui/material/GlobalStyles";
 import { useTheme } from "@mui/material/styles";
 
-import BGPhoto from '../../public/proj-pics/bg-logo.png'
-
 const BGProvider = (props) => {
 	const { section } = props;
 
