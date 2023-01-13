@@ -11,7 +11,7 @@ const BGProvider = (props) => {
 	const { background } = theme.palette;
 
 	const sectMap = {
-		home: background.blueGrey[400],
+		home: background.blueGrey[500],
 		skills: background.default
 	}
 
@@ -20,13 +20,14 @@ const BGProvider = (props) => {
 			styles={{
 				body: { 
                     backgroundColor: `${sectMap[section] && sectMap[section]} !important`,
-					backgroundImage: 'url("proj-pics/bg-arrows2.svg")',
-					backgroundRepeat: 'no-repeat',
+					backgroundImage: 'url("proj-pics/bg-cloud.svg")',
+					backgroundRepeat: 'repeat',
 					backgroundAttachment: 'fixed',
-					backgroundPosition: 'top center',
-					backgroundSize: 'cover',
+					// backgroundPosition: 'top center',
+					backgroundSize: '70%',
 					// backgroundBlendMode: 'difference'
-					backgroundBlendMode: 'overlay',
+					// backgroundBlendMode: 'overlay',
+					// backgroundBlendMode: 'exclusion'
                 },
 			}}
 		/>
