@@ -9,7 +9,7 @@ import ButtonBase from "@mui/material/ButtonBase";
 import BuildIcon from "@mui/icons-material/Build";
 import { InView, useInView } from "react-intersection-observer";
 
-import Terminal from "../Splash/Terminal";
+import Terminal from "../Terminal/Terminal";
 
 import {
 	controller,
@@ -121,9 +121,15 @@ const Skills = (props) => {
 							</Grid>
 						</Fade>
 
-						<Grid item xs={12} sx={{ display: "flex", mt: { xs: 1, md: 0, lg: 2 }, 
-							flexDirection: { xs: 'column', lg: 'row'}
-							}}>
+						<Grid
+							item
+							xs={12}
+							sx={{
+								display: "flex",
+								mt: { xs: 1, md: 0, lg: 2 },
+								flexDirection: { xs: "column", lg: "row" },
+							}}
+						>
 							<Fade
 								in={inView && skillsDisplay < 2}
 								ref={ref}
@@ -141,16 +147,19 @@ const Skills = (props) => {
 												? "none"
 												: "flex",
 										justifyContent: "center",
-										
+
 										alignItems: "center",
-										
+
 										borderRight: {
-											xs: 'none',
+											xs: "none",
 											lg: `${3 / 16}rem solid`,
 										},
-										borderColor: { sm: 'primary.main', lg: "primary.main"},
+										borderColor: {
+											sm: "primary.main",
+											lg: "primary.main",
+										},
 										height: "500px",
-										pb: { xs: 3, lg: 0 }
+										pb: { xs: 3, lg: 0 },
 									}}
 								>
 									<Terminal
@@ -178,13 +187,13 @@ const Skills = (props) => {
 								lg={6}
 								sx={{
 									width: "100%",
-									display: { xs: "none", sm: 'flex' },
+									display: { xs: "none", sm: "flex" },
 									justifyContent: "space-evenly",
 									alignItems: "center",
 									flexWrap: "wrap",
 									flexDirection: "column-reverse",
 									height: "500px",
-									p: { sm: 5, lg: 0 }
+									p: { sm: 5, lg: 0 },
 								}}
 							>
 								{icons.map((e, i) => {
@@ -229,7 +238,6 @@ const Skills = (props) => {
 									);
 								})}
 							</Grid>
-							
 						</Grid>
 					</>
 				)}
@@ -242,7 +250,7 @@ const Skills = (props) => {
 					width: "100%",
 					visibility: "hidden",
 					top: 0,
-                    left: 0
+					left: 0,
 				}}
 			>
 				Center
