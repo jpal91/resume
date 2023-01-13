@@ -150,10 +150,12 @@ const Nav = (props) => {
 								justifyContent: "center",
 								columnGap: { sm: 2, md: 4, lg: 5 },
 								backgroundColor: "grey.700",
-								borderRadius: { xs: 0, md: "10px" },
-								borderTopLeftRadius: { xs: "10px", md: 0 },
-								borderBottomLeftRadius: { xs: "10px", md: 0 },
+								borderTopLeftRadius: { xs: "10px"},
+								borderBottomLeftRadius: { xs: "10px"},
+								borderTopRightRadius: { xs: '0px', md: '10px' },
+								borderBottomRightRadius: { xs: '0px', md: '10px' },
 								pr: 2,
+								height: '100%'
 							}}
 						>
 							{sections.map((e, i) => (
