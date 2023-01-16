@@ -24,21 +24,26 @@ jobs:
         role-to-assume: ${{ secrets.AWS_ROLE }}
     
     - name: Build
+      id: build
       run: |
+        export IMAGE_TAG=$(git rev-parse --short HEAD)
+        echo "image-tag=$IMAGE_TAG" >> $GITHUB_OUTPUT
+
         aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${{ secrets.REPO_URL }}
-        docker build -t resume:latest .
-        docker tag resume:latest ${{ secrets.REPO_URL }}/resume:latest
-        docker push ${{ secrets.REPO_URL }}/resume:latest
+        docker build -t resume:${IMAGE_TAG} .
+        docker tag resume:${IMAGE_TAG} ${{ secrets.REPO_URL }}/resume:${IMAGE_TAG}
+        docker push ${{ secrets.REPO_URL }}/resume:${IMAGE_TAG}
       
     - name: Terraform
       run: |
         cd terraform
 
         terraform init -input=false
-        terraform apply -input=false -auto-approve
+        terraform apply -input=false -var "image_id=${{ steps.build.outputs.image-tag }}" -auto-approve
     
     - name: Clean Up
       run: |
-        export DEL_IMAGES=$(aws ecr-public describe-images --repository-name resume --output text | grep -E "IMAGETAGS\s*[A-Za-z0-9]+\s?" | grep -v latest | sed "s/IMAGETAGS\s*/imageTag=/")
+        export NEW_IMAGE=${{ steps.build.outputs.image-tag }}
+        export DEL_IMAGES=$(aws ecr-public describe-images --repository-name resume --output text | grep -E "IMAGETAGS\s*[A-Za-z0-9]+\s?" | grep -v $NEW_IMAGE | sed "s/IMAGETAGS\s*/imageTag=/")
 
         aws ecr-public batch-delete-image --repository-name resume --image-ids $DEL_IMAGES
