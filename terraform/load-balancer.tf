@@ -17,6 +17,24 @@ resource "aws_alb_listener" "http" {
     }
 }
 
+data "aws_acm_certificate" "issued" {
+    domain = "justinthecloud.dev"
+    statuses = ["ISSUED"]
+}
+
+resource "aws_alb_listener" "https" {
+    load_balancer_arn = aws_lb.current.id
+    port = 443
+    protocol = "HTTPS"
+    ssl_policy = "ELBSecurityPolicy-2016-08"
+    certificate_arn = data.aws_acm_certificate.issued.arn
+
+    default_action {
+      type = "forward"
+      target_group_arn = aws_alb_target_group.target_group.id
+    }
+}
+
 resource "aws_alb_target_group" "target_group" {
     name = "${var.service_name}-tg"
     port = 80

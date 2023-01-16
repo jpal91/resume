@@ -61,3 +61,35 @@ resource "aws_subnet" "subnet2" {
 }
 
 data "aws_caller_identity" "current" {}
+
+data "aws_route53_zone" "resume" {
+    name = "justinthecloud.dev"
+}
+
+resource "aws_route53_record" "base" {
+    zone_id = data.aws_route53_zone.resume.zone_id
+    name = "justinthecloud.dev"
+    type = "A"
+
+    alias {
+        name = aws_lb.current.dns_name
+        zone_id = aws_lb.current.zone_id
+        evaluate_target_health = true
+    }
+}
+
+data "aws_api_gateway_domain_name" "api" {
+    domain_name = "api.justinthecloud.dev"
+}
+
+resource "aws_route53_record" "api" {
+    zone_id = data.aws_route53_zone.resume.zone_id
+    name = "api.justinthecloud.dev"
+    type = "A"
+
+    alias {
+        name = data.aws_api_gateway_domain_name.api.cloudfront_domain_name
+        zone_id = data.aws_api_gateway_domain_name.api.cloudfront_zone_id
+        evaluate_target_health = true
+    }
+}
