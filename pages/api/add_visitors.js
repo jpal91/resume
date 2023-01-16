@@ -5,7 +5,7 @@ const handler = async (req, res) => {
         return res.status(400).send('Bad request')
     }
 
-    const response = await axios.patch(`${process.env.API_URL}/add_visitors`)
+    const response = await axios.patch('https://api.justinthecloud.dev/add_visitors', { headers: { 'X-API-Key': process.env.API_KEY } })
 
     return res.status(200).send(response.data)
 }

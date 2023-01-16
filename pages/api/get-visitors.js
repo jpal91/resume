@@ -5,7 +5,7 @@ const handler = async (req, res) => {
         return res.status(400).send('Bad request')
     }
 
-    const count = await axios.get(`${process.env.API_URL}/get_visitors`)
+    const count = await axios.get('https://api.justinthecloud.dev/get_visitors', { headers: { 'X-API-Key': process.env.API_KEY } })
 
     return res.status(200).send(count.data)
 }

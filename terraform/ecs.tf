@@ -19,6 +19,10 @@ resource "aws_ecs_cluster" "cluster" {
     }
 }
 
+data "aws_api_gateway_api_key" "key" {
+	id = "ap3olmsbp5"
+}
+
 resource "aws_ecs_task_definition" "service_task_fargate" {
 	network_mode = "awsvpc"
 	family = var.service_name
@@ -30,6 +34,12 @@ resource "aws_ecs_task_definition" "service_task_fargate" {
 	container_definitions = jsonencode([{
 		name = var.service_name
         image = "public.ecr.aws/k2e0r2l1/resume:${var.image_id}"
+		environment = [
+			{
+				name = "API_KEY"
+				value = data.aws_api_gateway_api_key.key.value
+			}
+		]
 	  	logConfiguration = {
 		  logDriver = "awslogs",
 		  options   = {
