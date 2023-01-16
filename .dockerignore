@@ -1,0 +1,10 @@
+*.md
+.git
+.cache
+.next
+.vscode
+node_modules
+**/*.class
+.env
+.gitignore
+terraform/**
