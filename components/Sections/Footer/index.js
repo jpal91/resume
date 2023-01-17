@@ -88,6 +88,8 @@ const Footer = (props) => {
 							behavior: "smooth",
 						})
 					}
+					aria-label="Scroll to top"
+					title="Scroll to top"
 				>
 					<Box
 						sx={{

@@ -131,6 +131,7 @@ const Nav = (props) => {
 						>
 							<SvgIcon
 								component={Logo2}
+								alt="Website Logo"
 								sx={{
 									width: `${width}px`,
 									height: `${width * 0.6}px`,

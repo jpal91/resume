@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -46,6 +47,7 @@ const Skills = (props) => {
 	const [inView, setInView] = useState(false);
 	const [curName, setName] = useState("main");
 	const [skillsRef, skillsInView] = useInView({ threshold: 0.55 });
+	const router = useRouter()
 
 	/**
 	 * skills Int - Initial controller for skills terminal, controls what is being displayed and icons appearing (updated by controller)
@@ -70,7 +72,7 @@ const Skills = (props) => {
 		controller,
 		icons,
 		skillsInfo,
-		// skillsObj,
+		skillsObj,
 		setSkillsInfo,
 		altSkills,
 		skillsDisplay,
@@ -95,13 +97,12 @@ const Skills = (props) => {
 		setName(name);
 		setSkillsDisplay(1);
 		controller("alt_skills", 0);
-		setSkillsInfo(skillsObj[name]);
+		// setSkillsInfo(skillsObj[name]);
 	};
 
 	useEffect(() => {
 		if (!skillsInView) return;
 		setSection("skills");
-		console.log(icons)
 	}, [skillsInView]);
 
 	return (
@@ -136,6 +137,7 @@ const Skills = (props) => {
 									}}
 								>
 									<BuildIcon
+										alt="Skills Icon"
 										sx={{
 											color: "primary.main",
 											fontSize: "40px",
@@ -219,8 +221,9 @@ const Skills = (props) => {
 									p: { sm: 5, lg: 0 },
 								}}
 							>
-								{icons.map((e, i) => {
-									const name = e.replace(".svg", "");
+								{skillsObj.map((e, i) => {
+									// const name = e.replace(".svg", "");
+									const { name, image, href } = e
 
 									return (
 										<Box
@@ -241,16 +244,17 @@ const Skills = (props) => {
 												}}
 											>
 												<ButtonBase
-													onClick={() =>
-														updateSkills(name)
-													}
+													target="_blank"
+													rel="noopener noreferrer"
+													href={href}
 													sx={{
 														borderRadius: "10px",
 													}}
-													disabled
+													title={name}
+													aria-label={name}
 												>
 													<Image
-														src={`/svg-icons/${e}`}
+														src={`/svg-icons/${image}`}
 														height="60"
 														width="60"
 														alt={name}

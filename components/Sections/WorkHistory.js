@@ -67,6 +67,7 @@ const WorkHistory = (props) => {
 									}}
 								>
 									<WorkHistoryIcon
+										alt="Work History Icon"
 										sx={{
 											color: "primary.main",
 											fontSize: "40px",

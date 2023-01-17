@@ -58,6 +58,7 @@ const Projects = (props) => {
 									}}
 								>
 									<AccountTreeIcon
+										alt="Projects icon"
 										sx={{
 											color: "white.main",
 											fontSize: "40px",

@@ -158,6 +158,7 @@ const Splash = (props) => {
 							behavior: "smooth",
 						})
 					}
+					aria-label="Scroll down"
 				>
 					<KeyboardDoubleArrowDownIcon
 						sx={{
