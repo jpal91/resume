@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import Link from '@mui/material/Link'
 import { keyframes } from "@emotion/react";
 import { InView } from "react-intersection-observer";
 
@@ -23,7 +24,7 @@ const slideIn = keyframes`
 
 const ProjCard = (props) => {
 	const { project, index } = props;
-	const { name, image } = project;
+	const { name, image, website, github } = project;
 
 	return (
 		<InView triggerOnce={true}>
@@ -71,14 +72,26 @@ const ProjCard = (props) => {
 									width: "100%",
 									height: "100%",
 									overflow: "hidden",
+									'&:hover': {
+										backgroundColor: 'lightGreen.A100'
+									},
+									transition: 'background-color 0.5s linear'
 								}}
 							>
+								<Link
+										color="inherit"
+										href={website ? website : github}
+										target="_blank"
+										rel="noopener noreferrer"
+										sx={{ display: 'flex' }}
+									>
 								<Image
 									src={`/proj-pics/${image}`}
 									height="200"
 									width="350"
 									alt={name}
 								/>
+								</Link>
 							</Paper>
 						</Box>
 						<Grid

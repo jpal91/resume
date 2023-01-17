@@ -108,6 +108,8 @@ const colors = {
     },
 
     lightGreen: {
+        A100: '#ccff90',
+        A200: '#b2ff59',
         A400: '#76ff03'
     },
 
