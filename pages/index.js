@@ -23,7 +23,7 @@ const Home = (props) => {
 	const { icons, skillsObj, workObj, projObj } = props;
 	const fetcher = (url) => axios.get(url).then((res) => res.data);
 	const { data } = useSWR("/api/get-visitors", fetcher);
-
+	
 	return (
 		<>
 			<Head>

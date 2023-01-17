@@ -125,8 +125,8 @@ const Splash = (props) => {
 				</Box>
 			</Grid>
 			<Box sx={{ display: 'flex', height: '100%', width: '100%', animation: splash >= 2 && `${fadeOut} 1s reverse 2.5s forwards`, opacity: 0, justifyContent: 'center', alignItems: 'center' }}>
-				<Typography variant='h1' sx={{ fontSize: '48px', color: 'lightBlue.200', backgroundColor: 'grey.800', p: 3, borderRadius: '8px'}}>
-					<Typography variant='h1' component="span" sx={{ fontSize: '80px', color: 'lightGreen.A400' }}>$ </Typography>
+				<Typography variant='h1' sx={{ fontSize: {xs: '80px', sm: '60px', lg: '80px'}, color: 'lightBlue.200', backgroundColor: 'grey.800', p: 3, borderRadius: '8px'}}>
+					<Typography variant='h1' component="span" sx={{ display: { xs: 'none', sm: 'initial' }, fontSize: 'inherit', color: 'lightGreen.A400' }}>$ </Typography>
 					<Typed 
 						typedRef={(typed) => tRef.current = typed}
 						strings={["Welcome to my Resume"]}
@@ -160,7 +160,7 @@ const Splash = (props) => {
 					<KeyboardDoubleArrowDownIcon
 						sx={{
 							fontSize: "84px",
-							color: inView ? "white.main" : "blueGrey.400",
+							color: inView ? "blueGrey.800" : "blueGrey.400",
 							animation:
 								splash >= 2 &&
 								`${downArrow} 2s ease-in alternate infinite`,
