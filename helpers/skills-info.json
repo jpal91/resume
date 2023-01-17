@@ -1,0 +1,92 @@
+[
+    {
+        "image": "MySQL.svg",
+        "name": "MySQL",
+        "href": "https://www.mysql.com/"
+    }, 
+    {
+        "image": "PostgreSQL.svg",
+        "name": "PostgreSQL",
+        "href": "https://www.postgresql.org/"
+    }, 
+    {
+        "image": "aws.svg",
+        "name": "Amazon Web Services",
+        "href": "https://aws.amazon.com/"
+    }, 
+    {
+        "image": "linux.svg",
+        "name": "Linux",
+        "href": "https://en.wikipedia.org/wiki/Linux"
+    }, 
+    {
+        "image": "docker.svg",
+        "name": "Docker",
+        "href": "https://www.docker.com/"
+    }, 
+    {
+        "image": "git.svg",
+        "name": "git",
+        "href": "https://git-scm.com/"
+    }, 
+    {
+        "image": "github.svg",
+        "name": "GitHub",
+        "href": "https://github.com/"
+    }, 
+    {
+        "image": "javascript.svg",
+        "name": "JavaScript",
+        "href": "https://en.wikipedia.org/wiki/JavaScript"
+    }, 
+    {
+        "image": "jupyter-notebooks.svg",
+        "name": "Jupyter Notebooks",
+        "href": "https://jupyter.org/"
+    }, 
+    {
+        "image": "bash.svg",
+        "name": "Bash",
+        "href": "https://en.wikipedia.org/wiki/Bash_(Unix_shell)"
+    }, 
+    {
+        "image": "material-ui.svg",
+        "name": "Material UI",
+        "href": "https://mui.com/"
+    }, 
+    { 
+        "image": "mongo-db.svg",
+        "name": "MongoDB",
+        "href": "https://www.mongodb.com/"
+    }, 
+    { 
+        "image": "next-js.svg",
+        "name": "Next.js",
+        "href": "https://nextjs.org/"
+    }, 
+    {
+        "image": "node-js.svg",
+        "name": "Node.js",
+        "href": "https://nodejs.org/"
+    }, 
+    {
+        "image": "python.svg",
+        "name": "Python",
+        "href": "https://www.python.org/"
+    }, 
+    {
+        "image": "react.svg",
+        "name": "React",
+        "href": "https://reactjs.org/"
+    }, 
+    {
+        "image": "terraform.svg",
+        "name": "Terraform",
+        "href": "https://www.terraform.io/"
+    }, 
+    {
+        "image": "ubuntu.svg",
+        "name": "Ubuntu",
+        "href": "https://ubuntu.com/"
+    }
+]

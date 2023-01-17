@@ -101,6 +101,7 @@ const Skills = (props) => {
 	useEffect(() => {
 		if (!skillsInView) return;
 		setSection("skills");
+		console.log(icons)
 	}, [skillsInView]);
 
 	return (
