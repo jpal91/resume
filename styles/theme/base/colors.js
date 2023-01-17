@@ -112,6 +112,7 @@ const colors = {
     },
 
     lightBlue: {
+        100: '#b3e5fc',
         200: '#81d4fa',
         300: '#4fc3f7',
         400: '#29b6f6',

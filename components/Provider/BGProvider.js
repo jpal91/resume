@@ -9,7 +9,7 @@ const movingClouds = keyframes`
 	}
 
 	50% {
-		background-position-x: 100vw;
+		background-position-x: 200vw;
 	}
 
 	100% {
@@ -21,10 +21,11 @@ const BGProvider = (props) => {
 	const { section } = props;
 
 	const theme = useTheme();
-	const { background } = theme.palette;
+	const { background, lightBlue } = theme.palette;
 
 	const sectMap = {
-		home: background.blueGrey[500],
+		// home: background.blueGrey[200],
+		home: lightBlue[100],
 		skills: background.default
 	}
 
@@ -44,7 +45,8 @@ const BGProvider = (props) => {
 					// backgroundBlendMode: 'difference'
 					// backgroundBlendMode: 'overlay',
 					// backgroundBlendMode: 'exclusion'
-					// animation: `${movingClouds} 200s ease-in-out forwards infinite`
+					// animation: `${movingClouds} 100s linear forwards infinite`,
+					// animationPlayState: section == 'home' ? 'running' : 'paused',
 					
                 },
 			}}
