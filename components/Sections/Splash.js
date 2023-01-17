@@ -92,6 +92,17 @@ const Splash = (props) => {
 				flexDirection: "column",
 			}}
 		>
+				<Box
+					ref={ref}
+					sx={{
+						position: "absolute",
+						top: "20%",
+						left: "50%",
+						visibility: "hidden",
+					}}
+				>
+					Center
+				</Box>
 			<Grid
 				item
 				xs={12}
@@ -101,10 +112,10 @@ const Splash = (props) => {
 					alignItems: "center",
 					justifyContent: { xs: "center", sm: "center" },
 					position: "relative",
-					animation: splash >= 2 && `${fadeOut} 1s linear 1s forwards`,
+					// animation: splash >= 2 && `${fadeOut} 1s linear 1s forwards`,
 				}}
 			>
-				<div id="splash"></div>
+				<Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: { xs: 'center', sm: 'center' }, width: '100%', animation: splash >= 2 && `${fadeOut} 1s linear 1s forwards`, }}>
 				<Terminal
 					contType={"splash"}
 					contState={splash}
@@ -112,18 +123,8 @@ const Splash = (props) => {
 					title={"~:bash"}
                     payload={payload}
 				/>
-				<Box
-					ref={ref}
-					sx={{
-						position: "absolute",
-						top: "50%",
-						left: "50%",
-						visibility: "hidden",
-					}}
-				>
-					Center
 				</Box>
-			</Grid>
+			
 			<Box sx={{ display: 'flex', height: '100%', width: '100%', animation: splash >= 2 && `${fadeOut} 1s reverse 2.5s forwards`, opacity: 0, justifyContent: 'center', alignItems: 'center' }}>
 				<Typography variant='h1' sx={{ fontSize: {xs: '80px', sm: '60px', lg: '80px'}, color: 'lightBlue.200', backgroundColor: 'grey.800', p: 3, borderRadius: '8px'}}>
 					<Typography variant='h1' component="span" sx={{ display: { xs: 'none', sm: 'initial' }, fontSize: 'inherit', color: 'lightGreen.A400' }}>$ </Typography>
@@ -136,6 +137,7 @@ const Splash = (props) => {
 					/>
 				</Typography>
 			</Box>
+			</Grid>
 			<Grid
 				item
 				xs={12}
