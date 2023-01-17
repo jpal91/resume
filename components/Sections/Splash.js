@@ -1,16 +1,34 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { connect } from 'react-redux';
 import Grid from '@mui/material/Grid'
 import Container from '@mui/material/Container'
 import ButtonBase from '@mui/material/ButtonBase'
 import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
+import Typed from "react-typed";
 import { useInView } from "react-intersection-observer";
 import { keyframes } from "@emotion/react";
 
 import Terminal from '../Terminal/Terminal';
 
 import { setSection } from '../../actions';
+
+const fadeOut = keyframes`
+	0% {
+		opacity: 1;
+
+	}
+
+	90% {
+		max-height: 100%
+	}
+
+	100% {
+		opacity: 0;
+		max-height: 0%;
+	}
+`
 
 const downArrow = keyframes`
 	from {
@@ -52,6 +70,7 @@ const Splash = (props) => {
 	const { splash, setSection } = props
     const [scrollId, setScrollId] = useState();
     const { ref, inView } = useInView();
+	const tRef = useRef()
 
     useEffect(() => {
 		if (typeof window != undefined) {
@@ -82,6 +101,7 @@ const Splash = (props) => {
 					alignItems: "center",
 					justifyContent: { xs: "center", sm: "center" },
 					position: "relative",
+					animation: splash >= 2 && `${fadeOut} 1s linear 1s forwards`,
 				}}
 			>
 				<div id="splash"></div>
@@ -104,6 +124,18 @@ const Splash = (props) => {
 					Center
 				</Box>
 			</Grid>
+			<Box sx={{ display: 'flex', height: '100%', width: '100%', animation: splash >= 2 && `${fadeOut} 1s reverse 2.5s forwards`, opacity: 0, justifyContent: 'center', alignItems: 'center' }}>
+				<Typography variant='h1' sx={{ fontSize: '48px', color: 'lightBlue.200', backgroundColor: 'grey.800', p: 3, borderRadius: '8px'}}>
+					<Typography variant='h1' component="span" sx={{ fontSize: '80px', color: 'lightGreen.A400' }}>$ </Typography>
+					<Typed 
+						typedRef={(typed) => tRef.current = typed}
+						strings={["Welcome to my Resume"]}
+						typeSpeed={50}
+						startDelay={15000}
+						
+					/>
+				</Typography>
+			</Box>
 			<Grid
 				item
 				xs={12}
@@ -113,7 +145,7 @@ const Splash = (props) => {
 					flexDirection: "column",
 					alignItems: "center",
 					opacity: splash >= 2 ? 1 : 0,
-					transition: "opacity 1s linear 1s",
+					transition: "opacity 1s linear 2.5s",
 				}}
 			>
 				<ButtonBase
