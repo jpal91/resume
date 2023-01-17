@@ -70,7 +70,7 @@ const Skills = (props) => {
 		controller,
 		icons,
 		skillsInfo,
-		skillsObj,
+		// skillsObj,
 		setSkillsInfo,
 		altSkills,
 		skillsDisplay,
