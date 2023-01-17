@@ -1,6 +1,21 @@
 import { connect } from "react-redux";
 import GlobalStyles from "@mui/material/GlobalStyles";
 import { useTheme } from "@mui/material/styles";
+import { keyframes } from "@emotion/react";
+
+const movingClouds = keyframes`
+	0% {
+		background-position-x: center;
+	}
+
+	50% {
+		background-position-x: 100vw;
+	}
+
+	100% {
+		background-position-x: center;
+	}
+`
 
 const BGProvider = (props) => {
 	const { section } = props;
@@ -18,14 +33,19 @@ const BGProvider = (props) => {
 			styles={{
 				body: { 
                     backgroundColor: `${sectMap[section] && sectMap[section]} !important`,
-					backgroundImage: 'url("proj-pics/bg-cloud.svg")',
+					backgroundImage: 'url("proj-pics/bg-cloud2.svg")',
 					backgroundRepeat: 'repeat',
 					backgroundAttachment: 'fixed',
-					// backgroundPosition: 'top center',
 					backgroundSize: '70%',
+					// backgroundPosition: 'center',
+					backgroundPositionX: 'center',
+					backgroundPositionY: 'center',
+					
 					// backgroundBlendMode: 'difference'
 					// backgroundBlendMode: 'overlay',
 					// backgroundBlendMode: 'exclusion'
+					// animation: `${movingClouds} 200s ease-in-out forwards infinite`
+					
                 },
 			}}
 		/>
