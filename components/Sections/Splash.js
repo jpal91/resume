@@ -58,11 +58,11 @@ const payload = [
         values: ["echo $MY_GREETING"],
         stage: 1
     },
-    {
-        type: 'output',
-        values: ["Welcome to my Resume"],
-        stage: 1
-    },
+    // {
+    //     type: 'output',
+    //     values: ["Welcome to my Resume"],
+    //     stage: 1
+    // },
 
 ]
 
