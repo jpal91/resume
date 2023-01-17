@@ -168,7 +168,7 @@ const mapStateToProps = (state) => {
 
 export const getStaticProps = async () => {
 	const dirPath = path.join(process.cwd(), "public", "svg-icons");
-	const skillsJson = path.join(process.cwd(), "helpers", "skills.json");
+	const skillsJson = path.join(process.cwd(), "helpers", "skills-info.json");
 	const workJson = path.join(process.cwd(), "helpers", "work-history.json");
 	const projectsJson = path.join(process.cwd(), "helpers", "projects.json");
 

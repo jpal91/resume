@@ -62,6 +62,7 @@ const Education = (props) => {
 								}}
 							>
 								<SchoolIcon
+									alt="Education Icon"
 									sx={{
 										color: "primary.main",
 										fontSize: "40px",
@@ -112,7 +113,7 @@ const Education = (props) => {
 							src="/proj-pics/app_state.svg"
 							height={300}
 							width={200}
-							alt="app-state"
+							alt="Appalachian State University Logo"
 						/>
 					</Grid>
 					<Box

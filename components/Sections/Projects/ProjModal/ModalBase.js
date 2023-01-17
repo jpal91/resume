@@ -59,6 +59,8 @@ const ModalBase = (props) => {
 						<ButtonBase
 							onClick={handleClose}
 							sx={{ borderRadius: "100%" }}
+							alt-label="Close modal"
+							title="Close"
 						>
 							<CloseIcon
 								sx={{
@@ -119,6 +121,7 @@ const ModalBase = (props) => {
 									Description
 								</Typography>
 								<FormatAlignCenterIcon
+									alt="Paragraph centered icon"
 									sx={{ color: "primary.main", mx: 1 }}
 								/>
 							</Grid>
@@ -146,6 +149,7 @@ const ModalBase = (props) => {
 									Tech Used
 								</Typography>
 								<BuildCircleIcon
+									alt="Wrench icon"
 									sx={{ color: "primary.main", mx: 1 }}
 								/>
 							</Grid>
@@ -195,6 +199,7 @@ const ModalBase = (props) => {
 									Project Life
 								</Typography>
 								<AccessTimeIcon
+									alt="Clock icon"
 									sx={{ color: "primary.main", mx: 1 }}
 								/>
 							</Grid>
@@ -212,6 +217,7 @@ const ModalBase = (props) => {
 									{startDate}
 								</Typography>
 								<ArrowForwardIcon
+									alt="Arrow forward Icon"
 									sx={{ color: "primary.main" }}
 								/>
 								<Typography
@@ -236,6 +242,7 @@ const ModalBase = (props) => {
 									Links
 								</Typography>
 								<LinkIcon
+									alt="Link icon"
 									sx={{ color: "primary.main", mx: 1 }}
 								/>
 							</Grid>
@@ -262,6 +269,7 @@ const ModalBase = (props) => {
 									>
 										<GitHubIcon
 											fontSize="large"
+											alt="GitHub Icon"
 											sx={{
 												color: "black.main",
 												"&:hover": {
@@ -286,6 +294,7 @@ const ModalBase = (props) => {
 										rel="noopener noreferrer"
 									>
 										<LaunchIcon
+											alt="Go to webpage icon"
 											fontSize="large"
 											sx={{
 												color: "black.main",

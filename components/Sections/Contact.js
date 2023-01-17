@@ -93,7 +93,7 @@ const Contact = (props) => {
 							mt: 5,
 						}}
 					>
-						<ButtonBase>
+						<ButtonBase aria-label="LinkedIn" title="LinkedIn">
                             <Link color='inherit' href='https://www.linkedin.com/in/justinpallansch/' target='_blank' rel='noopener noreferrer'>
                                 <LinkedInIcon
                                     sx={{
@@ -111,7 +111,7 @@ const Contact = (props) => {
                                 />
                             </Link>
 						</ButtonBase>
-						<ButtonBase sx={{ borderRadius: '100%' }}>
+						<ButtonBase sx={{ borderRadius: '100%' }} aria-label="GitHub" title="GitHub">
                             <Link color='inherit' href='https://github.com/jpal91' target='_blank' rel='noopener noreferrer'>
                                 <GitHubIcon
                                     sx={{
@@ -129,7 +129,7 @@ const Contact = (props) => {
                                 />
                             </Link>
 						</ButtonBase>
-						<ButtonBase sx={{ borderRadius: '5%' }}>
+						<ButtonBase sx={{ borderRadius: '5%' }} aria-label="Email" title="Email">
                             <Link color='inherit' href='mailto: pallanschja@gmail.com?subject=Feedback' target='_blank' rel='noopener noreferrer'>
                                 <EmailIcon
                                     sx={{
@@ -158,7 +158,7 @@ const Contact = (props) => {
                         /> */}
                         	<SvgIcon
 								component={Logo2}
-                                
+                                alt="Website Logo"
 								sx={{
 									// width: "50px",
 									// height: "30px",
