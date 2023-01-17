@@ -3,7 +3,7 @@
         {
             "name": "Resume",
             "subHeader": "(The page you're on right now!)",
-            "description": "(The page you're on right now!)",
+            "description": "This resume project was built using Next.js, AWS, Terraform, Python, and more. Utilizes my knowledge of IaC to leverage the power of AWS services and show what's possible in the cloud. Includes a separate back-end repo that is linked from this GitHub repo as well.",
             "techUsed": [
                 "Next.js", "Material UI", "AWS", "Terraform"
             ],
