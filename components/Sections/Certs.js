@@ -44,11 +44,9 @@ const payload = [
 ]
 
 const Certs = (props) => {
-    const { certsObj, certs, fWidth, title, controller } = props
+    const { certsObj, certs, fWidth, title, controller, setSection } = props
     const [certRef, certInView] = useInView({ threshold: 0.55 });
     const [open, setOpen] = useState(false)
-    
-    const clipboard = (verf) => navigator.clipboard.writeText(verf)
     
     const handleClick = (verf) => {
         navigator.clipboard.writeText(verf)
@@ -61,7 +59,7 @@ const Certs = (props) => {
     }
 
     useEffect(() => {
-		if (!certInView) return;
+        if (!certInView) return;
 		setSection("certs");
 	}, [certInView]);
 
@@ -209,7 +207,8 @@ const Certs = (props) => {
                 )}
             </InView>
             <Box
-				ref={certRef}
+				id='certs-vb'
+                ref={certRef}
 				sx={{
 					position: "absolute",
 					height: "100%",
