@@ -12,6 +12,8 @@ export const controller = (type, int) => {
             return { type: 'SET_SKILLS', payload: int }
         case 'alt_skills':
             return { type: 'SET_ALT_SKILLS', payload: int }
+        case 'certs':
+            return { type: 'SET_CERTS', payload: int }
     }
 }
 

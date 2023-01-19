@@ -69,6 +69,14 @@ const section = (state='home', action) => {
     }
 }
 
+const certs = (state=-1, action) => {
+    if (action.type == 'SET_CERTS') {
+        return action.payload
+    } else {
+        return state
+    }
+}
+
 
 export default combineReducers({
     splash: splashSet,
@@ -77,5 +85,6 @@ export default combineReducers({
     altSkills: altSkills,
     skillsDisplay: skillsDisplay,
     lockTransitions: lockTransitions,
-    section: section
+    section: section,
+    certs: certs
 })
