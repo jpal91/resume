@@ -26,7 +26,7 @@ const BGProvider = (props) => {
 	const sectMap = {
 		// home: background.blueGrey[200],
 		home: lightBlue[100],
-		skills: background.default
+		certs: background.default
 	}
 
 	const globalStyles = (

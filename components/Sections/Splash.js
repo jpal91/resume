@@ -74,7 +74,7 @@ const Splash = (props) => {
 
     useEffect(() => {
 		if (typeof window != undefined) {
-			setScrollId(document.getElementById("skills-terminal"));
+			setScrollId(document.getElementById("certs-vb"));
 		}
 	}, []);
 
