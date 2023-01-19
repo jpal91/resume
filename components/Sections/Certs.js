@@ -142,7 +142,7 @@ const Certs = (props) => {
                                                         href={href}
                                                         sx={{ borderRadius: '10px', transition: 'transform 0.5s ease-in-out', '&:hover': { transform: 'scale(1.05)' }, mb: 1 }}
                                                         title={name}
-                                                        aria-label={name}
+                                                        aria-label="Verify certification"
                                                     >
                                                         <Image
                                                             src={`/proj-pics/${image}`}
@@ -152,7 +152,7 @@ const Certs = (props) => {
                                                         />
                                                         
                                                     </ButtonBase>
-                                                    <ButtonBase onClick={() => handleClick(verf)} sx={{ borderRadius: '10px' }}>
+                                                    <ButtonBase aria-label="Copy to clipboard" title="Copy to clipboard" onClick={() => handleClick(verf)} sx={{ borderRadius: '10px' }}>
                                                         <Typography variant='h6'>
                                                             {`Verification #: ${verf} `}
                                                             <ContentCopyIcon sx={{ fontSize: 'inherit' }}/>
