@@ -46,6 +46,12 @@ const typography = {
 		fontFamily: poppins.regular,
 		color: primary.main
 	},
+	h6: {
+		fontWeight: baseProperties.fontWeightMedium,
+		fontFamily: poppins.regular,
+		color: primary.main,
+		fontSize: '12px'	
+	},
 	body: {
 		fontWeight: baseProperties.fontWeightRegular,
 		fontFamily: poppins.regular
