@@ -1,12 +1,16 @@
+import React from 'react'
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import Image from "next/image";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Fade from "@mui/material/Fade";
-import Typograhpy from "@mui/material/Typography";
+import Typography from "@mui/material/Typography";
 import ButtonBase from "@mui/material/ButtonBase";
+import SnackBar from '@mui/material/Snackbar'
+import Alert from '@mui/material/Alert'
 import BadgeIcon from '@mui/icons-material/Badge';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import { InView, useInView } from "react-intersection-observer";
 
 import Terminal from "../Terminal/Terminal";
@@ -31,24 +35,42 @@ const payload = [
         type: 'cmd',
         values: ['source ./certs.sh'],
         stage: 1
+    },
+    {
+        type: 'output',
+        values: ['AWS Certified Cloud Practitioner'],
+        stage: 1
     }
 ]
 
 const Certs = (props) => {
     const { certsObj, certs, fWidth, title, controller } = props
-    const [certRef, inView] = useInView({ threshold: 0.55 });
+    const [certRef, certInView] = useInView({ threshold: 0.55 });
+    const [open, setOpen] = useState(false)
+    
+    const clipboard = (verf) => navigator.clipboard.writeText(verf)
+    
+    const handleClick = (verf) => {
+        navigator.clipboard.writeText(verf)
+        setOpen(true)
+    }
+    
+    const handleClose = (event, reason) => {
+        if (reason == 'clickaway') return
+        setOpen(false)
+    }
 
     useEffect(() => {
-		if (!inView) return;
+		if (!certInView) return;
 		setSection("certs");
-	}, [inView]);
+	}, [certInView]);
 
     return (
         <>
             <InView onChange={(e) => e && controller('certs', 0)} triggerOnce={true}>
-                {({ ref }) => (
+                {({ ref, inView }) => (
                     <>
-                        <Fade in={inView && certs < 2} timeout={{ enter: 1000, exit: 100}}>
+                        <Fade in={inView} timeout={{ enter: 1000, exit: 100}}>
                             <Grid
 								item
 								xs={12}
@@ -59,9 +81,9 @@ const Certs = (props) => {
 									mb: { xs: 0, sm: 4 },
 								}}
 							>
-                                <Typograhpy variant="h3" sx={{ py: 2, px: 2 }}>
+                                <Typography variant="h3" sx={{ py: 2, px: 2 }}>
 									certifications
-								</Typograhpy>
+								</Typography>
                                 <Box
 									sx={{
 										display: "flex",
@@ -82,95 +104,107 @@ const Certs = (props) => {
                             </Grid>
                         </Fade>
                         
-
                         <Grid
-                            item
-                            xs={12}
-                            lg={6}
-                            sx={{
-                                width: "100%",
-                                display: { xs: "none", sm: "flex" },
-                                justifyContent: "space-evenly",
-                                alignItems: "center",
-                                flexWrap: "wrap",
-                                flexDirection: "column-reverse",
-                                height: "500px",
-                                p: { sm: 5, lg: 0 },
-                            }}
+							item
+							xs={12}
+							sx={{
+								display: "flex",
+								mt: { xs: 1, md: 0, lg: 2 },
+								flexDirection: { xs: "column", lg: "row" },
+							}}
 						>
-                            {certsObj.map((e, i) => {
-                                const { name, image, href, verf } = e
 
-                                return (
-                                    <Box
-                                        key={name}
-                                        sx={{
-                                            transition:
-                                                "transform 0.5s ease-in-out",
-                                            "&:hover": {
-                                                transform: "scale(1.2)",
-                                            },
-                                            m: 2,
-                                        }}
-									>
-                                        <Fade in={inView && certs >= 1} timeout={{ enter: 1000 + i * 500 }}>
-                                            <ButtonBase
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                href={`${href}/?input#mainContent_txtVerificationCode=${verf}`}
-                                                sx={{ borderRadius: '10px' }}
-                                                title={name}
-                                                aria-label={name}
-                                            >
-                                                <Image
-                                                    src={`/proj-pics/${image}`}
-                                                    height="150"
-                                                    width="150"
-                                                    alt={name}
-                                                />
-                                            </ButtonBase>
-                                        </Fade>
-                                    </Box>
-                                )
-                            })}
-                        </Grid>
-
-                        <Fade
-                            in={inView && certs < 2}
-                            
-                            timeout={{ enter: 1000, exit: 100 }}
-                        >
                             <Grid
-                                ref={ref}
                                 item
-                                id="certs-terminal"
                                 xs={12}
                                 lg={6}
                                 sx={{
                                     width: "100%",
-                                    justifyContent: "center",
+                                    display: { xs: "none", sm: "flex" },
+                                    justifyContent: "space-evenly",
                                     alignItems: "center",
-                                    borderLeft: {
-                                        xs: "none",
-                                        lg: `${3 / 16}rem solid`,
-                                    },
-                                    borderColor: {
-                                        sm: "primary.main",
-                                        lg: "primary.main",
-                                    },
+                                    flexWrap: "wrap",
+                                    flexDirection: "column-reverse",
                                     height: "500px",
-                                    pb: { xs: 3, lg: 0 },
+                                    p: { sm: 5, lg: 0 },
                                 }}
                             >
-                                <Terminal
-                                    contType='certs'
-                                    contState={certs}
-                                    fWdith={fWidth}
-                                    title={title}
-                                    payload={payload}
-                                />
+                                {certsObj.map((e, i) => {
+                                    const { name, image, href, verf } = e
+
+                                    return (
+                                        <Box
+                                            key={name}
+                                        >
+                                            <Fade in={inView && certs > 1} timeout={{ enter: 1000 + i * 500 }}>
+                                                <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                                                    <ButtonBase
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        href={href}
+                                                        sx={{ borderRadius: '10px', transition: 'transform 0.5s ease-in-out', '&:hover': { transform: 'scale(1.05)' }, mb: 1 }}
+                                                        title={name}
+                                                        aria-label={name}
+                                                    >
+                                                        <Image
+                                                            src={`/proj-pics/${image}`}
+                                                            height="250"
+                                                            width="250"
+                                                            alt={name}
+                                                        />
+                                                        
+                                                    </ButtonBase>
+                                                    <ButtonBase onClick={() => handleClick(verf)} sx={{ borderRadius: '10px' }}>
+                                                        <Typography variant='h6'>
+                                                            {`Verification #: ${verf} `}
+                                                            <ContentCopyIcon sx={{ fontSize: 'inherit' }}/>
+                                                        </Typography>
+                                                    </ButtonBase>
+                                                </Box>
+                                            </Fade>
+                                        </Box>
+                                    )
+                                })}
                             </Grid>
-                        </Fade>
+
+                            <Fade
+                                in={inView}
+                                
+                                timeout={{ enter: 1000, exit: 100 }}
+                            >
+                                <Grid
+                                    ref={ref}
+                                    item
+                                    id="certs-terminal"
+                                    xs={12}
+                                    lg={6}
+                                    sx={{
+                                        display: 'flex',
+                                        width: "100%",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        borderLeft: {
+                                            xs: "none",
+                                            lg: `${3 / 16}rem solid`,
+                                        },
+                                        borderColor: {
+                                            sm: "primary.main",
+                                            lg: "primary.main",
+                                        },
+                                        height: "500px",
+                                        pb: { xs: 3, lg: 0 },
+                                    }}
+                                >
+                                    <Terminal
+                                        contType='certs'
+                                        contState={certs}
+                                        fWdith={fWidth}
+                                        title={title}
+                                        payload={payload}
+                                    />
+                                </Grid>
+                            </Fade>
+                        </Grid>
                     </>
                 )}
             </InView>
@@ -187,6 +221,9 @@ const Certs = (props) => {
 			>
 				Center
 			</Box>
+            <SnackBar open={open} autoHideDuration={6000} onClose={handleClose}>
+                <Alert severity="info" variant='filled'>Copied to clipboard</Alert>
+            </SnackBar>
         </>
     )
 }
