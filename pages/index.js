@@ -55,7 +55,7 @@ const Home = (props) => {
 						position: "relative",
 					}}
 				>
-					<Certs certsObj={certsObj} fWidth={false} title='resume/certs' />
+					<Certs certsObj={certsObj} fWidth={false} title='resume/certs:bash' />
 				</Container>
 			</Grid>
 			<Grid
