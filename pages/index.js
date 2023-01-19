@@ -16,11 +16,12 @@ import Projects from "../components/Sections/Projects";
 import Contact from "../components/Sections/Contact";
 import Footer from "../components/Sections/Footer";
 import Splash from '../components/Sections/Splash'
+import Certs from "../components/Sections/Certs";
 
 import { setSplash, setSection } from "../actions";
 
 const Home = (props) => {
-	const { icons, skillsObj, workObj, projObj } = props;
+	const { icons, skillsObj, workObj, projObj, certsObj } = props;
 	const fetcher = (url) => axios.get(url).then((res) => res.data);
 	const { data } = useSWR("/api/get-visitors", fetcher);
 	
@@ -32,6 +33,30 @@ const Home = (props) => {
 			<Nav />
 			<Grid id="home-sec" container sx={{ height: "100vh" }}>
 				<Splash />
+			</Grid>
+			<Grid
+				id="certs-sec"
+				container
+				sx={{
+					display: "flex",
+					minHeight: "100vh",
+					alignContent: "flex-start",
+					alignItems: "center",
+				}}
+			>
+				<Container
+					sx={{
+						maxWidth: "100%",
+						maxHeight: "100%",
+						display: "flex",
+						flexDirection: "column",
+						alignContent: "flex-start",
+						p: 3,
+						position: "relative",
+					}}
+				>
+					<Certs certsObj={certsObj} fWidth={false} title='resume/certs' />
+				</Container>
 			</Grid>
 			<Grid
 				id="skills-sec"
@@ -171,15 +196,18 @@ export const getStaticProps = async () => {
 	const skillsJson = path.join(process.cwd(), "helpers", "skills-info.json");
 	const workJson = path.join(process.cwd(), "helpers", "work-history.json");
 	const projectsJson = path.join(process.cwd(), "helpers", "projects.json");
+	const certsJson = path.join(process.cwd(), "helpers", "certs.json");
 
 	const icons = await fs.readdir(dirPath);
 	const skillsJsonFile = await fs.readFile(skillsJson).then((res) => res);
 	const workJsonFile = await fs.readFile(workJson).then((res) => res);
 	const projectJsonFile = await fs.readFile(projectsJson).then((res) => res);
+	const certsJsonFile = await fs.readFile(certsJson).then((res) => res);
 
 	const skillsJsonParsed = JSON.parse(skillsJsonFile);
 	const workJsonParsed = JSON.parse(workJsonFile);
 	const projectJsonParsed = JSON.parse(projectJsonFile);
+	const certsJsonParsed = JSON.parse(certsJsonFile);
 
 	return {
 		props: {
@@ -187,6 +215,7 @@ export const getStaticProps = async () => {
 			skillsObj: skillsJsonParsed,
 			workObj: workJsonParsed,
 			projObj: projectJsonParsed,
+			certsObj: certsJsonParsed
 		},
 	};
 };
