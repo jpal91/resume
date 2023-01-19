@@ -149,7 +149,7 @@ const Nav = (props) => {
 							sx={{
 								display: "flex",
 								alignItems: "center",
-								justifyContent: "center",
+								justifyContent: "space-evenly",
 								// columnGap: { sm: 2, md: 4, lg: 3 },
 								backgroundColor: "grey.700",
 								borderTopLeftRadius: { xs: "10px"},
