@@ -66,6 +66,19 @@ const payload = [
 
 ]
 
+const aboutMe = [
+	"ABOUT_ME=Cloud Developer",
+	"ABOUT_ME=Passionate About Tech",
+	"ABOUT_ME=Love to Learn",
+	"ABOUT_ME=Experienced in Web Dev",
+	"ABOUT_ME=Travel Enthusiast",
+	"ABOUT_ME=Dogs > Cats",
+	"ABOUT_ME=Sales Expert",
+	"ABOUT_ME=Loves Puzzles",
+	"ABOUT_ME=Wants To Automate Everything",
+	"ABOUT_ME=Loves the Mountains",
+]
+
 const Splash = (props) => {
 	const { splash, setSection } = props
     const [scrollId, setScrollId] = useState();
@@ -125,15 +138,20 @@ const Splash = (props) => {
 				/>
 				</Box>
 			
-			<Box sx={{ display: 'flex', height: '100%', width: '100%', animation: splash >= 2 && `${fadeOut} 1s reverse 2.5s forwards`, opacity: 0, justifyContent: 'center', alignItems: 'center' }}>
-				<Typography variant='h1' sx={{ fontSize: {xs: '80px', sm: '60px', lg: '80px'}, color: 'lightBlue.200', backgroundColor: 'grey.800', p: 3, borderRadius: '8px'}}>
+			<Box sx={{ display: 'flex', height: '100%', minWidth: '100%', animation: splash >= 2 && `${fadeOut} 1s reverse 2.5s forwards`, opacity: 0, justifyContent: 'center', alignItems: 'center' }}>
+				<Typography variant='h1' sx={{ fontSize: {xs: '80px', sm: '60px', lg: '60px'}, color: 'lightBlue.200', backgroundColor: 'grey.800', p: 3, borderRadius: '8px', minWidth: '100%' }}>
 					<Typography variant='h1' component="span" sx={{ display: { xs: 'none', sm: 'initial' }, fontSize: 'inherit', color: 'lightGreen.A400' }}>$ </Typography>
 					<Typed 
 						typedRef={(typed) => tRef.current = typed}
-						strings={["Welcome to my Resume"]}
-						typeSpeed={50}
+						// strings={["Welcome to my Resume"]}
+						strings={aboutMe}
+						typeSpeed={75}
 						startDelay={15000}
-						
+						smartBackspace
+						backSpeed={75}
+						backDelay={1000}
+						loop
+						onLastStringBackspaced={() => tRef.startDelay = 0}
 					/>
 				</Typography>
 			</Box>
