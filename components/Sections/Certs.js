@@ -76,7 +76,7 @@ const Certs = (props) => {
 									display: "flex",
 									justifyContent: "center",
 									alignItems: "center",
-									mb: { xs: 0, sm: 4 },
+									mb: { xs: 0, sm: 2 },
 								}}
 							>
                                 <Typography variant="h3" sx={{ py: 2, px: 2 }}>
@@ -124,7 +124,7 @@ const Certs = (props) => {
                                     flexWrap: "wrap",
                                     flexDirection: "column-reverse",
                                     height: "500px",
-                                    p: { sm: 5, lg: 0 },
+                                    p: { sm: 2, lg: 0 },
                                 }}
                             >
                                 {certsObj.map((e, i) => {
@@ -190,7 +190,7 @@ const Certs = (props) => {
                                             lg: "primary.main",
                                         },
                                         height: "500px",
-                                        pb: { xs: 3, lg: 0 },
+                                        pt: { xs: 3, lg: 0 },
                                     }}
                                 >
                                     <Terminal
@@ -221,7 +221,7 @@ const Certs = (props) => {
 				Center
 			</Box>
             <SnackBar open={open} autoHideDuration={6000} onClose={handleClose}>
-                <Alert severity="info" variant='filled'>Copied to clipboard</Alert>
+                <Alert severity="info" variant='filled' sx={{ backgroundColor: 'primary.main' }}>Copied to clipboard</Alert>
             </SnackBar>
         </>
     )

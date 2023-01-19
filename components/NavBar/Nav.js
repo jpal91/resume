@@ -48,6 +48,7 @@ const getIds = (arr) => {
 
 const sections = [
 	"home",
+	"certs",
 	"skills",
 	"work history",
 	"education",
@@ -149,7 +150,7 @@ const Nav = (props) => {
 								display: "flex",
 								alignItems: "center",
 								justifyContent: "center",
-								columnGap: { sm: 2, md: 4, lg: 5 },
+								// columnGap: { sm: 2, md: 4, lg: 3 },
 								backgroundColor: "grey.700",
 								borderTopLeftRadius: { xs: "10px"},
 								borderBottomLeftRadius: { xs: "10px"},
