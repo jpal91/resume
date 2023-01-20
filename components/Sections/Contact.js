@@ -149,30 +149,18 @@ const Contact = (props) => {
 						</ButtonBase>
 					</Grid>
                     <Grid ref={ref} item xs={12} sx={{ display: 'flex', justifyContent: 'center', mt: 15 }}>
-                        {/* <Fade in={inView} timeout={{ enter: 5000 }}> */}
-                        {/* <Image 
-                            src='/proj-pics/logo-cloud.svg'
-                            width='400'
-                            height='240'
-                            alt='logo'
-                        /> */}
                         	<SvgIcon
 								component={Logo2}
                                 alt="Website Logo"
 								sx={{
-									// width: "50px",
-									// height: "30px",
-									width: `${width}px`,
+									width: { xs: `${width - 100}px`, sm: `${width}px`},
 									height: `${width * 0.6}px`,
 									color: "white.main",
-									// boxShadow:
-									// 	"4px 4px 5px 2px rgb(0 0 0 / 20%)",
 									transition: "color 1s linear",
 									filter: 'drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))'
 								}}
 								viewBox="0 0 20 12.12"
 							/>
-                        {/* </Fade> */}
                     </Grid>
 				</>
 			)}

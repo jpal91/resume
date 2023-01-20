@@ -76,6 +76,7 @@ const Certs = (props) => {
 									display: "flex",
 									justifyContent: "center",
 									alignItems: "center",
+                                    flexDirection: { xs: 'column', sm: 'row' }, 
 									mb: { xs: 0, sm: 2 },
 								}}
 							>
