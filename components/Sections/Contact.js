@@ -16,7 +16,7 @@ import { InView, useInView } from "react-intersection-observer";
 import { keyframes } from "@emotion/react";
 
 import { setSection } from "../../actions";
-import Logo2 from '../NavBar/Logo2'
+import Logo from '../NavBar/Logo'
 
 const slideIn = keyframes`
     from {
@@ -150,7 +150,7 @@ const Contact = (props) => {
 					</Grid>
                     <Grid ref={ref} item xs={12} sx={{ display: 'flex', justifyContent: 'center', mt: 15 }}>
                         	<SvgIcon
-								component={Logo2}
+								component={Logo}
                                 alt="Website Logo"
 								sx={{
 									width: { xs: `${width - 100}px`, sm: `${width}px`},
