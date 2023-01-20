@@ -180,7 +180,7 @@ const Splash = (props) => {
 							fontSize: { xs: "20px", sm: "30px", lg: "50px" },
 							color: "lightBlue.200",
 							backgroundColor: "grey.800",
-							px: 1,
+							px: { xs: 1, sm: 3 },
 							py: 5,
 							borderRadius: "8px",
 							minWidth: "100%",
