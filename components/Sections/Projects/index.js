@@ -14,7 +14,7 @@ import { setSection } from "../../../actions";
 const Projects = (props) => {
 	const { projects, setSection } = props;
 	const [inView, setInView] = useState(false);
-	const [projRef, projInView] = useInView({ threshold: 0.35 });
+	const [projRef, projInView] = useInView({ threshold: 0.45 });
 
 	useEffect(() => {
 		if (!projInView) return;
