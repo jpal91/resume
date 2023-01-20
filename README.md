@@ -120,7 +120,7 @@ I found a third party package to help out with the "Typing" effect, [react-typed
 Finally I found a React wrapper for the JavaScript `Interaction Observer` that helped me both set the `Nav` component to change depending on where the user is on the page as well as start animations as well - [react-interaction-observer](https://github.com/thebuilder/react-intersection-observer)
 ```js
 <InView onChange={(e) => startSeq(e)} triggerOnce={true}>
-		{({ ref }) => (...)
+		{({ ref }) => (...)}
 </Inview>
 ```
 This is simply wrapped around any child components and the ref is passed down and attached to the component you want to trigger the `Interaction Observer`. You can then just use standard `useState`, `useEffect`, etc. hooks to control state or do things like trigger animations, fade in/out, etc. 
