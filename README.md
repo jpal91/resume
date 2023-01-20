@@ -50,7 +50,6 @@ Below are the steps required for the challenge and the status of this project:
 
 > **Note**
 > The back-end portion of this project can be found in my [back-end repo](https://github.com/jpal91/resume-be)
-
  
 
 ### Screenshot
