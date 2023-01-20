@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import Image from 'next/image'
 import Grid from "@mui/material/Grid";
 import Fade from "@mui/material/Fade";
 import Typography from "@mui/material/Typography";
