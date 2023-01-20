@@ -21,7 +21,7 @@ import Certs from "../components/Sections/Certs";
 import { setSplash, setSection } from "../actions";
 
 const Home = (props) => {
-	const { icons, skillsObj, workObj, projObj, certsObj } = props;
+	const { skillsObj, workObj, projObj, certsObj } = props;
 	const fetcher = (url) => axios.get(url).then((res) => res.data);
 	const { data } = useSWR("/api/get-visitors", fetcher);
 	
@@ -79,7 +79,7 @@ const Home = (props) => {
 						position: "relative",
 					}}
 				>
-					<Skills icons={icons} skillsObj={skillsObj} />
+					<Skills skillsObj={skillsObj} />
 				</Container>
 			</Grid>
 			<Grid
@@ -192,13 +192,11 @@ const mapStateToProps = (state) => {
 };
 
 export const getStaticProps = async () => {
-	const dirPath = path.join(process.cwd(), "public", "svg-icons");
 	const skillsJson = path.join(process.cwd(), "helpers", "skills-info.json");
 	const workJson = path.join(process.cwd(), "helpers", "work-history.json");
 	const projectsJson = path.join(process.cwd(), "helpers", "projects.json");
 	const certsJson = path.join(process.cwd(), "helpers", "certs.json");
 
-	const icons = await fs.readdir(dirPath);
 	const skillsJsonFile = await fs.readFile(skillsJson).then((res) => res);
 	const workJsonFile = await fs.readFile(workJson).then((res) => res);
 	const projectJsonFile = await fs.readFile(projectsJson).then((res) => res);
@@ -211,7 +209,6 @@ export const getStaticProps = async () => {
 
 	return {
 		props: {
-			icons: icons,
 			skillsObj: skillsJsonParsed,
 			workObj: workJsonParsed,
 			projObj: projectJsonParsed,
