@@ -35,6 +35,7 @@ const show = keyframes`
     }
 `;
 
+// Gets each section ID for the nav links to scroll to
 const getIds = (arr) => {
 	const ids = {};
 	arr.forEach((sect) => {
@@ -71,6 +72,9 @@ const Nav = (props) => {
 		}
 	}, []);
 
+	// Creates a timeout whenever the user scrolls so that the
+	// NavBar can appear while user is scrolling and disappear after timeout is up
+	// Triggers the animation on AppBar
 	useEffect(() => {
 		if (section != lastSection && !scroll) {
 			setScroll(true);
@@ -149,7 +153,6 @@ const Nav = (props) => {
 								display: "flex",
 								alignItems: "center",
 								justifyContent: "space-evenly",
-								// columnGap: { sm: 2, md: 4, lg: 3 },
 								backgroundColor: "grey.700",
 								borderTopLeftRadius: { xs: "10px"},
 								borderBottomLeftRadius: { xs: "10px"},
