@@ -10,7 +10,6 @@ import { keyframes } from "@emotion/react";
 import { useMediaQuery } from "@mui/material";
 
 import Logo from "./Logo";
-import Logo2 from "./Logo2";
 
 const hide = keyframes`
     0% {
@@ -131,7 +130,7 @@ const Nav = (props) => {
 							}}
 						>
 							<SvgIcon
-								component={Logo2}
+								component={Logo}
 								alt="Website Logo"
 								sx={{
 									width: `${width}px`,
