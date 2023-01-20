@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { useRouter } from "next/router";
 import Image from "next/image";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -14,9 +13,7 @@ import Terminal from "../Terminal/Terminal";
 
 import {
 	controller,
-	setSkillsInfo,
 	setSkillsDisplay,
-	setLockTransitions,
 	setSection,
 } from "../../actions";
 
@@ -45,59 +42,28 @@ const payload = [
 
 const Skills = (props) => {
 	const [inView, setInView] = useState(false);
-	const [curName, setName] = useState("main");
 	const [skillsRef, skillsInView] = useInView({ threshold: 0.55 });
-	const router = useRouter()
-
+	
 	/**
 	 * skills Int - Initial controller for skills terminal, controls what is being displayed and icons appearing (updated by controller)
 	 * controller Func - Redux action handler to control all display types for terminals
-	 * icons Array - List of file names for icons in public folder to display
-	 * skillsInfo Obj - Comprises of the information in section below, used to render new info when icon is clicked
-	 * setSkillsInfo Func - Redux action handler to update skillsInfo
-	 * altSkills Int - Initial controller for alt_skills terminal - used when icon is clicked for specific skill to re-render terminal
 	 * skillsDisplay Int - Controller to show whether to display initial skills term, alt_skills term, or alt_skills info display (updated by controller)
 	 * setSkillsDisplay Func - Redux action handler to update skillsDisplay
-	 * lockTransitions Bool - Prevents user from clicking on icons while terminal is still rendering causing render issues
-	 * setLockTransitions Func - Redux action handler to update lockTransitions preventing or allowing user to click new skill icon
-	 *
-	 * cmds Array[Array] - [["This is a command", "This is the same command retyped"], ["This is the next command"]]
-	 * outputs Array[Array] - [["This is the output to the first command"], ["Second command", "New line"]]
-	 * contType String - "skills" / "alt_skills"
-	 * title String - Name to show on terminal - '~:bash' 'skills:bash'
-	 * fWidth Bool - Show terminal half screen (sections) or in splash mode (full)
+	 * skillsObj - From JSON file skills-info. Returns the skills list, image, icons, etc.
 	 */
 	const {
 		skills,
 		controller,
-		icons,
-		skillsInfo,
 		skillsObj,
-		setSkillsInfo,
-		altSkills,
 		skillsDisplay,
-		setSkillsDisplay,
-		lockTransitions,
-		setLockTransitions,
 		setSection,
 	} = props;
-	const { contType, fWidth, title } = skillsInfo;
 
 	const startSeq = (e) => {
 		if (!e) return;
 
 		setInView(true);
 		controller("skills", 0);
-	};
-
-	const updateSkills = (name) => {
-		if (name == curName || lockTransitions) return;
-
-		setLockTransitions(true);
-		setName(name);
-		setSkillsDisplay(1);
-		controller("alt_skills", 0);
-		// setSkillsInfo(skillsObj[name]);
 	};
 
 	useEffect(() => {
@@ -189,22 +155,14 @@ const Skills = (props) => {
 									}}
 								>
 									<Terminal
-										name={curName}
-										contType={contType}
-										contState={
-											skillsDisplay == 0
-												? skills
-												: altSkills
-										}
-										fWdith={fWidth}
-										title={title}
-										hidden={skillsDisplay >= 2}
+										contType={'skills'}
+										contState={skills}
+										fWdith={false}
+										title={'resume/skills:bash'}
 										payload={payload}
 									/>
 								</Grid>
 							</Fade>
-
-							{/* Future section for skills info */}
 
 							<Grid
 								item
@@ -222,7 +180,6 @@ const Skills = (props) => {
 								}}
 							>
 								{skillsObj.map((e, i) => {
-									// const name = e.replace(".svg", "");
 									const { name, image, href } = e
 
 									return (
@@ -289,17 +246,12 @@ const Skills = (props) => {
 const mapStateToProps = (state) => {
 	return {
 		skills: state.skills,
-		skillsInfo: state.skillsInfo,
-		altSkills: state.altSkills,
 		skillsDisplay: state.skillsDisplay,
-		lockTransitions: state.lockTransitions,
 	};
 };
 
 export default connect(mapStateToProps, {
 	controller,
-	setSkillsInfo,
 	setSkillsDisplay,
-	setLockTransitions,
 	setSection,
 })(Skills);
