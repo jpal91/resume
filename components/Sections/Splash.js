@@ -69,14 +69,14 @@ const payload = [
 const aboutMe = [
 	"Cloud Developer",
 	"Passionate About Tech",
-	"Loves to Learn",
+	"Excited to Learn",
 	"Experienced in Web Dev",
 	"Travel Enthusiast",
 	"Dogs &gt; Cats",
 	"Sales Expert",
-	"Loves Puzzles",
+	"Enjoys Solving Puzzles",
 	"Wants To Automate Everything",
-	"Loves the Mountains",
+	"Mountains &gt; Beach",
 ]
 
 const Splash = (props) => {
