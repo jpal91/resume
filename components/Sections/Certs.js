@@ -33,7 +33,7 @@ const payload = [
     },
     {
         type: 'cmd',
-        values: ['source ./certs.sh'],
+        values: ['./certs.sh'],
         stage: 1
     },
     {

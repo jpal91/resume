@@ -1,6 +1,39 @@
 {
     "projects": [
         {
+            "name": "Xontrib-ChatGPT",
+            "subHeader": null,
+            "description": "A extension for the Xonsh shell that allows users to communicate with ChatGPT directly from the command line",
+            "techUsed": [
+                "Python", "Xonsh", "ChatGPT"
+            ],
+            "startDate": "10/2023",
+            "endDate": null,
+            "website": null,
+            "github": "https://github.com/jpal91/xontrib-chatgpt",
+            "image": "xontrib-chatgpt.png",
+            "bulletPoints": []
+        },
+        {
+            "name": "IntelliGift.co",
+            "subHeader": null,
+            "description": "Generates gift ideas using AI and machine learning. Suggested products are given with an Amazon Affiliate link for revenue generation",
+            "techUsed": [
+                "Python", "Next.js", "Material UI", "AWS"
+            ],
+            "startDate": "05/2023",
+            "endDate": "07/2023",
+            "website": "https://intelligift.co",
+            "github": null,
+            "image": "intelligift.jpg",
+            "bulletPoints": [
+                "Generates gift ideas using AI and machine learning",
+                "Utilizes Next.js and Material UI on the front-end",
+                "Leverages AWS Lambda functions to run Python scripts that generate gift ideas using AI and machine learning",
+                "Uses AWS DynamoDB to store gift ideas and user information"
+            ]
+        },
+        {
             "name": "Resume",
             "subHeader": "(The page you're on right now!)",
             "description": "This resume project was built using Next.js, AWS, Terraform, Python, and more. Utilizes my knowledge of IaC to leverage the power of AWS services and show what's possible in the cloud. Includes a separate back-end repo that is linked from this GitHub repo as well.",

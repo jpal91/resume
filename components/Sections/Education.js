@@ -83,12 +83,36 @@ const Education = (props) => {
 								`${slideIn} 0.5s ease-in 0.5s forwards`,
 							opacity: 0,
 							display: "flex",
-							flexDirection: { xs: "column", sm: "row-reverse" },
+							flexDirection: { xs: "column", sm: "row" },
 							justifyContent: "center",
-							alignItems: { xs: "center", sm: "normal" },
-							columnGap: 5,
+							alignItems: { xs: "center", sm: "center" },
+							columnGap: 10,
+							rowGap: 5,
 						}}
 					>
+						<Box
+							sx={{
+								display: "flex",
+								flexDirection: "column",
+								justifyContent: "center",
+							}}
+						>
+							<Typography variant="h4">
+								BAS in Applied Computing
+							</Typography>
+							<Typography variant="bodyBold" component={"p"}>
+								University of Arizona - Tuscon, AZ
+							</Typography>
+							<Typography variant="bodyBold" component={"p"}>
+								08/2023 - 05/2025
+							</Typography>
+						</Box>
+						<Image
+							src="/proj-pics/ua.svg"
+							height={300}
+							width={200}
+							alt="University of Arizona Logo"
+						/>
 						<Box
 							sx={{
 								display: "flex",

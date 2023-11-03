@@ -9,7 +9,7 @@ const BGProvider = (props) => {
 	const { background, lightBlue } = theme.palette;
 
 	const sectMap = {
-		home: lightBlue[100],
+		home: lightBlue[200],
 		certs: background.default,
 	};
 
