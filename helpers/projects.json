@@ -1,6 +1,48 @@
 {
     "projects": [
         {
+            "name": "Trash",
+            "subHeader": null,
+            "description": "A command line utility as a replacement to rm. Moves the file(s) to a tmp folder and gives ability to undo.",
+            "techUsed": [
+                "Rust"
+            ],
+            "startDate": "02/2024",
+            "endDate": "02/2024",
+            "website": null,
+            "github": "https://github.com/jpal91/trash",
+            "image": "trash.png",
+            "bulletPoints": []
+        },
+        {
+            "name": "Boil",
+            "subHeader": null,
+            "description": "A project written in Rust to assist in keeping track of user generated scripts, and generate boilerplate code more easily.",
+            "techUsed": [
+                "Rust"
+            ],
+            "startDate": "02/2024",
+            "endDate": null,
+            "website": null,
+            "github": "https://github.com/jpal91/boil",
+            "image": "boil.png",
+            "bulletPoints": []
+        },
+        {
+            "name": "Colorize",
+            "subHeader": null,
+            "description": "A set of Rust macros to assist in turning text into colors for printing on the terminal.",
+            "techUsed": [
+                "Rust"
+            ],
+            "startDate": "02/2024",
+            "endDate": null,
+            "website": null,
+            "github": "https://github.com/jpal91/colorize",
+            "image": "colorize.png",
+            "bulletPoints": []
+        },
+        {
             "name": "Xontrib-ChatGPT",
             "subHeader": null,
             "description": "A extension for the Xonsh shell that allows users to communicate with ChatGPT directly from the command line",
